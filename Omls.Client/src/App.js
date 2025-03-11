@@ -1,16 +1,18 @@
 import './App.css';
-import { Route, HashRouter, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 import HomeScreen from './pages/HomeScreen'
 import AboutScreen from './pages/AboutScreen'
 import ServicesScreen from './pages/ServicesScreen'
 import CareersScreen from './pages/CareersScreen'
 import NewBlogScreen from './pages/NewBlogScreen'
 import ContactScreen from './pages/ContactScreen'
+import Header from './components/Header';
 
 function App() {
   return (
     <div className="App">
         <BrowserRouter>
+        <Header />
           <Routes>
             <Route path='/' element={<HomeScreen />} />
             <Route path='/about' element={<AboutScreen />} />

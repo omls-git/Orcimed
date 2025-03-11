@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Box, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 // Text Sets for rotation every 5 seconds
@@ -74,7 +73,6 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <Header />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {gridItems.map((item, index) => (
