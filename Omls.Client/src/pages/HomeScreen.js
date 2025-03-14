@@ -1,149 +1,138 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box, Typography, Button } from "@mui/material";
+import { Grid, Box, Typography, Button, Container } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
-// Text Sets for rotation every 5 seconds
-const textSets = [
-  "Customer testimonials, industry news, blog posts",
-  "A compelling headline highlighting your value proposition, a brief company overview",
-  "Product/service highlights, customer testimonials, a visually appealing hero"
-];
 
-const gridItems = [
-  {
-    image: "/Homepage1.jpg",
-    text: "Image 1",
-    height: 400,
-    bgColor: "#ff5733",
-    textColor: "#fff",
-    textAlign: "left",
-    borderRadius: "10px",
-  },
-  {
-    image: "/Homepage2.jpg",
-    text: "Image 2",
-    height: 300,
-    bgColor: "#33a1ff",
-    textColor: "#fff",
-    textAlign: "center",
-    borderRadius: "20px",
-  },
-  {
-    image: "/Homepage3.jpg",
-    text: "Image 3",
-    height: 500,
-    bgColor: "#ffcc00",
-    textColor: "#000",
-    textAlign: "right",
-    borderRadius: "0px",
-  },
-  {
-    image: "/Homepage4.jpg",
-    text: "Image 4",
-    height: 350,
-    bgColor: "#2ecc71",
-    textColor: "#fff",
-    textAlign: "center",
-    borderRadius: "15px",
-  },
-];
 
 const HomeScreen = () => {
-  const [currentText, setCurrentText] = useState(textSets[0]);
   const navigate = useNavigate();
-
-  // Update text every 5 seconds
-  useEffect(() => {
-    const textInterval = setInterval(() => {
-      setCurrentText((prevText) => {
-        const currentIndex = textSets.indexOf(prevText);
-        const nextIndex = (currentIndex + 1) % textSets.length;
-        return textSets[nextIndex];
-      });
-    }, 5000); // Change text every 5 seconds
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(textInterval);
-  }, []);
-
-  const handleContactClick = () => {
-    navigate("/contact");
-  };
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2}>
-          {gridItems.map((item, index) => (
-            <Grid item xs={12} key={index}>
+      <Header />
+      <Container maxWidth="xl"  style={{  mt: {   md: 12, lg: 16, xl: 20 }}}>
+        {/* Hero Section */}
+        <Grid
+          container
+          spacing={3}
+          alignItems="center"
+          justifyContent="center"
+          sx={{
+            backgroundImage: "url('/HomePage1.jpg')", // Replace with your image URL
+            backgroundSize: { xs: "contain", sm:"contain", md: "cover" }, // Ensures responsive background scaling
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            minHeight: "100vh", // Full height
+            width: "100%", // Full width
+            color: "white", // Ensures text visibility
+            px: { xs: 2, md: 5 }, // Responsive padding
+            py: 5, // Vertical padding
+          }}
+        >
+          <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "left" }}>
+            <Typography variant="h3" fontWeight="bold" gutterBottom>
+              Welcome to Our Website Jyoti
+            </Typography>
+            <Typography variant="body1" color="white" gutterBottom>
+              
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ mt: 2 }}
+              onClick={() => navigate("/about")}
+            >
+              Learn More
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={6} display="flex" justifyContent="center">
+            {/* If you want an additional image inside the grid */}
+            <img
+              src="/HomePage1.jpg" // Replace with your image
+              alt="Home"
+              style={{
+                width: "100%", // Ensures responsiveness
+                maxWidth: "400px", // Limits size on large screens
+                borderRadius: "10px",
+              }}
+            />
+          </Grid>
+        </Grid>
+        {/* //Second grid */}
+        <Grid
+          container
+          spacing={3}
+          alignItems="center"
+          justifyContent="center"
+          sx={{
+            backgroundImage: "url('/Home3.png')", // Replace with your image URL
+            backgroundSize: { xs: "contain", md: "cover" }, // Ensures responsive background scaling
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            minHeight: "100vh", // Full height
+            width: "100%", // Full width
+            color: "white", // Ensures text visibility
+            px: { xs: 2, md: 5 }, // Responsive padding
+            py: 5, // Vertical padding
+            borderRadius: "20px", // ✅ Adds rounded corners
+            overflow: "hidden", // ✅ Ensures the background doesn't overflow the rounded edges
+            boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", 
+          }}
+          
+        >
+          <Grid item xs={12} md={6} textAlign={{ xs: "center", md: "left" }}>
+            <Typography variant="h3" fontWeight="bold" gutterBottom>
+              Welcome to Our Website
+            </Typography>
+            <Typography variant="body1" color="white" gutterBottom>
+              Discover amazing features and services tailored for you.
+            </Typography>
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{ mt: 2 }}
+              onClick={() => navigate("/about")}
+            >
+              Learn More
+            </Button>
+          </Grid>
+          <Grid item xs={12} md={6} display="flex" justifyContent="center">
+            {/* If you want an additional image inside the grid */}
+           
+          </Grid>
+        </Grid>
+
+
+
+        {/* Feature Section */}
+        <Grid container spacing={3} mt={5}>
+          {["Feature 1", "Feature 2", "Feature 3"].map((feature, index) => (
+            <Grid item xs={12} sm={6} md={4} key={index}>
               <Box
-                sx={{
-                  height: item.height, // Unique height per widget
-                  backgroundImage: `url(${item.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  borderRadius: item.borderRadius,
-                  position: "relative",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: item.textAlign,
-                  padding: "20px",
-                  color: item.textColor,
-                  overflow: "hidden",
-                }}
+                p={3}
+                textAlign="center"
+                border="1px solid #ddd"
+                borderRadius={2}
+                boxShadow={2}
               >
-                {/* Dark Overlay for Readability */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    backgroundColor: "rgba(0,0,0,0.3)", // Dark overlay
-                  }}
-                />
-                {/* Dynamic Text in Widget 1 */}
-                {index === 0 && (
-                  <Box sx={{ position: "absolute", color: item.textColor, zIndex: 2 }}>
-                    <Typography variant="h4" sx={{ fontWeight: "bold" }}>
-                      {currentText}
-                    </Typography>
-                    {/* Button Below the Dynamic Text */}
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={handleContactClick}
-                      sx={{ marginTop: 2 }}
-                    >
-                      Go to Contact Page
-                    </Button>
-                  </Box>
-                )}
-                {/* Static Text for Other Widgets */}
-                {index !== 0 && (
-                  <Typography
-                    variant="h4"
-                    sx={{
-                      position: "absolute",
-                      color: item.textColor,
-                      fontWeight: "bold",
-                      zIndex: 2,
-                    }}
-                  >
-                    {item.text}
-                  </Typography>
-                )}
+                <Typography variant="h5" fontWeight="bold" gutterBottom>
+                  {feature}
+                </Typography>
+                <Typography variant="body2" color="textSecondary">
+                  This is a brief description of {feature}.
+                </Typography>
               </Box>
             </Grid>
           ))}
         </Grid>
-      </Box>
+      </Container>
+
+
       <Footer />
     </div>
   );
 };
 
 export default HomeScreen;
-
