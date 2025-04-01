@@ -11,6 +11,12 @@ const Header = () => {
   const isMobile = useMediaQuery('(max-width: 425px)');
   const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
+  const QuickLinks = [{title:'Home', link: ''}, 
+    {title:'About', link: 'about'},
+    {title:'Services', link: 'services'},
+    {title:'Careers', link: 'careers'},
+    {title:'News & Blog', link: 'news-blog'}]
+
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
 
   return (
@@ -39,8 +45,8 @@ const Header = () => {
             </IconButton>
             <Drawer anchor='top' open={mobileOpen} onClose={handleDrawerToggle}>
               <List sx={{ width: 200 }}>
-                {["Home", "About", "Services", "Careers", "Contact"].map((text) => (
-                  <ListItem button key={text} component={Link} to={`/${text.toLowerCase()}`} onClick={handleDrawerToggle}>
+                {QuickLinks.map((text) => (
+                  <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
                     <ListItemText primary={text.toUpperCase()} />
                   </ListItem>
                 ))}
@@ -54,8 +60,8 @@ const Header = () => {
             </IconButton>
             <Drawer anchor='top' open={mobileOpen} onClose={handleDrawerToggle}>
               <List sx={{ width: 200 }}>
-                {["Home", "About", "Services", "Careers"].map((text) => (
-                  <ListItem button key={text} component={Link} to={`/${text.toLowerCase()}`} onClick={handleDrawerToggle}>
+                {QuickLinks.map((text) => (
+                  <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
                     <ListItemText primary={text.toUpperCase()} />
                   </ListItem>
                 ))}
@@ -65,11 +71,9 @@ const Header = () => {
           </>
         ) : (
           <Box textAlign={'right'} py={{ xs: 2, md: 4 }} className='navItems'>
-            <Link to="/" style={{fontSize:'20px'}}>HOME</Link>
-            <Link to='/about'style={{fontSize:'20px'}}>ABOUT</Link>
-            <Link to="/services"style={{fontSize:'20px'}}>SERVICES</Link>
-            <Link to='/careers'style={{fontSize:'20px'}}>CAREERS</Link>
-            <Link to='/news-blog'style={{fontSize:'20px'}}>NEWS & BLOG</Link>
+            {QuickLinks.map((text) => (
+              <Link to={`/${text.link}`} style={{fontSize:'20px'}}>{text.title.toLocaleUpperCase()}</Link>                  
+                ))}
             <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px'}}>CONTACT US</Button>
           </Box>
         )}
