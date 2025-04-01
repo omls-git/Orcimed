@@ -7,6 +7,9 @@ import CareersScreen from './pages/CareersScreen'
 import NewBlogScreen from './pages/NewBlogScreen'
 import ContactScreen from './pages/ContactScreen'
 import Header from './components/Header';
+import TeamScreen from './pages/TeamScreen';
+import WhyOrcimedScreen from './pages/WhyOrcimedScreen';
+import MissionVision from './pages/MissionVision';
 
 function App() {
   return (
@@ -20,6 +23,9 @@ function App() {
             <Route path='/careers' element={<CareersScreen />} />
             <Route path='/news-blog' element={<NewBlogScreen />} />
             <Route path='/contact' element={<ContactScreen />} />
+            <Route path='/team' element={<TeamScreen />} />
+            <Route path='/why-orcimed' element={<WhyOrcimedScreen />} />
+            <Route path='/mission-vision' element={<MissionVision />} />
           </Routes>
         </BrowserRouter>
     </div>
