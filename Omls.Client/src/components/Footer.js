@@ -3,7 +3,7 @@ import { Container, Stack, Box, Typography } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DescriptionIcon from "@mui/icons-material/Description";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const ContactList = [

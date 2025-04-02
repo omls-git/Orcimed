@@ -3,11 +3,11 @@ import '../styles/Header.css'
 import Logo from '../images/ocmlsLogo.png'
 import { Link } from 'react-router-dom'
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { AppBar, Box, Button, Drawer, IconButton, List, ListItem, ListItemText, Toolbar, useMediaQuery, useTheme } from '@mui/material'
+import { AppBar, Box, Button, Drawer, IconButton, List, ListItem, ListItemText, Toolbar, useMediaQuery } from '@mui/material'
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const theme = useTheme();
+  // const theme = useTheme();
   const isMobile = useMediaQuery('(max-width: 425px)');
   const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
@@ -21,18 +21,18 @@ const Header = () => {
 
   return (
     <AppBar 
-      position="fixed" 
+      position="fixed"
       className='appBar' 
       sx={{ bgcolor: 'white', color: 'black', boxShadow: 2, padding: 0 }}
     >
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 20px' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: isTab || isMobile ? "space-between" : "space-evenly", alignItems: 'center', padding: '0 2%px' }}>
         
         {/* Left Side: Logo */}
-        <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
+        <Box maxWidth={isTab || isMobile ? "40%" :"30%"} sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
           <img 
             src={Logo} 
             alt='OMLS Logo' 
-            style={{ width: '250px', margin: 0, padding: '10px' }} 
+            style={!isMobile ? { width: '250px', margin: 0, padding: '10px' } : {padding: '2% 0%' }} 
             id='logo'
           />
         </Box>
@@ -47,7 +47,7 @@ const Header = () => {
               <List sx={{ width: 200 }}>
                 {QuickLinks.map((text) => (
                   <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
-                    <ListItemText primary={text.toUpperCase()} />
+                    <ListItemText primary={text.title.toUpperCase()} />
                   </ListItem>
                 ))}
               </List>
@@ -62,7 +62,7 @@ const Header = () => {
               <List sx={{ width: 200 }}>
                 {QuickLinks.map((text) => (
                   <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
-                    <ListItemText primary={text.toUpperCase()} />
+                    <ListItemText primary={text.title.toUpperCase()} />
                   </ListItem>
                 ))}
               </List>
