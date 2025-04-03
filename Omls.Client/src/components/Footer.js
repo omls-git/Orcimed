@@ -4,6 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DescriptionIcon from "@mui/icons-material/Description";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   const ContactList = [
@@ -44,20 +45,31 @@ const Footer = () => {
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
               gridTemplateRows: "1fr 1fr",
-              borderTopLeftRadius: "100px",
-              borderBottomRightRadius: "100px",
               overflow: "hidden",
               width: { xs: "100%", md: "70%" },
               maxWidth: 650,
               height:"500px" ,
-              boxShadow: 3,
+              // boxShadow: 3,
             }}
-          >{ContactList.map((item) => {
+          >
+            {ContactList.map((item, index) => {
             return(
+              <motion.div
+                initial={{ opacity: 0, x: -200 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration:index > 1 ? 1.5 : 0.8, ease: "easeOut" }}
+                viewport={{ amount: 0.2 }} // Keeps triggering on scroll
+                style={{width:"293px", maxHeight:"220px",
+                 }}
+              >
             <Box   
             key={item.title}
-            width={"300px"}
-              sx={{ bgcolor: item.bgc,
+            width={"293px"}
+            height={"100%"}
+              sx={{ 
+                borderTopLeftRadius: index === 0 ? "100px" : 0,
+                borderBottomRightRadius: index === 3 ? "100px": 0,
+                bgcolor: item.bgc,
               textAlign: "center", p:2,
               alignContent:'center',    
               transition: "background-color 0.3s",
@@ -71,7 +83,9 @@ const Footer = () => {
                <Typography variant="body1" fontWeight="bold" onClick={() => handleClick(item) }>
                  {item.content}
                </Typography>
-            </Box>)
+            </Box>
+           </motion.div>
+          )
           })}
           </Box>
           {/* Right Section - Quick Links */}
