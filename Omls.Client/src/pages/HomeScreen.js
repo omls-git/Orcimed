@@ -5,8 +5,9 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
-import HomeSection3 from "./HomeSection3";
+import CustomizedSolutions from "./CustomizedSolutions";
 import CustomerCarousel from "./CustomerCarousel";
+import ServiceCards from "./ServiceCards";
 
 
 
@@ -18,9 +19,12 @@ const HomeScreen = () => {
       <Header />
       <HeroSection />
       <WhatDefinesUs />
-      <HomeSection3 />
+      <CustomizedSolutions />
+      <ServiceCards />
       <CustomerCarousel />
-      <Footer />
+      {/* <Footer />
+       */}
+       <Footer />
     </div>
   );
 };

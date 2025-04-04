@@ -3,7 +3,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { ArrowBackIos, ArrowForwardIos, Padding } from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { styled } from "@mui/system";
 
 const logos = [
   { src: "./logo_-1.jpg", alt: "Cipla" },
@@ -38,6 +39,19 @@ const CustomNextArrow = (props) => (
   </Box>
 );
 
+
+
+const CustomDotsWrapper = styled("ul")(({ theme }) => ({
+  padding: 0,
+  display: "flex",
+  justifyContent: "center",
+  margin: 0,
+  gap: theme.breakpoints.down("sm") ? "0px" : "10px",
+  "& li": {
+    margin: theme.breakpoints.down("sm") ? "0 0px" : "0 5px",
+  },
+}));
+
 const CustomerCarousel = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -52,25 +66,26 @@ const CustomerCarousel = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: true,
-    prevArrow: <CustomPrevArrow />, 
-    nextArrow: <CustomNextArrow />,
+    prevArrow: isMobile || isTablet ? null : <CustomPrevArrow />, 
+    nextArrow:isMobile || isTablet ? null : <CustomNextArrow />,
     appendDots: (dots) => (
-      <div style={{ margin: "0px", padding: isMobile ? "5px" : "10px" }}>
-        <ul style={{ padding: "0px", display: "flex", justifyContent: "center" }}> {dots} </ul>
+      <div style={{ margin: 0, padding: isMobile ? "5px 0" : "10px" }}>
+        <CustomDotsWrapper>{dots}</CustomDotsWrapper>
       </div>
     ),
   };
 
   return (
     <Box textAlign="center" py={5} sx={{backgroundColor:'#fff'}}>
-      <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="black">
+      <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="black" pb={"20px"}>
       Partnering for<span style={{ color: "#d70000" }}> Success</span>
                   </Typography>
                   <Box sx={{ maxWidth: "80%", margin: "0 auto" }}>
         <Slider {...settings}>
           {logos.map((logo, index) => (
-            <Box key={index} display="flex" justifyContent="center" p={2}>
-              <img src={logo.src} alt={logo.alt} style={{ maxWidth: "250px", maxHeight: "120px", width: "100%", height: "auto" }} />
+            <Box key={index} display="flex" alignItems={"center"} justifyContent="center" >
+              <img src={logo.src} alt={logo.alt} style={{objectFit: "contain", maxWidth: isMobile ? "200px": "250px", width: "100%", 
+                height:isMobile ? "120px" :"150px", margin: "0 auto",}} />
             </Box>
           ))}
         </Slider>
