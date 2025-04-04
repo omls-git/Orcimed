@@ -1,30 +1,33 @@
 import React from "react";
-import { Container, Typography, Box, Grid } from "@mui/material";
+import { Container, Typography, Box, Grid, useMediaQuery, useTheme } from "@mui/material";
 import leftPerson from '../images/homeImageJ.png';
 import rightPerson from '../images/homeimagejb.png'
 
-const HomeSection3 = () => {
+const CustomizedSolutions = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
   return (
     <Box
       sx={{
         backgroundColor: "#fff",
-        padding: { xs: 4, md: 8 },
         borderRadius: "20px",
-        // textAlign: "center",
-        // position: "relative",
-        // overflow: "hidden",
-        // display:"block"
-        display:'flex', justifyContent:"space-between",
+        display:'flex', 
+        justifyContent:"space-between",
       }}
     >
-      <Container maxWidth="100%" sx={{display:'flex', justifyContent:"space-around", }}>
+      <Container maxWidth="100%" sx={ isMobile || isTablet ? {}:{display:'flex', justifyContent:"space-around", }}
+      >
         <Typography
-          variant="h2"
-          sx={{ fontWeight: "bold", textAlign: "left" }}
+          variant={isTablet ? "h4": isMobile ? "h4" :"h2"}
+          sx={{ fontWeight: "bold", textAlign: "center", py:{sm:'30px', xs: "30px"} }}
+          width={isTablet || isMobile ? '90%': "40%"}
         >
-          Customized <span style={{ color: "#C8102E" }}>Clinical <br/>Research Solutions</span>
+          Customized <span style={{ color: "#C8102E" }}>Clinical Research Solutions</span>
         </Typography>
-        <Typography variant="h6" sx={{ textAlign: "left" }} maxWidth={"50%"} fontFamily={"inherit"}>
+        <Typography variant="h6" pb="20px" 
+        sx={{ textAlign:isMobile || isTablet ? "center": "left",alignItems:"center" }} 
+        maxWidth={isTablet || isMobile ? '100%': "40%"} fontFamily={"inherit"}>
           Orcimed Life Sciences prides itself on personalized
           clinical trial management. With extensive experience, close
           collaboration with clients—large or small—designs and implements
@@ -63,4 +66,4 @@ const HomeSection3 = () => {
   );
 };
 
-export default HomeSection3;
+export default CustomizedSolutions;
