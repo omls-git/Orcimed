@@ -39,16 +39,16 @@ const navigate = useNavigate();
         }}
       ></Box>
           <Box flex={1} ml={"10%"}>
-            <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="black">
+            <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="#F39200">
             OrciMed
-               <span style={{ color: "#d70000" }}> Life Sciences</span>
+               <span style={{ color: "#007b8f" }}> Life Sciences</span>
             </Typography>
             <Typography variant="h6" mt={2} color="rgba(14, 11, 11, 0.86)" 
             width={isMobile ? "100%": "40%"} fontFamily={'inherit'} //fontWeight={'bold'}
             >{heroContent}</Typography>
             <Button
               variant="contained"
-              color="error"
+              color="warning"
               sx={{ my: 3, padding: "10px 20px" }}
               onClick={() => navigate('/about')}
             >

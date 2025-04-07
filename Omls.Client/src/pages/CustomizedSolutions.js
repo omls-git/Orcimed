@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Box, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Typography, Box, useMediaQuery, useTheme } from "@mui/material";
 import leftPerson from '../images/homeImageJ.png';
 import rightPerson from '../images/homeimagejb.png'
 
@@ -12,20 +12,19 @@ const CustomizedSolutions = () => {
       sx={{
         backgroundColor: "#fff",
         borderRadius: "20px",
-        display:'flex', 
-        justifyContent:"space-between",
       }}
     >
-      <Container maxWidth="100%" sx={ isMobile || isTablet ? {}:{display:'flex', justifyContent:"space-around", }}
+      <Container maxWidth="100%" sx={ isMobile || isTablet ? {}:{display:'flex', justifyContent: "space-around"}}
       >
         <Typography
+          color="#F39200"
           variant={isTablet ? "h4": isMobile ? "h4" :"h2"}
-          sx={{ fontWeight: "bold", textAlign: "center", py:{sm:'30px', xs: "30px"} }}
+          sx={{ fontWeight: "bold", textAlign: "center", py:{sm:'30px', xs: "30px"}, px:{xs:'2.5%', sm:'2.5%'}}}
           width={isTablet || isMobile ? '90%': "40%"}
         >
-          Customized <span style={{ color: "#C8102E" }}>Clinical Research Solutions</span>
+          Customized <span style={{ color: "#007b8f" }}>Clinical Research Solutions</span>
         </Typography>
-        <Typography variant="h6" pb="20px" 
+        <Typography variant="h6" py="20px" 
         sx={{ textAlign:isMobile || isTablet ? "center": "left",alignItems:"center" }} 
         maxWidth={isTablet || isMobile ? '100%': "40%"} fontFamily={"inherit"}>
           Orcimed Life Sciences prides itself on personalized

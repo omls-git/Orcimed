@@ -1,34 +1,31 @@
 import React,  { useState, useEffect }  from "react";
-import { Grid, Box, Typography, Button, Container } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Grid, Typography } from "@mui/material";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
 import CustomizedSolutions from "./CustomizedSolutions";
 import CustomerCarousel from "./CustomerCarousel";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import ServiceCards from "./ServiceCards";
 
 
 const stats = [
-  { id: 1, icon: "📄", label: "ICSRs", count: 500000 },
-  { id: 2, icon: "💊", label: "Safety Signals", count: 1000 },
-  { id: 3, icon: "👨‍⚕️", label: "RMPs", count: 100 },
-  { id: 4, icon: "📑", label: "Aggregate Reports", count: 1200 },
-  { id: 5, icon: "🩺", label: "Literature Surveillance", count: 0 },
+  { id: 1, icon: "./icsrs.png", label: "ICSRs", count: 500000 },//📄
+  { id: 2, icon: './safetySignals.jpg', label: "Safety Signals", count: 1000 },//💊
+  { id: 3, icon: "./rmps.png", label: "RMPs", count: 100 },//👨‍⚕️
+  { id: 4, icon: "./reports.png", label: "Aggregate Reports", count: 1200 },//📑
+  { id: 5, icon: "./litreture.png", label: "Literature Surveillance", count: 700 },//🩺
 ];
 
 
 
 const HomeScreen = () => {
-  const navigate = useNavigate();
   const [visible, setVisible] = useState(false);
-  const controls = useAnimation();
 
   useEffect(() => {
     const handleScroll = () => {
-      const section = document.getElementById("leaders-experience");
+      const section = document.getElementById("diversity-difference");
       if (section) {
         const rect = section.getBoundingClientRect();
         if (rect.top < window.innerHeight * 0.8) {
@@ -47,8 +44,6 @@ const HomeScreen = () => {
       <HeroSection />
       <WhatDefinesUs />
       <CustomizedSolutions />
-      <ServiceCards />
-      <CustomerCarousel />
       <Grid
         container
         id="diversity-difference"
@@ -61,54 +56,39 @@ const HomeScreen = () => {
           position: "relative",
         }}
       >
-        {/* Black Circles in Background */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundImage: "url('/black-circles.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            opacity: 0.2, // Semi-transparent effect
-            zIndex: -1,
-          }}
-        ></div>
-
         <Grid item xs={12}>
           <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 }}>
             The TOTAL Diversity Difference
           </Typography>
         </Grid>
 
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={3} display={"flex"} justifyContent="center">
           {stats.map((stat) => (
-            <Grid item xs={12} sm={6} md={3} key={stat.id}>
+            <Grid item xs={12} sm={6} md={2} key={stat.id} alignItems='center'>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={visible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: stat.id * 0.2 }}
                 style={{
-                  background: "rgba(0, 0, 0, 0.6)",
-                  padding: "20px",
+                  padding: "10px",
                   borderRadius: "10px",
                   textAlign: "center",
+                  alignContent:"center"
                 }}
               >
-                <Typography variant="h3">{stat.icon}</Typography>
-                <Typography variant="h6" sx={{ mt: 2, fontWeight: "bold" }}>
+                <Typography width='100%' alignItems='center' display='flex' justifyContent={'center'} variant="h3" >
+                    <img src={stat.icon} alt="safetySignals" width='100px' height='100px' style={{borderRadius:'50px'}}/> 
+                </Typography>                    
+                <Typography variant="h6" color="white" sx={{ mt: 2, fontWeight: "bold" }}>
                   {stat.label}
                 </Typography>
               </motion.div>
             </Grid>
           ))}
         </Grid>
-      </Grid>
-
-      {/* <Footer />
-       */}
+      </Grid>      
+      <ServiceCards />
+      <CustomerCarousel />
        <Footer />
     </div>
   );

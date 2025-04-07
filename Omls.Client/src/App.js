@@ -2,7 +2,6 @@ import './App.css';
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import HomeScreen from './pages/HomeScreen'
 import AboutScreen from './pages/AboutScreen'
-import ServicesScreen from './pages/ServicesScreen'
 import CareersScreen from './pages/CareersScreen'
 import NewBlogScreen from './pages/NewBlogScreen'
 import ContactScreen from './pages/ContactScreen'
@@ -10,6 +9,7 @@ import Header from './components/Header';
 import TeamScreen from './pages/TeamScreen';
 import WhyOrcimedScreen from './pages/WhyOrcimedScreen';
 import MissionVision from './pages/MissionVision';
+import ServicesScreen from './pages/servicesScreens/ServicesScreen';
 
 function App() {
   return (

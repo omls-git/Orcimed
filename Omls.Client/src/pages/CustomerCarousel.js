@@ -77,8 +77,8 @@ const CustomerCarousel = () => {
 
   return (
     <Box textAlign="center" py={5} sx={{backgroundColor:'#fff'}}>
-      <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="black" pb={"20px"}>
-      Partnering for<span style={{ color: "#d70000" }}> Success</span>
+      <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="#F39200" pb={"20px"}>
+      Partnering for<span style={{ color: "#007b8f" }}> Success</span>
                   </Typography>
                   <Box sx={{ maxWidth: "80%", margin: "0 auto" }}>
         <Slider {...settings}>

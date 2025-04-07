@@ -64,7 +64,6 @@ const StyledCard = styled(Card)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   textAlign: "center",
-  // boxShadow:2,
 
   "&::before": {
     content: "''",
