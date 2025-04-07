@@ -8,6 +8,8 @@ import WhatDefinesUs from "./WhatDefinesUs";
 import CustomizedSolutions from "./CustomizedSolutions";
 import CustomerCarousel from "./CustomerCarousel";
 import { motion, useAnimation } from "framer-motion";
+import ServiceCards from "./ServiceCards";
+
 
 const stats = [
   { id: 1, icon: "📄", label: "ICSRs", count: 500000 },
@@ -16,7 +18,6 @@ const stats = [
   { id: 4, icon: "📑", label: "Aggregate Reports", count: 1200 },
   { id: 5, icon: "🩺", label: "Literature Surveillance", count: 0 },
 ];
-import ServiceCards from "./ServiceCards";
 
 
 
