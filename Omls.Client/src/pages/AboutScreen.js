@@ -75,52 +75,47 @@ const teamMembers = [
 
 const cardData = [
   {
-    title: "D Dash™ – Metrics Dashboard",
+    title: "Transparency",
     description: [
-      "Proprietary tool for tracking and monitoring diverse enrollment in clinical trials.",
-      "Project Team reviews the data at least once a week to evaluate progress toward achieving the diversity goal.",
-      "Receives live data feeds from sponsors’ EDC or IWRS systems.",
-      "Modifies recruitment activities based on site progress."
+      "The organization has transparency in its structure, workflow,", 
+      "and communication and a great team with global experience",,
+     
     ],
-    imgSrc: "https://via.placeholder.com/100", // Replace with actual image URL
+    imgSrc: "Trnasparency.png", // Replace with actual image URL
   },
   {
-    title: "Study Startup",
+    title: "Heihest Quality ",
     description: [
-      "Utilizes DTEACH™ best practices portal for targeted improvements.",
-      "Detailed feasibility and site access using the Diversity Site Assessment Tool (DSAT).",
-      "DSAT benchmarks sites on 25 critical factors for diversity and inclusion.",
-      "Project kick-off meetings to establish project foundations."
+      "We are committed to serve or customer requirements with our",
+      " dedication to timelines, persistent flexibility standards."
     ],
-    imgSrc: "https://via.placeholder.com/100", // Replace with actual image URL
+    imgSrc: "HeighestQuality.png", // Replace with actual image URL
   },
   {
-    title: "Clinical Research",
+    title: "Cost Effective ",
     description: [
-      "Advanced clinical research techniques and monitoring.",
-      "Data-driven insights for better trial outcomes.",
-      "Ensuring compliance with industry regulations.",
-      "Optimizing patient recruitment strategies."
+      "We provide cost-effective solutions that can be ",
+      "tailor made to meet customer's requirement"
     ],
-    imgSrc: "https://via.placeholder.com/100", // Replace with actual image URL
+    imgSrc: "costeffective.png", // Replace with actual image URL
   },
   {
-    title: "Diversity & Inclusion",
+    title: "Scalability",
     description: [
-      "Strategies for enhancing diversity in clinical trials.",
-      "Community engagement for inclusive research.",
-      "Custom solutions for underrepresented populations.",
-      "Data insights to track diversity progress."
+     "We have robust scalability plans to meet",
+     "increasing demands of the industry"
     ],
-    imgSrc: "https://via.placeholder.com/100", // Replace with actual image URL
+    imgSrc: "scalability.png", // Replace with actual image URL
   }
 ];
 
 const AboutScreen = () => {
+ 
+  
   return (
     <Container maxWidth="xl" disableGutters>
 
-      
+
 
       {/* Hero Section with Background Image */}
       <Grid
@@ -140,14 +135,14 @@ const AboutScreen = () => {
         }}
       >
         <Grid item xs={12} md={6}> {/* Text only takes half width on larger screens */}
-          <Typography variant="h3" fontWeight="bold" color="maroon">
+          <Typography variant="h3" fontWeight="bold" color="#007b8f">
             Vision
           </Typography>
           <Typography variant="h6" color="black">
             To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
             We strive to be a long-term trusted partner of major innovative healthcare organizations.
           </Typography>
-          <Typography variant="h3" fontWeight="bold" color="maroon" sx={{ mt: 2 }}>
+          <Typography variant="h3" fontWeight="bold" color="#F39200" sx={{ mt: 2 }}>
             Mission
           </Typography>
           <Typography variant="h6" color="black">
@@ -194,7 +189,7 @@ const AboutScreen = () => {
               >
                 <Card elevation={3} sx={{ padding: "20px", minHeight: "100%", maxWidth: "500px", margin: "0 auto" }}>
                   <CardContent>
-                    <Typography variant="h4" gutterBottom sx={{ color: "#D32F2F", fontWeight: "bold" }}>
+                    <Typography variant="h4" gutterBottom sx={{ color: "#007b8f", fontWeight: "bold" }}>
                       {section.title}
                     </Typography>
                     <Typography variant="body1" color="textSecondary" sx={{ textAlign: "justify", lineHeight: "1.6" }}>
@@ -212,7 +207,7 @@ const AboutScreen = () => {
       {/* { Team Section} */}
       <Grid container spacing={3} justifyContent="center" sx={{ marginTop: 5 }}>
         <Grid item xs={12} textAlign="center">
-          <Typography variant="h3" fontWeight="bold" color="maroon">
+          <Typography variant="h3" fontWeight="bold" color="#F39200">
             OUR TEAM
           </Typography>
         </Grid>
@@ -279,9 +274,9 @@ const AboutScreen = () => {
       </Grid>
       {/* why orcimed lifesciences */}
 
-      <Grid container spacing={4} justifyContent="center" sx={{ mt: 4, px: { xs: 2, md: 10 } }}>
+      <Grid container spacing={4} justifyContent="center" sx={{ mt: 4, px: { xs: 2, md: 10 } , mb:4}} >
         <Grid item xs={12} textAlign="center">
-          <Typography variant="h3" fontWeight="bold" color="maroon">
+          <Typography variant="h3" fontWeight="bold" color="#F39200">
             Why Orcimed Lifesciences?
           </Typography>
         </Grid>
@@ -301,21 +296,33 @@ const AboutScreen = () => {
                   </Box>
 
                   {/* Title */}
-                  <Typography variant="h5" sx={{ fontWeight: "bold", color: "#D32F2F", textAlign: "center" }}>
+                  <Typography variant="h5" sx={{ fontWeight: "bold", color:" #F39200", textAlign: "center" }}>
                     {item.title}
                   </Typography>
 
                   {/* Description List */}
-                  <Box component="ul" sx={{ flex: 1, px: 2 }}>
+                  <Box
+                    component="ul"
+                    sx={{
+                      flex: 1,
+                      px: 2,
+                      listStyle: "none", // Remove bullet points
+                      padding: 0, // Ensure no extra padding
+                    }}
+                  >
                     {item.description.map((point, i) => (
-                      <Typography component="li" key={i} sx={{ fontSize: "16px", lineHeight: "1.5" }}>
+                      <Typography
+                        component="li"
+                        key={i}
+                        sx={{ fontSize: "16px", lineHeight: "1.5", marginBottom: "8px" }}
+                      >
                         {point}
                       </Typography>
                     ))}
                   </Box>
 
                   {/* Read More Button - Always at Bottom */}
-                  <Button variant="contained" sx={{ backgroundColor: "black", color: "white", mt: "auto", alignSelf: "center" }}>
+                  <Button variant="contained" sx={{ backgroundColor: "#007b8f", color: "white", mt: "auto", alignSelf: "center" }}>
                     Read More →
                   </Button>
                 </CardContent>

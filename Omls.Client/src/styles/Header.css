@@ -23,13 +23,13 @@
   margin-right: 20px;
 }
 .navItems a:hover{
-  color: #cf2e2e;
+  color:#F39200;
 }
 #navLinks:hover {
   color: rgb(243, 236, 236);
 }
 #contactBtn{
-  background-color: #bd1229;
+  background-color: #F39200;
   color: white;
   font-weight: 700;
   font-size: 16px;
