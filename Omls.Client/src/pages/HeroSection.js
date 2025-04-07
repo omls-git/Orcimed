@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Button, Box, Stack } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import heroimage from '../images/homeimage1.png'
 import { useNavigate } from "react-router-dom";
@@ -21,7 +21,6 @@ const navigate = useNavigate();
         display: "flex",
         justifyContent: "center",
         textAlign: "left",
-        // padding: "2rem",
         backgroundImage: `url(${heroimage})`,
         backgroundSize: "cover",
         color: "white",
@@ -39,15 +38,6 @@ const navigate = useNavigate();
           backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       ></Box>
-      {/* <Container sx={{ position: "relative", zIndex: 1,border:"2px solid black", }}> */}
-        {/* <Stack
-          direction={{ xs: "column", md: "row" }}
-          spacing={4}
-          textAlign={"left"}
-          border={"2px solid yellow"}
-          // paddingLeft={0}
-          alignItems="center"
-        > */}
           <Box flex={1} ml={"10%"}>
             <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="black">
             OrciMed
@@ -59,14 +49,12 @@ const navigate = useNavigate();
             <Button
               variant="contained"
               color="error"
-              sx={{ mt: 3, padding: "10px 20px" }}
+              sx={{ my: 3, padding: "10px 20px" }}
               onClick={() => navigate('/about')}
             >
               Learn More
             </Button>
           </Box>
-        {/* </Stack> */}
-      {/* </Container> */}
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Stack, Box, Typography } from "@mui/material";
+import { Container, Stack, Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import DescriptionIcon from "@mui/icons-material/Description";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -7,107 +7,168 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ContactList = [
-    {icon : <MailOutlineIcon sx={{p:2,bgcolor:"#222", borderRadius:"50%", color:"#fff"}} fontSize="large" />, title : "EMAIL", content: "contact@orcimedlifesciences.com",bgc: "#454644",hbgc : "#f5f5f5", color: "#fff",hoverC:"#c00", link:'contact@orcimedlifesciences.com'},
-    {icon : <LinkedInIcon sx={{p:2,bgcolor:"black", borderRadius:"50%",color:"#fff"}} fontSize="large" />, title : "", content: "LinkedIn",bgc: "#bd1229",hbgc : "#f5f5f5", color: "#fff",hoverC:"#bd1229", link :'https://www.linkedin.com/company/orcimed-life-sciences'},
-    {icon : "", title : "", content: "The Only CRO with 100% Recruitment Targets Met for All Populations",bgc: "black",hbgc : "black", color: "#fff",hoverC:"#fff",link:''},
-    {icon : <DescriptionIcon sx={{p:2,bgcolor:"#bd1229", borderRadius:"50%", color:"#fff"}}  fontSize="large" />, title : "", content: "News & Blog",bgc: "#454644",hbgc : "#f5f5f5", color: "#fff",hoverC:"#bd1229", link:'news-blog'}
-  ]
-  const navigate = useNavigate();
-  const QuickLinks = [{title:'HOME', link: ''}, 
-    {title:'ABOUT US', link: 'about'},
-    {title:'SERVICES', link: 'services'},
-    {title:'TEAM', link: 'team'},
-    {title:'MISSION & VISION', link: 'mission-vision'},
-    {title:'WHY ORCIMED LIFE SCIENCES', link: 'why-orcimed'},
-    {title:'CAREERS', link: 'careers'},
-    {title:'CONTACT US', link: 'contact'}]
-    const handleClick = (value) => {
-      if(value.title === "EMAIL"){
-        window.location.href = `mailto:${value.link}`
-      }
-      if(value.content === "LinkedIn"){
-        window.location.href = value.link
-      }
-     navigate(`/${value.link}`)
+    {
+      icon: <MailOutlineIcon sx={{ p: 2, bgcolor: "#222", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      title: "EMAIL",
+      content: "contact@orcimedlifesciences.com",
+      bgc: "#454644",
+      hbgc: "#f5f5f5",
+      color: "#fff",
+      hoverC: "#c00",
+      link: 'contact@orcimedlifesciences.com'
+    },
+    {
+      icon: <LinkedInIcon sx={{ p: 2, bgcolor: "black", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      title: "",
+      content: "LinkedIn",
+      bgc: "#bd1229",
+      hbgc: "#f5f5f5",
+      color: "#fff",
+      hoverC: "#bd1229",
+      link: 'https://www.linkedin.com/company/orcimed-life-sciences'
+    },
+    {
+      icon: "",
+      title: "",
+      content: "The Only CRO with 100% Recruitment Targets Met for All Populations",
+      bgc: "black",
+      hbgc: "black",
+      color: "#fff",
+      hoverC: "#fff",
+      link: ''
+    },
+    {
+      icon: <DescriptionIcon sx={{ p: 2, bgcolor: "#bd1229", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      title: "",
+      content: "News & Blog",
+      bgc: "#454644",
+      hbgc: "#f5f5f5",
+      color: "#fff",
+      hoverC: "#bd1229",
+      link: 'news-blog'
     }
- 
+  ];
+
+  const QuickLinks = [
+    { title: 'HOME', link: '' },
+    { title: 'ABOUT US', link: 'about' },
+    { title: 'SERVICES', link: 'services' },
+    { title: 'TEAM', link: 'team' },
+    { title: 'MISSION & VISION', link: 'mission-vision' },
+    { title: 'WHY ORCIMED LIFE SCIENCES', link: 'why-orcimed' },
+    { title: 'CAREERS', link: 'careers' },
+    { title: 'CONTACT US', link: 'contact' }
+  ];
+
+  const navigate = useNavigate();
+
+  const handleClick = (value) => {
+    if (value.title === "EMAIL") {
+      window.location.href = `mailto:${value.link}`;
+    } else if (value.content === "LinkedIn") {
+      window.location.href = value.link;
+    } else if (value.link) {
+      navigate(`/${value.link}`);
+    }
+  };
+
   return (
-    <Box sx={{ backgroundColor: "#222", color: "white", pt: 4, height:"84vh", }}>
-      <Container sx={{textAlign:'left', mx:30, height: "92%",}}>
-        <Typography variant="h3" gutterBottom sx={{ fontWeight: "bold", py:1 }} align="left">
+    <Box sx={{ backgroundColor: "#222", color: "white", pt: 4}}>
+      <Container maxWidth="xl">
+        <Typography
+          variant="h4"
+          gutterBottom
+          sx={{ fontWeight: "bold", py: 1 }}
+        >
           Connect With Us
         </Typography>
-        <Stack spacing={2} direction={{ xs: "column", md: "row" }} alignItems="center">
-          {/* Left Section - Styled Box */}
+        <Stack
+          spacing={4}
+          direction={{ xs:"column", sm:"row", md: "row"}}
+          alignItems="flex-start"
+          sx={{ flexWrap: "wrap" }}
+        >
+          {/* Contact Cards */}
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gridTemplateRows: "1fr 1fr",
-              overflow: "hidden",
-              width: { xs: "100%", md: "70%" },
-              maxWidth: 650,
-              height:"500px" ,
-              // boxShadow: 3,
+              gridTemplateColumns: { xs: "1fr", sm: "1fr",md: "1fr 1fr" },
+              gap: 0,
+              flex: 0,
             }}
           >
-            {ContactList.map((item, index) => {
-            return(
+            {ContactList.map((item, index) => (
               <motion.div
-                initial={{ opacity: 0, x: -200 }}
+                key={index}
+                initial={{ opacity: 0, x: isMobile ? -100 :-250 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration:index > 1 ? 1.5 : 0.8, ease: "easeOut" }}
-                viewport={{ amount: 0.2 }} // Keeps triggering on scroll
-                style={{width:"293px", maxHeight:"220px",
-                 }}
+                transition={{ duration: index > 1 ? 1.2 : 0.6, ease: "easeOut" }}
+                viewport={{ amount: 0.2 }}
               >
-            <Box   
-            key={item.title}
-            width={"293px"}
-            height={"100%"}
-              sx={{ 
-                borderTopLeftRadius: index === 0 ? "100px" : 0,
-                borderBottomRightRadius: index === 3 ? "100px": 0,
-                bgcolor: item.bgc,
-              textAlign: "center", p:2,
-              alignContent:'center',    
-              transition: "background-color 0.3s",
-                '&:hover': { bgcolor: item.hbgc,color:item.hoverC }}}
-              color={item.color}
-               >
-               {item.icon}
-               <Typography variant="subtitle2" my={2} fontWeight="bold" >
-                 {item.title}
-               </Typography>
-               <Typography variant="body1" fontWeight="bold" onClick={() => handleClick(item) }>
-                 {item.content}
-               </Typography>
-            </Box>
-           </motion.div>
-          )
-          })}
+                <Box
+                  sx={{
+                    borderTopLeftRadius: index === 0 ? "60px" : 0,
+                    borderBottomRightRadius: index === 3 ? "60px" : 0,
+                    bgcolor: item.bgc,
+                    color: item.color,
+                    p: 3,
+                    textAlign: "center",
+                    transition: "background-color 0.3s",
+                    "&:hover": {
+                      bgcolor: item.hbgc,
+                      color: item.hoverC
+                    },
+                    minHeight: 180,
+                    width: isMobile ? "240px" : "280px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    cursor: item.link ? "pointer" : "default",
+                  }}
+                  onClick={() => handleClick(item)}
+                >
+                  {item.icon}
+                  {item.title && (
+                    <Typography variant="subtitle2" my={1} fontWeight="bold">
+                      {item.title}
+                    </Typography>
+                  )}
+                  <Typography variant="body1" fontWeight="bold">
+                    {item.content}
+                  </Typography>
+                </Box>
+              </motion.div>
+            ))}
           </Box>
-          {/* Right Section - Quick Links */}
-          <Box sx={{px:6}}>
-            <Typography variant="h5" fontWeight="bold" >
+
+          {/* Quick Links */}
+          <Box sx={{ minWidth: { xs: "100%", sm:"250px", md: "250px" }, pt: 4,textAlign:"left" }}>
+            <Typography variant="h6" fontWeight="bold" gutterBottom>
               Quick Links
             </Typography>
             {QuickLinks.map((link) => (
-              <Typography key={link.title} variant="button" sx={{ my: 2, display:'block', cursor: 'pointer'}} fontWeight="bold"  
-              onClick={() => navigate(link.link) }>
+              <Typography
+                key={link.title}
+                variant="body1"
+                sx={{ my: 1, cursor: 'pointer' }}
+                fontWeight="bold"
+                onClick={() => navigate(link.link)}
+              >
                 {link.title}
               </Typography>
-              
             ))}
           </Box>
         </Stack>
       </Container>
-      <Box sx={{px:30, textAlign: "left", alignContent:"center",height: "8%", backgroundColor:"#454644"}} >
-          <Typography variant="body1" color="#fff" fontWeight="bold">
+
+      <Box sx={{ mt: 4, bgcolor: "#454644", py: 2, px: { xs: 2, md: 10 } }}>
+        <Typography variant="body2" fontWeight="bold" textAlign="center">
           ©2023. OrciMed Life Sciences. All Rights Reserved.
-          </Typography>
-      </Box>    
+        </Typography>
+      </Box>
     </Box>
   );
 };

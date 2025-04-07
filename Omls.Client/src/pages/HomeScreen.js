@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
-import HomeSection3 from "./HomeSection3";
+import CustomizedSolutions from "./CustomizedSolutions";
 import CustomerCarousel from "./CustomerCarousel";
 import { motion, useAnimation } from "framer-motion";
 
@@ -16,6 +16,7 @@ const stats = [
   { id: 4, icon: "📑", label: "Aggregate Reports", count: 1200 },
   { id: 5, icon: "🩺", label: "Literature Surveillance", count: 0 },
 ];
+import ServiceCards from "./ServiceCards";
 
 
 
@@ -44,7 +45,8 @@ const HomeScreen = () => {
       <Header />
       <HeroSection />
       <WhatDefinesUs />
-      <HomeSection3 />
+      <CustomizedSolutions />
+      <ServiceCards />
       <CustomerCarousel />
       <Grid
         container
@@ -104,7 +106,9 @@ const HomeScreen = () => {
         </Grid>
       </Grid>
 
-      <Footer />
+      {/* <Footer />
+       */}
+       <Footer />
     </div>
   );
 };
