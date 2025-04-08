@@ -49,7 +49,7 @@ const HomeScreen = () => {
         id="diversity-difference"
         sx={{
           width: "100%",
-          backgroundColor: "#b01724", // Dark red background
+          backgroundColor: "#F39200", // Dark red background
           color: "white",
           textAlign: "center",
           py: 6,
