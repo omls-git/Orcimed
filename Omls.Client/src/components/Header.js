@@ -72,7 +72,7 @@ const Header = () => {
         ) : (
           <Box textAlign={'right'} py={{ xs: 2, md: 4 }} className='navItems'>
             {QuickLinks.map((text) => (
-              <Link to={`/${text.link}`} style={{fontSize:'20px'}}>{text.title.toLocaleUpperCase()}</Link>                  
+              <Link to={`/${text.link}`} key={text.title} style={{fontSize:'20px'}}>{text.title.toLocaleUpperCase()}</Link>                  
                 ))}
             <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px'}}>CONTACT US</Button>
           </Box>
