@@ -7,7 +7,6 @@ import { AppBar, Box, Button, Drawer, IconButton, List, ListItem, ListItemText, 
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  // const theme = useTheme();
   const isMobile = useMediaQuery('(max-width: 425px)');
   const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
@@ -32,7 +31,7 @@ const Header = () => {
           <img 
             src={Logo} 
             alt='OMLS Logo' 
-            style={!isMobile ? { width: '250px', margin: 0, padding: '10px' } : {padding: '2% 0%' }} 
+            style={!isMobile ? { width: '250px', margin: 0, padding: '10px' } : {padding: '8px 0' }} 
             id='logo'
           />
         </Box>
@@ -70,9 +69,9 @@ const Header = () => {
             <Button id='contactBtn' component={Link} to='/contact'>CONTACT US</Button>
           </>
         ) : (
-          <Box textAlign={'right'} py={{ xs: 2, md: 4 }} className='navItems'>
+          <Box textAlign={'right'} py='10px' className='navItems'>
             {QuickLinks.map((text) => (
-              <Link to={`/${text.link}`} key={text.title} style={{fontSize:'20px'}}>{text.title.toLocaleUpperCase()}</Link>                  
+              <Link to={`/${text.link}`} key={text.title} >{text.title.toLocaleUpperCase()}</Link>                  
                 ))}
             <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px'}}>CONTACT US</Button>
           </Box>

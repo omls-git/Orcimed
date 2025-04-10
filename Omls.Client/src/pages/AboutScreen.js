@@ -78,8 +78,7 @@ const cardData = [
     title: "Transparency",
     description: [
       "The organization has transparency in its structure, workflow,", 
-      "and communication and a great team with global experience",,
-     
+      "and communication and a great team with global experience",
     ],
     imgSrc: "Trnasparency.png", // Replace with actual image URL
   },
@@ -114,9 +113,6 @@ const AboutScreen = () => {
   
   return (
     <Container maxWidth="xl" disableGutters>
-
-
-
       {/* Hero Section with Background Image */}
       <Grid
         container

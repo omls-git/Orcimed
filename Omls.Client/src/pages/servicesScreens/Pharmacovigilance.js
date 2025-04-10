@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Accordion, AccordionSummary, AccordionDetails, Typography, Grid, Box } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { styled } from "@mui/system";
+import { styled, useMediaQuery } from "@mui/system";
 
 const Title = styled(Typography)(({ theme }) => ({
   fontSize: "1.8rem",
@@ -54,7 +54,7 @@ const clinicalTrialSafetyData = {
 
 const Pharmacovigilance = ({services}) => {
   const Pharmacovigilance = services.Pharmacovigilance;
-
+  const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
   const [expanded, setExpanded] = useState(null); // index of the currently expanded accordion
 
   const handleChange = (index) => (event, isExpanded) => {
@@ -66,7 +66,7 @@ const Pharmacovigilance = ({services}) => {
       <Title>Pharmacovigilance</Title>
       <Grid container spacing={4} justifyContent="center">
          <Grid item xs={12} md={6}>
-          <Box sx={{ maxWidth: 500, mx: "auto"}}>
+          <Box sx={{ maxWidth: isTab ? 400 : 500, mx: "auto"}}>
             {Pharmacovigilance.map((item, idx) => (
               <Accordion
                 key={idx}
@@ -92,14 +92,14 @@ const Pharmacovigilance = ({services}) => {
           </Box>
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid item xs={10} md={2}>
           <Box
             component="img"
             src='./Clinical-Trial-Safety-OperationsPV.jpg'
             alt="Illustration"
             sx={{
-              width: "100%",
-              maxWidth: 400,
+              width: isTab ? "20%": "100%",
+              // maxWidth: 400,
               mx: "auto",
               display: "block",
             }}

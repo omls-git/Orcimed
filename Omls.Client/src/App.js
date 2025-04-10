@@ -18,6 +18,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
         <Header />
+        <div className='content'>
         <ScrollToTop />
           <Routes>
             <Route path='/' element={<HomeScreen />} />
@@ -39,6 +40,7 @@ function App() {
             <Route path='/health-economics-and-outcomes-research' element={<ServiceReadMore />} />
             
           </Routes>
+        </div>
         </BrowserRouter>
     </div>
   );
