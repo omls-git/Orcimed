@@ -5,7 +5,8 @@ import heroimage from '../images/homeimage1.png'
 import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:480px)");
+  const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
   const heroContent = `The strategic excellence and scientific expertise of our seasoned leadership team kindled the birth of OrciMed Life Sciences to streamline cost-effective drug development and commercialization. OrciMed Life Sciences strongly believes in patient centric process development strategies, and we conduct our work with a commitment that culminates in clinical benefit.
 
@@ -24,8 +25,7 @@ const navigate = useNavigate();
         backgroundImage: `url(${heroimage})`,
         backgroundSize: "cover",
         color: "white",
-        pt: "7%",
-        mt: isMobile ? "25%" : '6%',
+        pt: "8%",
       }}
     >
       <Box
@@ -35,16 +35,15 @@ const navigate = useNavigate();
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
         }}
       ></Box>
-          <Box flex={1} ml={"10%"}>
+          <Box flex={1} ml={ isMobile ? 0 :"10%"} px={isMobile?2:0} textAlign={"left"}>
             <Typography variant={isMobile ? "h4" : "h2"} fontWeight="bold" color="#F39200">
             OrciMed
                <span style={{ color: "#007b8f" }}> Life Sciences</span>
             </Typography>
             <Typography variant="h6" mt={2} color="rgba(14, 11, 11, 0.86)" 
-            width={isMobile ? "100%": "40%"} fontFamily={'inherit'} //fontWeight={'bold'}
+            width={isMobile ? "100%": isTab ? "70%" : "40%"}  fontFamily={'inherit'} //fontWeight={'bold'}
             >{heroContent}</Typography>
             <Button
               variant="contained"

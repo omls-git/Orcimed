@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+/* Base style for content */
+.content {
+  margin-top: 130px;
+}
+
+/* Media query for even smaller screens (example: mobile phones) */
+@media (max-width: 480px) {
+  .content {
+    margin-top: 90px
+  }
+}
+
+/* @media (max-width: 320px) {
+  .content {
+    margin-top: 40%
+  }
+} */
+
+/* @media (max-width: 1024px) {
+  .content {
+    margin-top: 12%
+  }
+} */
+
+/* @media (max-width: 1440px) {
+  .content {
+    margin-top: 9%
+  }
+} */

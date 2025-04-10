@@ -10,7 +10,7 @@ const ServicesScreen = () => {
   const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
   return (
-    <div style={{marginTop: isMobile? "80px": isTab ? "130px" : "6.5%"}}>
+    <div>
     <Box
       sx={{
         backgroundColor: "#c8102e",

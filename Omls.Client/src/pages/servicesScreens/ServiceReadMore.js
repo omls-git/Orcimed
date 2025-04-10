@@ -42,6 +42,7 @@ export default function SiteSupportServices() {
         px: 4,
         py: 8,
         color: "white",
+        zIndex:-1,
         marginTop: isTab ? "15%" : {xs:"20%", sm:"6.5%", md:"15%",lg:"9%",xl:"5%"},
         "&::after": {
         content: '""',
@@ -73,7 +74,7 @@ export default function SiteSupportServices() {
         </Grid>
         {
           services[currentPath].content.map((item) => (
-          <Grid item xs={12} md={6} component={motion.div} variants={itemVariants} textAlign="justify">
+          <Grid item xs={12} md={6} component={motion.div} variants={itemVariants} textAlign= {isMobile ? "left":"justify"}>
             <Typography variant="h6" fontWeight="bold" >
               {item}
             </Typography>
@@ -88,9 +89,8 @@ export default function SiteSupportServices() {
         alignItems: "center",
         justifyContent: "center",
         px: 4,
-        py: 8,
         color: "white"}}>
-<Pharmacovigilance services={services[currentPath]} />
+        <Pharmacovigilance services={services[currentPath]} />
         </Box>
     
     </>
