@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Typography, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
-import DashboardCards from "./ServiceCards";
+import ServiceCards from "./ServiceCards";
 
 const ServicesScreen = () => {
   const theme = useTheme();
@@ -72,7 +72,7 @@ const ServicesScreen = () => {
           }}
         />
       </Box>
-      <DashboardCards />
+      <ServiceCards />
     </div>
   );
 };

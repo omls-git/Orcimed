@@ -22,9 +22,10 @@ import Diversity3Icon from '@mui/icons-material/Diversity3';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AssuredWorkloadIcon from '@mui/icons-material/AssuredWorkload';
 import DataSaverOnIcon from '@mui/icons-material/DataSaverOn';
+import { useNavigate } from "react-router-dom";
 const size = 100;
+
 const cardData = [
-  
   {
     icon: <AddBusinessOutlinedIcon sx={{ fontSize: size, color: "#b3002d" }} />,
     title: "Post Marketing Safety Operations",
@@ -47,11 +48,11 @@ const cardData = [
     icon: <DocumentScannerIcon sx={{ fontSize: size, color: "#b3002d" }} />,
     title: "Medical Writing",
     description:
-      "Medical writing is a distinct skill to create well-structured documents to present the information clearly and concisely.",
+      "Medical writing is a distinct skill to create well-structured documents to present the information clearly and concisely. It is well known fact.",
   },
   {
     icon: <BarChartIcon sx={{ fontSize: size, color: "#b3002d" }} />,
-    title: "Biostatistics & Clinical SAS",
+    title: "Biostatistics and Clinical SAS",
     description:
       "Biostatistics is an important development and statistical method to get appropriate interpretation of clinical study results.",
   },
@@ -65,21 +66,26 @@ const cardData = [
     icon: <DataSaverOnIcon sx={{ fontSize: size, color: "#b3002d" }} />,
     title: "Data Management",
     description:
-      "Data Management is the central requirement for enabling subsequent processes with the intent of providing structured data.",
+      "Data Management is the central requirement for enabling subsequent processes with the intent of providing structured data consistently for analysis and reporting",
   },
   {
     icon: <AssessmentIcon sx={{ fontSize: size, color: "#b3002d" }} />,
-    title: "Health Economics & Outcomes Research",
+    title: "Health Economics and Outcomes Research",
     description:
-      "A multidisciplinary approach in designing, executing and analyzing new interventions is required for generating relevant.",
+      "A multidisciplinary approach in designing, executing and analyzing new interventions is required for generating relevant evidence.",
   },
 ];
 
-export default function DashboardCards() {
+export default function ServiceCards() {
+  const navigate = useNavigate();
   const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
+    const handleClick = (value) => {
+      const linkTo = value?.replace(/\s+/g, '-').toLowerCase()
+      navigate(`/${linkTo}`)
+    }
   return (
     <Box sx={{ px: 2, py: 4}} bgcolor='#007b8f'>
       <Grid container justifyContent= {isTab ? "space-between" : "center"} >
@@ -129,6 +135,7 @@ export default function DashboardCards() {
                       ":hover": { backgroundColor: "#333" },
                       borderRadius: 2
                     }}
+                    onClick={()=>handleClick(card.title)}
                   >
                     Read More →
                   </Button>

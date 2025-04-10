@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Card, CardContent, Typography, useMediaQuery } from "@mui/material";
 import { styled } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -29,7 +30,7 @@ const services = [
     icon: "./icon_2-1.png"
   },
   {
-    title: "Biostatistics & Clinical SAS",
+    title: "Biostatistics and Clinical SAS",
     description:
       "Biostatistics is an important development and statistical method to get appropriate interpretation of clinical study results.",
        icon: "./icon_1-2.png"
@@ -47,7 +48,7 @@ const services = [
     icon: "./icon_6-1.png"
   },
   {
-    title: "Health Economics & Outcomes Research",
+    title: "Health Economics and Outcomes Research",
     description:
       "A multidisciplinary approach in designing, executing and analyzing new interventions is required for generating relevant.",
     icon: "./icon_3-1.png"
@@ -89,7 +90,11 @@ const StyledCard = styled(Card)(({ theme }) => ({
 
 const ServiceCards = () => {
   const isSmallScreen = useMediaQuery("(max-width:600px)");
-
+  const navigate = useNavigate();
+  const handleClick = (value) => {
+    const linkTo = value?.replace(/\s+/g, '-').toLowerCase()
+    navigate(`/${linkTo}`)
+  }
   return (
     <div //style={{backgroundColor:"#fff"}}
     >
@@ -98,7 +103,8 @@ const ServiceCards = () => {
     </Typography>
     <Grid container spacing={3} justifyContent="center" sx={{ padding: 3 }}>
       {services.map((service, index) => (
-        <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+        <Grid item xs={12} sm={6} md={4} lg={3} key={index} 
+        onClick={() => handleClick(service.title)} sx={{cursor:"pointer"}}>
           <StyledCard highlight={service.highlight}>
             <CardContent>
               <img src={service.icon} alt={service.icon}/>

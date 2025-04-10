@@ -10,22 +10,34 @@ import TeamScreen from './pages/TeamScreen';
 import WhyOrcimedScreen from './pages/WhyOrcimedScreen';
 import MissionVision from './pages/MissionVision';
 import ServicesScreen from './pages/servicesScreens/ServicesScreen';
+import ServiceReadMore from './pages/servicesScreens/ServiceReadMore';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <div className="App">
         <BrowserRouter>
         <Header />
+        <ScrollToTop />
           <Routes>
             <Route path='/' element={<HomeScreen />} />
             <Route path='/about' element={<AboutScreen />} />
-            <Route path='/services' element={<ServicesScreen />} />
             <Route path='/careers' element={<CareersScreen />} />
             <Route path='/news-blog' element={<NewBlogScreen />} />
             <Route path='/contact' element={<ContactScreen />} />
             <Route path='/team' element={<TeamScreen />} />
             <Route path='/why-orcimed' element={<WhyOrcimedScreen />} />
             <Route path='/mission-vision' element={<MissionVision />} />
+            <Route path='/services' element={<ServicesScreen />} />
+            <Route path='/post-marketing-safety-operations' element={<ServiceReadMore />} />
+            <Route path='/clinical-trial-safety-operations' element={<ServiceReadMore />} />
+            <Route path='/additional-pharmacovigilance' element={<ServiceReadMore />} />
+            <Route path='/medical-writing' element={<ServiceReadMore />} />
+            <Route path='/biostatistics-and-clinical-sas' element={<ServiceReadMore />} />
+            <Route path='/regulatory-affairs' element={<ServiceReadMore />} />
+            <Route path='/data-management' element={<ServiceReadMore />} />
+            <Route path='/health-economics-and-outcomes-research' element={<ServiceReadMore />} />
+            
           </Routes>
         </BrowserRouter>
     </div>

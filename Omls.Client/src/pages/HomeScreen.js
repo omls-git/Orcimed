@@ -1,7 +1,6 @@
 import React,  { useState, useEffect }  from "react";
 import { Grid, Typography } from "@mui/material";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
 import CustomizedSolutions from "./CustomizedSolutions";
@@ -40,7 +39,6 @@ const HomeScreen = () => {
 
   return (
     <div style={{backgroundColor:"black"}}>
-      <Header />
       <HeroSection />
       <WhatDefinesUs />
       <CustomizedSolutions />
