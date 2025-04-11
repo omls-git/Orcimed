@@ -74,7 +74,7 @@ export default function SiteSupportServices() {
         </Grid>
         {
           services[currentPath].content.map((item) => (
-          <Grid item xs={12} md={6} component={motion.div} variants={itemVariants} textAlign= {isMobile ? "left":"justify"}>
+          <Grid item xs={12} md={6} component={motion.div} variants={itemVariants} key={item} textAlign= {isMobile ? "left":"justify"}>
             <Typography variant="h6" fontWeight="bold" >
               {item}
             </Typography>

@@ -66,7 +66,7 @@ const Pharmacovigilance = ({services}) => {
       <Title>Pharmacovigilance</Title>
       <Grid container spacing={4} justifyContent="center">
          <Grid item xs={12} md={6}>
-          <Box sx={{ maxWidth: isTab ? 400 : 500, mx: "auto"}}>
+          <Box sx={{ maxWidth: isTab ? 400 : 700, mx: "auto"}}>
             {Pharmacovigilance.map((item, idx) => (
               <Accordion
                 key={idx}
@@ -76,7 +76,8 @@ const Pharmacovigilance = ({services}) => {
                   backgroundColor: "rgb(237, 246, 253)", // light blue background
                   boxShadow: "none", // optional: remove shadow
                   mb: 1, // spacing between accordions
-                  borderRadius: 1,                  
+                  borderRadius: 1,     
+                  // width:"100px"             
                 }}
               >
                 <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -92,14 +93,14 @@ const Pharmacovigilance = ({services}) => {
           </Box>
         </Grid>
 
-        <Grid item xs={10} md={2}>
+        <Grid item xs={12} md={6}>
           <Box
             component="img"
             src='./Clinical-Trial-Safety-OperationsPV.jpg'
             alt="Illustration"
             sx={{
-              width: isTab ? "20%": "100%",
-              // maxWidth: 400,
+              width: "100%",
+              maxWidth: 400,
               mx: "auto",
               display: "block",
             }}
