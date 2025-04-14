@@ -6,7 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-
+import axios from 'axios';
 import { Formik, Form } from 'formik';
 import {
   DatePicker,
@@ -19,7 +19,41 @@ const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
 
 
 
+
 const CareersScreen = () => {
+
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const payload = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        city: values.city,
+        country: values.country,
+        zip: values.zip,
+        previousJobTitle: values.previousJobTitle,
+        previousJobStartDate: values.previousJobStartDate?.toISOString(),
+        previousJobEndDate: values.previousJobEndDate?.toISOString(),
+        previousJobDescription: values.previousJobDescription,
+        acceptTerms: values.acceptTerms
+      };
+      console.log('Form values:', payload); // Debugging line
+
+      const response = await axios.post('localhost:5000/posts', payload);
+
+      if (response.status === 200) {
+        alert('Form submitted successfully!');
+        resetForm(); // Optional: Reset form after success
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to submit the form. Please check your connection and try again.');
+    }
+  };
   return (
     <>
       <Box sx={{ flexGrow: 1, p: 4, bgcolor: 'white' }}>
@@ -141,6 +175,7 @@ const CareersScreen = () => {
           justifyContent: 'center',
           alignItems: 'center',
           px: 2,
+         
         }}
       >
         <Paper
@@ -151,6 +186,7 @@ const CareersScreen = () => {
             maxWidth: 800,
             width: '100%',
             p: 4,
+          m:15,
           }}
         >
           <Typography variant="h4" fontWeight="bold" align="center" mb={3}>
@@ -174,9 +210,7 @@ const CareersScreen = () => {
                 previousJobDescription: '',
                 acceptTerms: false,
               }}
-              onSubmit={(values) => {
-                console.log(values);
-              }}
+              onSubmit={handleSubmit}
             >
               {({ values, handleChange, setFieldValue }) => (
                 <Form>
