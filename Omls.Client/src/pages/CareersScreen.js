@@ -1,9 +1,12 @@
 import React from 'react'
 import Footer from '../components/Footer'
-import { Grid, Typography, Box, Paper, IconButton, TextField, Button,MenuItem } from '@mui/material';
+import { Grid, Typography, Box, Paper, IconButton, TextField, Button, MenuItem } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
 import { Formik, Form } from 'formik';
 import {
   DatePicker,
@@ -13,6 +16,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
+
 
 
 const CareersScreen = () => {
@@ -156,8 +160,6 @@ const CareersScreen = () => {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Formik
               initialValues={{
-                title: '',
-                content: '',
                 firstName: '',
                 lastName: '',
                 email: '',
@@ -170,6 +172,7 @@ const CareersScreen = () => {
                 previousJobStartDate: null,
                 previousJobEndDate: null,
                 previousJobDescription: '',
+                acceptTerms: false,
               }}
               onSubmit={(values) => {
                 console.log(values);
@@ -178,38 +181,15 @@ const CareersScreen = () => {
               {({ values, handleChange, setFieldValue }) => (
                 <Form>
                   <Grid container spacing={2}>
-                    {/* Title & Content */}
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        name="title"
-                        value={values.title}
-                        onChange={handleChange}
-                        placeholder="Application Title"
-                        variant="outlined"
-                      />
-                    </Grid>
-                    <Grid item xs={12}>
-                      <TextField
-                        fullWidth
-                        name="content"
-                        value={values.content}
-                        onChange={handleChange}
-                        placeholder="Application Content"
-                        multiline
-                        rows={3}
-                        variant="outlined"
-                      />
-                    </Grid>
 
-                    {/* Basic Info */}
+                    {/* Row 1: First Name & Last Name */}
                     <Grid item xs={6}>
                       <TextField
                         fullWidth
                         name="firstName"
                         value={values.firstName}
                         onChange={handleChange}
-                        placeholder="First Name"
+                        placeholder="First Name*"
                         variant="outlined"
                       />
                     </Grid>
@@ -219,17 +199,19 @@ const CareersScreen = () => {
                         name="lastName"
                         value={values.lastName}
                         onChange={handleChange}
-                        placeholder="Last Name"
+                        placeholder="Last Name*"
                         variant="outlined"
                       />
                     </Grid>
+
+                    {/* Row 2: Email & Phone */}
                     <Grid item xs={6}>
                       <TextField
                         fullWidth
                         name="email"
                         value={values.email}
                         onChange={handleChange}
-                        placeholder="Email"
+                        placeholder="Email*"
                         variant="outlined"
                       />
                     </Grid>
@@ -239,52 +221,50 @@ const CareersScreen = () => {
                         name="phone"
                         value={values.phone}
                         onChange={handleChange}
-                        placeholder="Phone"
+                        placeholder="Phone*"
                         variant="outlined"
                       />
                     </Grid>
 
-                    {/* Address */}
+                    {/* Row 3: Address (full width) */}
                     <Grid item xs={12}>
                       <TextField
                         fullWidth
                         name="address"
                         value={values.address}
                         onChange={handleChange}
-                        placeholder="Address"
+                        placeholder="Address*"
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={6}>
+
+                    {/* Row 4: City, Country, Zip */}
+                    <Grid item xs={4}>
                       <TextField
                         fullWidth
                         name="city"
                         value={values.city}
                         onChange={handleChange}
-                        placeholder="City"
+                        placeholder="City*"
                         variant="outlined"
                       />
                     </Grid>
-                    <Grid item xs={3}>
-                      <TextField
-                        fullWidth
-                        name="zip"
-                        value={values.zip}
-                        onChange={handleChange}
-                        placeholder="ZIP Code"
-                        variant="outlined"
-                      />
-                    </Grid>
-                    <Grid item xs={3}>
+                    <Grid item xs={4}>
                       <TextField
                         fullWidth
                         select
                         name="country"
                         value={values.country}
                         onChange={handleChange}
-                        placeholder="Country"
                         variant="outlined"
+                        displayEmpty
+                        SelectProps={{
+                          displayEmpty: true
+                        }}
                       >
+                        <MenuItem value=""  alignItems="left">
+                          Country*
+                        </MenuItem>
                         {countries.map((c) => (
                           <MenuItem key={c} value={c}>
                             {c}
@@ -292,8 +272,18 @@ const CareersScreen = () => {
                         ))}
                       </TextField>
                     </Grid>
+                    <Grid item xs={4}>
+                      <TextField
+                        fullWidth
+                        name="zip"
+                        value={values.zip}
+                        onChange={handleChange}
+                        placeholder="ZIP Code*"
+                        variant="outlined"
+                      />
+                    </Grid>
 
-                    {/* Previous Job Info */}
+                    {/* Row 5: Previous Job Title (full width) */}
                     <Grid item xs={12}>
                       <TextField
                         fullWidth
@@ -304,30 +294,26 @@ const CareersScreen = () => {
                         variant="outlined"
                       />
                     </Grid>
+
+                    {/* Row 6: Start & End Dates */}
                     <Grid item xs={6}>
                       <DatePicker
-                        label="Previous Job Start Date"
+                        label="Date Previous Job Started"
                         value={values.previousJobStartDate}
-                        onChange={(date) =>
-                          setFieldValue('previousJobStartDate', date)
-                        }
-                        renderInput={(params) => (
-                          <TextField fullWidth {...params} />
-                        )}
+                        onChange={(date) => setFieldValue('previousJobStartDate', date)}
+                        renderInput={(params) => <TextField fullWidth {...params} />}
                       />
                     </Grid>
                     <Grid item xs={6}>
                       <DatePicker
-                        label="Previous Job End Date"
+                        label="Date Previous Job Ended"
                         value={values.previousJobEndDate}
-                        onChange={(date) =>
-                          setFieldValue('previousJobEndDate', date)
-                        }
-                        renderInput={(params) => (
-                          <TextField fullWidth {...params} />
-                        )}
+                        onChange={(date) => setFieldValue('previousJobEndDate', date)}
+                        renderInput={(params) => <TextField fullWidth {...params} />}
                       />
                     </Grid>
+
+                    {/* Row 7: Description (textarea) */}
                     <Grid item xs={12}>
                       <TextField
                         fullWidth
@@ -341,7 +327,24 @@ const CareersScreen = () => {
                       />
                     </Grid>
 
-                    {/* Submit */}
+                    {/* Row 8: Checkbox & Notice */}
+                    <Grid item xs={12}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            name="acceptTerms"
+                            checked={values.acceptTerms}
+                            onChange={handleChange}
+                          />
+                        }
+                        label="Please click before submission*"
+                      />
+                      <Typography variant="body2" sx={{ mt: 1 }}>
+                        By submitting this form, you agree to our Privacy Policy.
+                      </Typography>
+                    </Grid>
+
+                    {/* Row 9: Submit Button */}
                     <Grid item xs={12}>
                       <Box display="flex" justifyContent="center">
                         <Button
@@ -350,15 +353,17 @@ const CareersScreen = () => {
                           color="primary"
                           sx={{ px: 4 }}
                         >
-                          Submit Application
+                          Submit
                         </Button>
                       </Box>
                     </Grid>
+
                   </Grid>
                 </Form>
               )}
             </Formik>
           </LocalizationProvider>
+
         </Paper>
       </Box>
 
