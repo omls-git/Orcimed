@@ -8,6 +8,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import axios from 'axios';
 import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 import {
   DatePicker,
   LocalizationProvider,
@@ -21,10 +22,23 @@ const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
 
 
 const CareersScreen = () => {
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required('First name is required'),
+    lastName: Yup.string().required('Last name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    phone: Yup.string().required('Phone is required'),
+    address: Yup.string().required('Address is required'),
+    city: Yup.string().required('City is required'),
+    country: Yup.string().required('Country is required'),
+    zip: Yup.string().required('ZIP Code is required'),
+    acceptTerms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+  });
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
       const payload = {
+        title: "Software Engineer Application",
+        content: "I am interested in the Software Engineer position.",
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
@@ -39,13 +53,14 @@ const CareersScreen = () => {
         previousJobDescription: values.previousJobDescription,
         acceptTerms: values.acceptTerms
       };
+  
       console.log('Form values:', payload); // Debugging line
-
-      const response = await axios.post('localhost:5000/posts', payload);
-
+  
+      const response = await axios.post("/posts", payload);
+     
       if (response.status === 200) {
         alert('Form submitted successfully!');
-        resetForm(); // Optional: Reset form after success
+        resetForm();
       } else {
         alert('Something went wrong. Please try again.');
       }
@@ -54,6 +69,7 @@ const CareersScreen = () => {
       alert('Failed to submit the form. Please check your connection and try again.');
     }
   };
+  
   return (
     <>
       <Box sx={{ flexGrow: 1, p: 4, bgcolor: 'white' }}>
@@ -211,6 +227,7 @@ const CareersScreen = () => {
                 acceptTerms: false,
               }}
               onSubmit={handleSubmit}
+              validationSchema={validationSchema}
             >
               {({ values, handleChange, setFieldValue }) => (
                 <Form>
@@ -296,7 +313,7 @@ const CareersScreen = () => {
                           displayEmpty: true
                         }}
                       >
-                        <MenuItem value=""  alignItems="left">
+                        <MenuItem value=""  alignItems="left" justifyContent="left" color='#808080'> 
                           Country*
                         </MenuItem>
                         {countries.map((c) => (
