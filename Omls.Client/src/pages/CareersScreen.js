@@ -1,8 +1,425 @@
 import React from 'react'
+import Footer from '../components/Footer'
+import { Grid, Typography, Box, Paper, IconButton, TextField, Button, MenuItem } from '@mui/material';
+import EmailIcon from '@mui/icons-material/Email';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import InfoIcon from '@mui/icons-material/Info';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import axios from 'axios';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import {
+  DatePicker,
+  LocalizationProvider,
+} from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
+const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
+
+
+
 
 const CareersScreen = () => {
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required('First name is required'),
+    lastName: Yup.string().required('Last name is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    phone: Yup.string().required('Phone is required'),
+    address: Yup.string().required('Address is required'),
+    city: Yup.string().required('City is required'),
+    country: Yup.string().required('Country is required'),
+    zip: Yup.string().required('ZIP Code is required'),
+    acceptTerms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+  });
+
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const payload = {
+        title: "Software Engineer Application",
+        content: "I am interested in the Software Engineer position.",
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        city: values.city,
+        country: values.country,
+        zip: values.zip,
+        previousJobTitle: values.previousJobTitle,
+        previousJobStartDate: values.previousJobStartDate?.toISOString(),
+        previousJobEndDate: values.previousJobEndDate?.toISOString(),
+        previousJobDescription: values.previousJobDescription,
+        acceptTerms: values.acceptTerms
+      };
+  
+      console.log('Form values:', payload); // Debugging line
+  
+      const response = await axios.post("/posts", payload);
+     
+      if (response.status === 200) {
+        alert('Form submitted successfully!');
+        resetForm();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to submit the form. Please check your connection and try again.');
+    }
+  };
+  
   return (
-    <div>CareersScreen</div>
+    <>
+      <Box sx={{ flexGrow: 1, p: 4, bgcolor: 'white' }}>
+        <Grid container spacing={4} alignItems="center">
+          {/* Left Section */}
+          <Grid item xs={12} md={6}>
+            <Typography variant="h3" component="div" color="error" fontWeight="bold">
+              Contact <span style={{ color: '#333' }}>Us</span>
+            </Typography>
+            <Typography variant="subtitle1" mt={2}>
+              Partner with Us. We would like to hear from you!
+            </Typography>
+            {/* You can replace this with your image */}
+            <Box
+              component="img"
+              src="careers.png"
+              alt="contact team"
+              mt={4}
+              sx={{ width: '70%', borderRadius: 2 }}
+            />
+          </Grid>
+
+          {/* Right Section */}
+          <Grid item xs={12} md={6}>
+            <Paper
+              elevation={4}
+              sx={{
+                p: 4,
+                bgcolor: 'error.main',
+                color: 'white',
+                borderRadius: '0px 40px 0px 40px',
+                width: '80%',              // Decreased width (adjust to 60%-80% as needed)
+                height: '100%',            // Increase height fully inside Grid area
+                minHeight: '320px',        // Ensures enough vertical space
+                mx: 'auto',
+              }}
+            >
+              {/* Row 1 */}
+              <Box display="flex" alignItems="center" mb={3} mt={7}>
+                <Box
+                  sx={{
+                    bgcolor: 'black',
+                    borderRadius: '50%',
+                    width: 40,
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mr: 2,
+                  }}
+                >
+                  <EmailIcon sx={{ color: 'white', fontSize: 20 }} />
+                </Box>
+                <Typography variant="body1" fontSize="large" fontWeight="bold">bizdev@totalcro.com</Typography>
+              </Box>
+
+              {/* Row 2 */}
+              <Box display="flex" alignItems="center" mb={3}>
+                <Box
+                  sx={{
+                    bgcolor: 'black',
+                    borderRadius: '50%',
+                    width: 40,
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mr: 2,
+                  }}
+                >
+                  <LinkedInIcon sx={{ color: 'white', fontSize: 20 }} />
+                </Box>
+                <Typography variant="body1" fontSize="large" fontWeight="bold">LinkedIn</Typography>
+              </Box>
+
+              {/* Row 3 */}
+              <Box display="flex" alignItems="flex-start">
+                <Box
+                  sx={{
+                    bgcolor: 'black',
+                    borderRadius: '50%',
+                    width: 40,
+                    height: 40,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    mr: 2,
+                    mt: '2px',
+                  }}
+                >
+                  <InfoIcon sx={{ color: 'white', fontSize: 20 }} />
+                </Box>
+                <Typography
+                  variant="body1"
+                  fontSize="large"
+                  fontWeight="bold"
+                  align="left"
+                  sx={{ textAlign: 'left' }}
+                >
+                  The Only CRO with 100%  Recruitment <br />
+                  Targets Met for All
+                  Populations
+                </Typography>
+              </Box>
+            </Paper>
+          </Grid>
+        </Grid>
+      </Box>
+
+
+
+      <Box
+        sx={{
+          backgroundImage: 'url(/careersBack.png)', // Replace with your actual image path
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          px: 2,
+         
+        }}
+      >
+        <Paper
+          elevation={5}
+          sx={{
+            bgcolor: 'white',
+            borderRadius: 3,
+            maxWidth: 800,
+            width: '100%',
+            p: 4,
+          m:15,
+          }}
+        >
+          <Typography variant="h4" fontWeight="bold" align="center" mb={3}>
+            Write To Us
+          </Typography>
+
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <Formik
+              initialValues={{
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                address: '',
+                city: '',
+                country: '',
+                zip: '',
+                previousJobTitle: '',
+                previousJobStartDate: null,
+                previousJobEndDate: null,
+                previousJobDescription: '',
+                acceptTerms: false,
+              }}
+              onSubmit={handleSubmit}
+              validationSchema={validationSchema}
+            >
+              {({ values, handleChange, setFieldValue }) => (
+                <Form>
+                  <Grid container spacing={2}>
+
+                    {/* Row 1: First Name & Last Name */}
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        name="firstName"
+                        value={values.firstName}
+                        onChange={handleChange}
+                        placeholder="First Name*"
+                        variant="outlined"
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        name="lastName"
+                        value={values.lastName}
+                        onChange={handleChange}
+                        placeholder="Last Name*"
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 2: Email & Phone */}
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        name="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        placeholder="Email*"
+                        variant="outlined"
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <TextField
+                        fullWidth
+                        name="phone"
+                        value={values.phone}
+                        onChange={handleChange}
+                        placeholder="Phone*"
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 3: Address (full width) */}
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        name="address"
+                        value={values.address}
+                        onChange={handleChange}
+                        placeholder="Address*"
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 4: City, Country, Zip */}
+                    <Grid item xs={4}>
+                      <TextField
+                        fullWidth
+                        name="city"
+                        value={values.city}
+                        onChange={handleChange}
+                        placeholder="City*"
+                        variant="outlined"
+                      />
+                    </Grid>
+                    <Grid item xs={4}>
+                      <TextField
+                        fullWidth
+                        select
+                        name="country"
+                        value={values.country}
+                        onChange={handleChange}
+                        variant="outlined"
+                        displayEmpty
+                        SelectProps={{
+                          displayEmpty: true
+                        }}
+                      >
+                        <MenuItem value=""  alignItems="left" justifyContent="left" color='#808080'> 
+                          Country*
+                        </MenuItem>
+                        {countries.map((c) => (
+                          <MenuItem key={c} value={c}>
+                            {c}
+                          </MenuItem>
+                        ))}
+                      </TextField>
+                    </Grid>
+                    <Grid item xs={4}>
+                      <TextField
+                        fullWidth
+                        name="zip"
+                        value={values.zip}
+                        onChange={handleChange}
+                        placeholder="ZIP Code*"
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 5: Previous Job Title (full width) */}
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        name="previousJobTitle"
+                        value={values.previousJobTitle}
+                        onChange={handleChange}
+                        placeholder="Previous Job Title"
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 6: Start & End Dates */}
+                    <Grid item xs={6}>
+                      <DatePicker
+                        label="Date Previous Job Started"
+                        value={values.previousJobStartDate}
+                        onChange={(date) => setFieldValue('previousJobStartDate', date)}
+                        renderInput={(params) => <TextField fullWidth {...params} />}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <DatePicker
+                        label="Date Previous Job Ended"
+                        value={values.previousJobEndDate}
+                        onChange={(date) => setFieldValue('previousJobEndDate', date)}
+                        renderInput={(params) => <TextField fullWidth {...params} />}
+                      />
+                    </Grid>
+
+                    {/* Row 7: Description (textarea) */}
+                    <Grid item xs={12}>
+                      <TextField
+                        fullWidth
+                        name="previousJobDescription"
+                        value={values.previousJobDescription}
+                        onChange={handleChange}
+                        placeholder="Previous Job Description"
+                        multiline
+                        rows={4}
+                        variant="outlined"
+                      />
+                    </Grid>
+
+                    {/* Row 8: Checkbox & Notice */}
+                    <Grid item xs={12}>
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            name="acceptTerms"
+                            checked={values.acceptTerms}
+                            onChange={handleChange}
+                          />
+                        }
+                        label="Please click before submission*"
+                      />
+                      <Typography variant="body2" sx={{ mt: 1 }}>
+                        By submitting this form, you agree to our Privacy Policy.
+                      </Typography>
+                    </Grid>
+
+                    {/* Row 9: Submit Button */}
+                    <Grid item xs={12}>
+                      <Box display="flex" justifyContent="center">
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          color="primary"
+                          sx={{ px: 4 }}
+                        >
+                          Submit
+                        </Button>
+                      </Box>
+                    </Grid>
+
+                  </Grid>
+                </Form>
+              )}
+            </Formik>
+          </LocalizationProvider>
+
+        </Paper>
+      </Box>
+
+      <Footer />
+    </>
   )
 }
 
