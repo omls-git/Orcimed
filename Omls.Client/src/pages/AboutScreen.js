@@ -327,7 +327,6 @@ const AboutScreen = () => {
           </Grid>
         ))}
       </Grid>
-      <Footer />
     </Container>
   );
 }

@@ -87,7 +87,6 @@ const HomeScreen = () => {
       </Grid>      
       <ServiceCards />
       <CustomerCarousel />
-       <Footer />
     </div>
   );
 };
