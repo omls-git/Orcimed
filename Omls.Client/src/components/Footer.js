@@ -18,7 +18,7 @@ const Footer = () => {
       hbgc: "#fff",
       color: "#fff",
       hoverC: "#F39200",
-      link: 'contact@orcimedlifesciences.com'
+      link: 'contact@orcimedlifesciences.com',
     },
     {
       icon: <LinkedInIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
@@ -113,7 +113,7 @@ const Footer = () => {
                   sx={{
                     borderTopLeftRadius: index === 0 ? "60px" : 0,
                     borderBottomRightRadius: index === 3 ? "60px" : 0,
-                    bgcolor: item.bgc,
+                    backgroundColor: item.bgc,
                     color: item.color,
                     p: 3,
                     textAlign: "center",
@@ -122,14 +122,15 @@ const Footer = () => {
                       bgcolor: item.hbgc,
                       color: item.hoverC
                     },
-                    minHeight: 200,
-                    width: isMobile ? "240px" : "280px",
+                    minHeight: isMobile ? 150 : 200,
+                    width: isMobile ? "78%" : "280px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems:"center",
                     cursor: item.link ? "pointer" : "default",
                   }}
+                  
                   onClick={() => handleClick(item)}
                 >
                   {item.icon}

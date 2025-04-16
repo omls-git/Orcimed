@@ -178,9 +178,6 @@ const CareersScreen = () => {
           </Grid>
         </Grid>
       </Box>
-
-
-
       <Box
         sx={{
           backgroundImage: 'url(/careersBack.png)', // Replace with your actual image path
@@ -417,8 +414,6 @@ const CareersScreen = () => {
 
         </Paper>
       </Box>
-
-      <Footer />
     </>
   )
 }

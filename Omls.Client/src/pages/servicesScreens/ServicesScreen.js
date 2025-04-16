@@ -15,8 +15,8 @@ const ServicesScreen = () => {
       sx={{
         backgroundColor: "#c8102e",
         color: "white",
-        py: 4,
-        px: isMobile |isTab  ? 4  : 30,
+        py: {xs:4,sm:3,md:3},
+        px: {xs:4,sm:5,md:8,xl:30},
         minHeight: "80vh",
         display: "flex",
         flexDirection: isMobile ? "column" : "row",
@@ -24,7 +24,7 @@ const ServicesScreen = () => {
       }}
     >
       {/* Left Side - Text Content */}
-      <Box sx={{ flex: 1 }} maxWidth= {isMobile ? "100%" : "60%" }>
+      <Box sx={{ flex: 1 }}>
         <Typography
           variant= {isMobile || isTab ? "h4" :"h2"}
           textAlign='left'
@@ -49,7 +49,7 @@ const ServicesScreen = () => {
           Services are enriched by extensive clinical trial management experience, offering a strategic, culturally sensitive, and results-driven approach to clinical trial diversity. This includes recruitment, site support, physician relationships, and creative messaging.
         </Typography>
         <Typography
-          variant="body1"
+          variant="h3"
           sx={{
             fontSize: isMobile ? "1rem" : "1.1rem",
           }}

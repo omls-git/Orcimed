@@ -1,8 +1,8 @@
 import React from 'react'
-import { Grid, Box, Typography, Button, Container, Card, CardContent, Avatar, IconButton } from "@mui/material";
-import Footer from '../components/Footer';
+import { Grid, Box, Typography, Card, CardContent, Avatar, IconButton, List, ListItem, ListItemIcon } from "@mui/material";
 import { LinkedIn } from "@mui/icons-material";
 import { motion } from "framer-motion";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 
 const sections = [
@@ -77,7 +77,7 @@ const cardData = [
   {
     title: "Transparency",
     description: [
-      "The organization has transparency in its structure, workflow,", 
+      "The organization has transparency in its structure, workflow,",
       "and communication and a great team with global experience",
     ],
     imgSrc: "Trnasparency.png", // Replace with actual image URL
@@ -101,24 +101,21 @@ const cardData = [
   {
     title: "Scalability",
     description: [
-     "We have robust scalability plans to meet",
-     "increasing demands of the industry"
+      "We have robust scalability plans to meet",
+      "increasing demands of the industry"
     ],
     imgSrc: "scalability.png", // Replace with actual image URL
   }
 ];
 
 const AboutScreen = () => {
- 
-  
+
+
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Box style={{overflow: "hidden"}} mt={"94px"}>
       {/* Hero Section with Background Image */}
-      <Grid
-        container
+      <Box
         sx={{
-          width: "100%",
-          height: { xs: "250px", md: "700px" },
           backgroundImage: "url('/baoutusbg.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -128,36 +125,63 @@ const AboutScreen = () => {
           justifyContent: "flex-start", // Move content to the left
           textAlign: "left", // Align text to the left
           pl: { xs: 2, md: 10 }, // Add left padding for spacing
+          py: { xs: "20px", md: "40px" },
         }}
       >
-        <Grid item xs={12} md={6}> {/* Text only takes half width on larger screens */}
+        <Grid item xs={12} md={6}>
           <Typography variant="h3" fontWeight="bold" color="#007b8f">
             Vision
           </Typography>
-          <Typography variant="h6" color="black">
-            To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
-            We strive to be a long-term trusted partner of major innovative healthcare organizations.
-          </Typography>
+          <List dense>
+            <ListItem>
+              <ListItemIcon>
+                <CheckCircleIcon  sx={{ color: '#F39200' }} />
+              </ListItemIcon>
+              <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}} >
+                To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
+              </Typography>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <CheckCircleIcon sx={{ color: '#F39200' }} />
+              </ListItemIcon>
+              <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
+                We strive to be a long-term trusted partner of major innovative healthcare organizations.
+              </Typography>
+              </ListItem>
+          </List>
           <Typography variant="h3" fontWeight="bold" color="#F39200" sx={{ mt: 2 }}>
             Mission
           </Typography>
-          <Typography variant="h6" color="black">
-            To provide reliable Clinical Research Services covering a range of activities for pharmaceutical and biotech companies, through a team of committed experts.
-            To help our customers in creating a healthier and safer world through our quality services.
-          </Typography>
+          <List dense>
+            <ListItem>
+              <ListItemIcon>
+                <CheckCircleIcon sx={{ color: '#F39200' }} />
+              </ListItemIcon>
+              <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
+                To provide reliable Clinical Research Services covering a range of activities for pharmaceutical and biotech companies, through a team of committed experts.
+              </Typography>
+            </ListItem>
+            <ListItem>
+              <ListItemIcon>
+                <CheckCircleIcon sx={{ color: '#F39200' }} />
+              </ListItemIcon>
+              <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
+                To help our customers in creating a healthier and safer world through our quality services.
+              </Typography>    </ListItem>
+          </List>
         </Grid>
-      </Grid>
+      </Box>
 
-      <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ mt: 4, px: { xs: 2, md: 10 } }}>
+      <Grid container spacing={4} justifyContent="center" alignItems="center" sx={{ mt: 4, px:{ xs: 2, md: 10 } }}>
         {sections.map((section, index) => (
           <Grid container item spacing={4} key={index} alignItems="center">
-            {/* Image Section - Alternating Position */}
             <Grid
               item
               xs={12}
               md={5}
               order={{ xs: 1, md: index % 2 === 0 ? 1 : 2 }}
-              sx={{ display: "flex", justifyContent: "center" }}
+              sx={{ display: "flex", justifyContent: "center"  }}
             >
               <motion.img
                 src={section.imgSrc}
@@ -166,7 +190,7 @@ const AboutScreen = () => {
                   width: "90%",
                   maxWidth: "400px",
                   borderRadius: "10px",
-                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+                  boxShadow: "0 4px 10px rgba(0,0,0,0.1)",                  
                 }}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }} // Slide from left/right
                 whileInView={{ opacity: 1, x: 0 }}
@@ -174,8 +198,6 @@ const AboutScreen = () => {
                 viewport={{ amount: 0.2 }} // Keeps triggering when visible
               />
             </Grid>
-
-            {/* Text Card Section */}
             <Grid item xs={12} md={7} order={{ xs: 2, md: index % 2 === 0 ? 2 : 1 }}>
               <motion.div
                 initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }} // Slide from right/left
@@ -209,7 +231,6 @@ const AboutScreen = () => {
         </Grid>
         {teamMembers.map((member, index) => (
           <Grid item xs={12} sm={6} md={4} lg={3} key={index} sx={{ paddingBottom: "20px" }}>
-            {/* Added paddingBottom to prevent movement */}
             <Box
               sx={{
                 textAlign: "center",
@@ -270,7 +291,7 @@ const AboutScreen = () => {
       </Grid>
       {/* why orcimed lifesciences */}
 
-      <Grid container spacing={4} justifyContent="center" sx={{ mt: 4, px: { xs: 2, md: 10 } , mb:4}} >
+      <Grid container spacing={4} justifyContent="center" sx={{ mt: 4, px: { xs: 2, md: 10 }, mb: 4 }} >
         <Grid item xs={12} textAlign="center">
           <Typography variant="h3" fontWeight="bold" color="#F39200">
             Why Orcimed Lifesciences?
@@ -286,17 +307,12 @@ const AboutScreen = () => {
             >
               <Card elevation={3} sx={{ height: "100%", display: "flex", flexDirection: "column", borderRadius: "15px" }}>
                 <CardContent sx={{ flex: 1, display: "flex", flexDirection: "column" }}>
-                  {/* Image */}
                   <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
                     <img src={item.imgSrc} alt={item.title} style={{ width: "80px", height: "80px" }} />
                   </Box>
-
-                  {/* Title */}
-                  <Typography variant="h5" sx={{ fontWeight: "bold", color:" #F39200", textAlign: "center" }}>
+                  <Typography variant="h5" sx={{ fontWeight: "bold", color: " #F39200", textAlign: "center" }}>
                     {item.title}
                   </Typography>
-
-                  {/* Description List */}
                   <Box
                     component="ul"
                     sx={{
@@ -316,18 +332,13 @@ const AboutScreen = () => {
                       </Typography>
                     ))}
                   </Box>
-
-                  {/* Read More Button - Always at Bottom */}
-                  <Button variant="contained" sx={{ backgroundColor: "#007b8f", color: "white", mt: "auto", alignSelf: "center" }}>
-                    Read More →
-                  </Button>
                 </CardContent>
               </Card>
             </motion.div>
           </Grid>
         ))}
       </Grid>
-    </Container>
+    </Box>
   );
 }
 
