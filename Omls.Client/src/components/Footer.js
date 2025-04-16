@@ -11,23 +11,23 @@ const Footer = () => {
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ContactList = [
     {
-      icon: <MailOutlineIcon sx={{ p: 2, bgcolor: "#222", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      icon: <MailOutlineIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
       title: "EMAIL",
       content: "contact@orcimedlifesciences.com",
       bgc: "#454644",
-      hbgc: "#f5f5f5",
+      hbgc: "#fff",
       color: "#fff",
-      hoverC: "#c00",
-      link: 'contact@orcimedlifesciences.com'
+      hoverC: "#F39200",
+      link: 'contact@orcimedlifesciences.com',
     },
     {
-      icon: <LinkedInIcon sx={{ p: 2, bgcolor: "black", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      icon: <LinkedInIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
       title: "",
       content: "LinkedIn",
-      bgc: "#bd1229",
-      hbgc: "#f5f5f5",
+      bgc: "#007b8f",
+      hbgc: "#fff",
       color: "#fff",
-      hoverC: "#bd1229",
+      hoverC: "#F39200",
       link: 'https://www.linkedin.com/company/orcimed-life-sciences'
     },
     {
@@ -35,32 +35,32 @@ const Footer = () => {
       title: "",
       content: "The Only CRO with 100% Recruitment Targets Met for All Populations",
       bgc: "black",
-      hbgc: "black",
+      hbgc: "#fff",
       color: "#fff",
-      hoverC: "#fff",
+      hoverC: "#F39200",
       link: ''
     },
     {
-      icon: <DescriptionIcon sx={{ p: 2, bgcolor: "#bd1229", borderRadius: "50%", color: "#fff" }} fontSize="large" />,
+      icon: <DescriptionIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
       title: "",
       content: "News & Blog",
       bgc: "#454644",
-      hbgc: "#f5f5f5",
+      hbgc: "#fff",
       color: "#fff",
-      hoverC: "#bd1229",
+      hoverC: "#F39200",
       link: 'news-blog'
     }
   ];
 
   const QuickLinks = [
-    { title: 'HOME', link: '' },
-    { title: 'ABOUT US', link: 'about' },
-    { title: 'SERVICES', link: 'services' },
-    { title: 'TEAM', link: 'team' },
-    { title: 'MISSION & VISION', link: 'mission-vision' },
-    { title: 'WHY ORCIMED LIFE SCIENCES', link: 'why-orcimed' },
-    { title: 'CAREERS', link: 'careers' },
-    { title: 'CONTACT US', link: 'contact' }
+    { title: 'HOME', link: '/' },
+    { title: 'ABOUT US', link: '/about' },
+    { title: 'SERVICES', link: '/services' },
+    { title: 'TEAM', link: '/team' },
+    { title: 'MISSION & VISION', link: '/mission-vision' },
+    { title: 'WHY ORCIMED LIFE SCIENCES', link: '/why-orcimed' },
+    { title: 'CAREERS', link: '/careers' },
+    { title: 'CONTACT US', link: '/contact' }
   ];
 
   const navigate = useNavigate();
@@ -81,14 +81,15 @@ const Footer = () => {
         <Typography
           variant="h4"
           gutterBottom
-          sx={{ fontWeight: "bold", py: 1 }}
+          textAlign={isMobile ? "center": "left"}
+          sx={{ fontWeight: "bold", py: 4 }}
         >
           Connect With Us
         </Typography>
         <Stack
           spacing={4}
           direction={{ xs:"column", sm:"row", md: "row"}}
-          alignItems="flex-start"
+          alignItems= {isMobile ? "center" : "flex-start"}
           sx={{ flexWrap: "wrap" }}
         >
           {/* Contact Cards */}
@@ -105,14 +106,14 @@ const Footer = () => {
                 key={index}
                 initial={{ opacity: 0, x: isMobile ? -100 :-250 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: index > 1 ? 1.2 : 0.6, ease: "easeOut" }}
+                transition={{ duration: index > 1 ? 2.2 : 0.6, ease: "easeOut" }}
                 viewport={{ amount: 0.2 }}
               >
                 <Box
                   sx={{
                     borderTopLeftRadius: index === 0 ? "60px" : 0,
                     borderBottomRightRadius: index === 3 ? "60px" : 0,
-                    bgcolor: item.bgc,
+                    backgroundColor: item.bgc,
                     color: item.color,
                     p: 3,
                     textAlign: "center",
@@ -121,13 +122,15 @@ const Footer = () => {
                       bgcolor: item.hbgc,
                       color: item.hoverC
                     },
-                    minHeight: 180,
-                    width: isMobile ? "240px" : "280px",
+                    minHeight: isMobile ? 150 : 200,
+                    width: isMobile ? "78%" : "280px",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    alignItems:"center",
                     cursor: item.link ? "pointer" : "default",
                   }}
+                  
                   onClick={() => handleClick(item)}
                 >
                   {item.icon}
@@ -146,14 +149,14 @@ const Footer = () => {
 
           {/* Quick Links */}
           <Box sx={{ minWidth: { xs: "100%", sm:"250px", md: "250px" }, pt: 4,textAlign:"left" }}>
-            <Typography variant="h6" fontWeight="bold" gutterBottom>
+            <Typography variant="h5" fontWeight="bold" gutterBottom>
               Quick Links
             </Typography>
             {QuickLinks.map((link) => (
               <Typography
                 key={link.title}
                 variant="body1"
-                sx={{ my: 1, cursor: 'pointer' }}
+                sx={{ my: 1, cursor: 'pointer',":hover":{color:"#F39200"} }}
                 fontWeight="bold"
                 onClick={() => navigate(link.link)}
               >
@@ -164,8 +167,8 @@ const Footer = () => {
         </Stack>
       </Container>
 
-      <Box sx={{ mt: 4, bgcolor: "#454644", py: 2, px: { xs: 2, md: 10 } }}>
-        <Typography variant="body2" fontWeight="bold" textAlign="center">
+      <Box sx={{ mt: 4, bgcolor: "rgb(35, 132, 177)", py: 3, px: { xs: 2, md: 10 } }}>
+        <Typography variant="body1" fontWeight="bold" textAlign="center">
           ©2023. OrciMed Life Sciences. All Rights Reserved.
         </Typography>
       </Box>

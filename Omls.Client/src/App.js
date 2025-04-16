@@ -12,6 +12,7 @@ import MissionVision from './pages/MissionVision';
 import ServicesScreen from './pages/servicesScreens/ServicesScreen';
 import ServiceReadMore from './pages/servicesScreens/ServiceReadMore';
 import ScrollToTop from './components/ScrollToTop';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
             
           </Routes>
         </div>
+        <Footer />
         </BrowserRouter>
     </div>
   );

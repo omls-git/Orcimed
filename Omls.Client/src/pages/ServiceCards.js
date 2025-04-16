@@ -26,7 +26,6 @@ const services = [
     title: "Medical Writing",
     description:
       "Medical writing is a distinct skill to create well-structured documents to present the information clearly and concisely.",
-    highlight: true,
     icon: "./icon_2-1.png"
   },
   {
@@ -60,7 +59,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   overflow: "hidden",
   backgroundColor: "#007b8f",//"#F39200",
   color: "#fff",
-  minHeight: "300px",
+  height: "330px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -96,8 +95,7 @@ const ServiceCards = () => {
     navigate(`/${linkTo}`)
   }
   return (
-    <div //style={{backgroundColor:"#fff"}}
-    >
+    <div>
     <Typography variant={isSmallScreen ? "h4": "h2"} fontWeight="bold" color="#F39200" py={3}>
       Service <span style={{ color: "#007b8f" }}>Spectrum </span>
     </Typography>
@@ -105,7 +103,7 @@ const ServiceCards = () => {
       {services.map((service, index) => (
         <Grid item xs={12} sm={6} md={4} lg={3} key={index} 
         onClick={() => handleClick(service.title)} sx={{cursor:"pointer"}}>
-          <StyledCard highlight={service.highlight}>
+          <StyledCard>
             <CardContent>
               <img src={service.icon} alt={service.icon}/>
               <Typography variant={isSmallScreen ? "h6" : "h5"} fontWeight="bold">
