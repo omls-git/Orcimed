@@ -84,7 +84,7 @@ const HomeScreen = () => {
       >
         <Grid item xs={12}>
           <Typography variant="h3" fontWeight="bold" sx={{ mb: 4 }}>
-            The TOTAL Diversity Difference
+          Our Experience
           </Typography>
         </Grid>
 

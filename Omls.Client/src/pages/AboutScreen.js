@@ -8,7 +8,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 const sections = [
   {
     imgSrc: "./cusstomerfocus.jpg",
-    title: "Customer Focussed",
+    title: "Customer Focused",
     text: "Our management, processes and people are aligned towards satisfying the needs of our customers",
   },
   {
@@ -18,7 +18,7 @@ const sections = [
   },
   {
     imgSrc: "./employe.jpg",
-    title: "Employee Focussed",
+    title: "Employee Focused",
     text: "Development of medicines requires knowledge and technical know-how. We invest to acquire knowledge to lead this evolving field and develop our employees. We provide growth and healthy work environment for our employees and promote positive work-life balance",
   },
   {
@@ -30,7 +30,7 @@ const sections = [
 const teamMembers = [
   {
     name: "Mr.Suman Maarisetty",
-    role: "Chief Execicutive Officer",
+    role: "Chief Executive Officer",
     image: "./suman.png",
     linkedin: "https://www.linkedin.com/in/johndoe/",
   },
@@ -83,7 +83,7 @@ const cardData = [
     imgSrc: "Trnasparency.png", // Replace with actual image URL
   },
   {
-    title: "Heihest Quality ",
+    title: "High Quality",
     description: [
       "We are committed to serve or customer requirements with our",
       " dedication to timelines, persistent flexibility standards."
@@ -91,9 +91,9 @@ const cardData = [
     imgSrc: "HeighestQuality.png", // Replace with actual image URL
   },
   {
-    title: "Cost Effective ",
+    title: "Cost Effective",
     description: [
-      "We provide cost-effective solutions that can be ",
+      "We provide cost effective solutions that can be ",
       "tailor made to meet customer's requirement"
     ],
     imgSrc: "costeffective.png", // Replace with actual image URL
@@ -135,7 +135,7 @@ const AboutScreen = () => {
           <List dense>
             <ListItem  alignItems="flex-start">
               <ListItemIcon>
-                <CheckCircleIcon  sx={{ color: '#F39200' }} />
+                <CheckCircleIcon  sx={{ color: '#F39200' }}   />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}} >
                 To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
@@ -294,7 +294,7 @@ const AboutScreen = () => {
       <Grid container spacing={4} justifyContent="center" sx={{ mt: 4, px: { xs: 2, md: 10 }, mb: 4 }} >
         <Grid item xs={12} textAlign="center">
           <Typography variant="h3" fontWeight="bold" color="#F39200">
-            Why Orcimed Lifesciences?
+            Why OrciMed Life Sciences?
           </Typography>
         </Grid>
         {cardData.map((item, index) => (
