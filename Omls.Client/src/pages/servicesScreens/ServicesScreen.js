@@ -13,7 +13,7 @@ const ServicesScreen = () => {
     <div>
     <Box
       sx={{
-        backgroundColor: "#c8102e",
+        backgroundColor: "#F39200",
         color: "white",
         py: {xs:4,sm:3,md:3},
         px: {xs:4,sm:5,md:8,xl:30},
@@ -32,7 +32,7 @@ const ServicesScreen = () => {
             fontWeight: 'bold',
             mb: isTab || isMobile ? 5 : 10,
           }}
-          color= "#F39200"
+          color= "black"
         >
             Diverse<span style={{color:"#fff"}}> Clinical Trial{isMobile || isTab? '' : <br/>} Services</span>
         </Typography>

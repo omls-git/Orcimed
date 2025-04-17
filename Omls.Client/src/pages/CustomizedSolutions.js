@@ -27,7 +27,7 @@ const CustomizedSolutions = () => {
         <Typography variant="h6" py="20px" 
         sx={{ textAlign:isMobile || isTablet ? "center": "left",alignItems:"center" }} 
         maxWidth={isTablet || isMobile ? '100%': "40%"} fontFamily={"inherit"}>
-          Orcimed Life Sciences prides itself on personalized
+          OrciMed Life Sciences prides itself on personalized
           clinical trial management. With extensive experience, close
           collaboration with clients—large or small—designs and implements
           customized strategies. Through hands-on support and community
