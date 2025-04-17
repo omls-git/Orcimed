@@ -59,7 +59,7 @@ const StyledCard = styled(Card)(({ theme }) => ({
   overflow: "hidden",
   backgroundColor: "#007b8f",//"#F39200",
   color: "#fff",
-  height: "330px",
+  height: "360px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -109,7 +109,7 @@ const ServiceCards = () => {
               <Typography variant={isSmallScreen ? "h6" : "h5"} fontWeight="bold">
                 {service.title}
               </Typography>
-              <Typography variant="body2" sx={{ marginTop: 1 }}>
+              <Typography variant="body1" sx={{ marginTop: 1 }}>
                 {service.description}
               </Typography>
             </CardContent>

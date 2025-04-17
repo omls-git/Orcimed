@@ -1,7 +1,8 @@
 import React from "react";
-import { Container, Typography, Box, useMediaQuery, useTheme } from "@mui/material";
+import { Container, Typography, Box, useMediaQuery, useTheme, List, ListItem, ListItemIcon } from "@mui/material";
 import leftPerson from '../images/homeImageJ.png';
 import rightPerson from '../images/homeimagejb.png'
+import NavigationIcon from '@mui/icons-material/Navigation';
 
 const CustomizedSolutions = () => {
   const theme = useTheme();
@@ -24,16 +25,39 @@ const CustomizedSolutions = () => {
         >
           Customized <span style={{ color: "#007b8f" }}>Clinical Research Solutions</span>
         </Typography>
-        <Typography variant="h6" py="20px" 
-        sx={{ textAlign:isMobile || isTablet ? "center": "left",alignItems:"center" }} 
-        maxWidth={isTablet || isMobile ? '100%': "40%"} fontFamily={"inherit"}>
-          Orcimed Life Sciences prides itself on personalized
-          clinical trial management. With extensive experience, close
-          collaboration with clients—large or small—designs and implements
-          customized strategies. Through hands-on support and community
-          outreach, efficient study launches, effective patient enrollment, and
-          high-quality outcomes are ensured. A tailored, client-focused CRO
-          experience is provided, meeting needs wherever clients are.
+        <Typography
+          py="20px"
+          variant="h6"
+          sx={{ textAlign: isMobile || isTablet ? "center" : "left", alignItems: "center",
+   }}
+          maxWidth={isTablet || isMobile ? "100%" : "50%"}
+          fontFamily="inherit"
+        >
+          <List >
+            <ListItem alignItems="flex-start">
+            <ListItemIcon>
+                <NavigationIcon  sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
+              </ListItemIcon>
+               Orcimed Life Sciences prides itself on personalized clinical trial management.
+            </ListItem>
+             <ListItem alignItems="flex-start">
+                <ListItemIcon>
+                  <NavigationIcon sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
+                </ListItemIcon>
+                With extensive experience, close
+                collaboration with clients—large or small—designs and implements
+                customized strategies. Through hands-on support and community
+                outreach, efficient study launches, effective patient enrollment, and
+                high-quality outcomes are ensured.
+                </ListItem>
+                <ListItem alignItems="flex-start">
+              <ListItemIcon>
+                  <NavigationIcon sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
+                </ListItemIcon>
+                A tailored, client-focused CRO
+                experience is provided, meeting needs wherever clients are.
+              </ListItem>
+          </List>
         </Typography>
       </Container>
       {/* Images */}

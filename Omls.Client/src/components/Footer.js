@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Stack, Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import DescriptionIcon from "@mui/icons-material/Description";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import AddIcCallIcon from '@mui/icons-material/AddIcCall';
+import WorkIcon from '@mui/icons-material/Work';
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -31,24 +32,24 @@ const Footer = () => {
       link: 'https://www.linkedin.com/company/orcimed-life-sciences'
     },
     {
-      icon: "",
+      icon: <WorkIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
       title: "",
-      content: "The Only CRO with 100% Recruitment Targets Met for All Populations",
-      bgc: "black",
+      content: "Careers",
+      bgc: "#007b8f",
       hbgc: "#fff",
       color: "#fff",
       hoverC: "#F39200",
-      link: ''
+      link: 'careers'
     },
     {
-      icon: <DescriptionIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
-      title: "",
-      content: "News & Blog",
+      icon: <AddIcCallIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
+      title: "Contact Us",
+      content: "040-69281100, +1 (910) 269-7239",
       bgc: "#454644",
       hbgc: "#fff",
       color: "#fff",
       hoverC: "#F39200",
-      link: 'news-blog'
+      link: 'contact'
     }
   ];
 
@@ -167,7 +168,7 @@ const Footer = () => {
         </Stack>
       </Container>
 
-      <Box sx={{ mt: 4, bgcolor: "rgb(35, 132, 177)", py: 3, px: { xs: 2, md: 10 } }}>
+      <Box sx={{ mt: 4, bgcolor: "#007b8f", py: 3, px: { xs: 2, md: 10 } }}>
         <Typography variant="body1" fontWeight="bold" textAlign="center">
           ©2023. OrciMed Life Sciences. All Rights Reserved.
         </Typography>

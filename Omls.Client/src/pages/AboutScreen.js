@@ -133,7 +133,7 @@ const AboutScreen = () => {
             Vision
           </Typography>
           <List dense>
-            <ListItem>
+            <ListItem  alignItems="flex-start">
               <ListItemIcon>
                 <CheckCircleIcon  sx={{ color: '#F39200' }} />
               </ListItemIcon>
@@ -141,7 +141,7 @@ const AboutScreen = () => {
                 To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
               </Typography>
             </ListItem>
-            <ListItem>
+            <ListItem  alignItems="flex-start">
               <ListItemIcon>
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
@@ -154,7 +154,7 @@ const AboutScreen = () => {
             Mission
           </Typography>
           <List dense>
-            <ListItem>
+            <ListItem alignItems="flex-start">
               <ListItemIcon>
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
@@ -162,7 +162,7 @@ const AboutScreen = () => {
                 To provide reliable Clinical Research Services covering a range of activities for pharmaceutical and biotech companies, through a team of committed experts.
               </Typography>
             </ListItem>
-            <ListItem>
+            <ListItem alignItems="flex-start">
               <ListItemIcon>
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
@@ -226,7 +226,7 @@ const AboutScreen = () => {
       <Grid container spacing={3} justifyContent="center" sx={{ marginTop: 5 }}>
         <Grid item xs={12} textAlign="center">
           <Typography variant="h3" fontWeight="bold" color="#F39200">
-            OUR TEAM
+          Our Leadership
           </Typography>
         </Grid>
         {teamMembers.map((member, index) => (
