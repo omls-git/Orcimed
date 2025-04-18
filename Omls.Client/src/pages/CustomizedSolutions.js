@@ -45,7 +45,7 @@ const CustomizedSolutions = () => {
                   <NavigationIcon sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
                 </ListItemIcon>
                 With extensive experience, close
-                collaboration with clients—large or small—designs and implements
+                collaboration with clients-large or small-designs and implements
                 customized strategies. Through hands-on support and community
                 outreach, efficient study launches, effective patient enrollment, and
                 high-quality outcomes are ensured.
