@@ -3,7 +3,7 @@ import '../styles/Header.css'
 import Logo from '../images/ocmlsLogo.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu as MenuIcon } from '@mui/icons-material';
-import { AppBar, Box, Button, Drawer, IconButton, List, ListItem, ListItemText, Menu, MenuItem, Toolbar, useMediaQuery } from '@mui/material'
+import { AppBar, Box, Button, Collapse, IconButton, List, ListItem, ListItemText, Menu, MenuItem, Paper, Toolbar, Typography, useMediaQuery } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
@@ -11,7 +11,7 @@ import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
-  const hoverTimeout = useRef(null);  
+  const hoverTimeout = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
   const isMobile = useMediaQuery('(max-width: 425px)');
@@ -43,7 +43,6 @@ const Header = () => {
     const link = service?.replace(/\s+/g, '-').toLowerCase()
     setTimeout(() => navigate(`/${link}`), 50);
   }
-
   return (
     <AppBar 
       position="fixed"
@@ -63,36 +62,65 @@ const Header = () => {
         </Box>
 
         {/* Right Side: Navigation */}
-        {isMobile ? (
-          <>
-            <IconButton color="warning" onClick={handleDrawerToggle}>
-              <MenuIcon />
-            </IconButton>
-            <Drawer anchor='top' open={mobileOpen} onClose={handleDrawerToggle}>
-              <List sx={{ width: 200 }}>
-                {QuickLinks.map((text) => (
-                  <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
-                    <ListItemText primary={text.title.toUpperCase()} />
-                  </ListItem>
-                ))}
-              </List>
-            </Drawer>
-          </>
-        ) : isTab ? (
+        {isMobile || isTab ? (
           <Box>
-            <IconButton color="warning" onClick={handleDrawerToggle} sx={{marginRight:"40px"}}>
+            <IconButton color="warning" onClick={handleDrawerToggle} sx={{marginRight: isMobile ? 0 : "40px"}}>
               <MenuIcon />
             </IconButton>
-            <Drawer anchor='top' open={mobileOpen} onClose={handleDrawerToggle}>
-              <List sx={{ width: 200 }}>
-                {QuickLinks.map((text) => (
-                  <ListItem button key={text.title} component={Link} to={`/${text.link.toLowerCase()}`} onClick={handleDrawerToggle}>
-                    <ListItemText primary={text.title.toUpperCase()} />
+            <div
+              style={{
+                position: "absolute",
+                top: isMobile ? 60 : 80, // Adjust based on menu icon height
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "90%",
+                zIndex: 1300,
+              }}>
+          <Collapse in={mobileOpen} mountOnEnter unmountOnExit
+          >
+            <Paper
+              elevation={4}
+              sx={{
+                overflow: "hidden",
+                borderTop: "3px solid #007b8f",
+                py:"15px",
+              }}
+            >
+              <List disablePadding>
+                {QuickLinks.map((item) => (                  
+                  <ListItem                  
+                    key={item.title}
+                    button
+                    component={Link}
+                    to={`/${item.link.toLowerCase()}`}
+                    onClick={handleDrawerToggle}
+                    sx={{
+                      width:"90%",
+                      mx: {xs:2, sm:4},
+                      color:location.pathname === `/${item.link}`? "#fff" : "black",
+                      borderBottom: item.title === "Careers" ? "" : "1px solid #eee",
+                      backgroundColor: location.pathname === `/${item.link}`? "#007b8f" : "#fff",
+                      "&:hover": {
+                        color: "#F39200",
+                      },
+                    }}
+                  >
+                    <ListItemText
+                      primary={
+                      <Typography
+                        fontWeight="bold"
+                        textTransform="uppercase"
+                      >
+                        {item.title}
+                      </Typography>}
+                    />
                   </ListItem>
                 ))}
               </List>
-            </Drawer>
-            <Button id='contactBtn' component={Link} to='/contact'>CONTACT US</Button>
+            </Paper>
+          </Collapse >
+          </div>
+           {isMobile ? null : <Button id='contactBtn' component={Link} to='/contact'>CONTACT US</Button>}
           </Box>
         ) : (
           <Box textAlign={'left'} py='10px' className='navItems'>
@@ -117,7 +145,7 @@ const Header = () => {
                             component={Link}
                             endIcon={menuOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                             style={{ color: menuOpen || isActive || hasMatch? '#F39200' : 'black', 
-                              cursor:"pointer",whiteSpace: 'nowrap' }}
+                              cursor:"pointer",whiteSpace: 'nowrap',marginRight:"30px" }}
                           >
                             SERVICES
                           </Button>
@@ -157,7 +185,7 @@ const Header = () => {
                       </Box>
                   )
                 }
-                return (<Button  style={{ color: isActive ?'#F39200' : "black", cursor:"pointer",marginRight:"10px" }} key={text.title} component={Link} to={`/${text.link}`}>{text.title}</Button>)
+                return (<Button  style={{ color: isActive ?'#F39200' : "black", cursor:"pointer",marginRight:"35px" }} key={text.title} component={Link} to={`/${text.link}`}>{text.title}</Button>)
             })
             }
             <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px', width:"175px", textAlign:"center"}}>CONTACT US</Button>
