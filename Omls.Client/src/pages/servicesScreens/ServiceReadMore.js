@@ -3,7 +3,7 @@ import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import services from './ServicesFile.json'
 import Pharmacovigilance from "./Pharmacovigilance";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const containerVariants = {
   hidden: {},
@@ -21,9 +21,12 @@ const itemVariants = {
 
 export default function SiteSupportServices() {
   const location = useLocation();
-  const currentPath = location.pathname.startsWith("/") && location.pathname !== "/"
-    ? location.pathname.slice(1, location.pathname?.length)
-    : location.pathname;
+  const { id } = useParams();
+  const currentPath = id; 
+  // const currentPath = location.pathname.startsWith("/") && location.pathname !== "/"
+  //   ? location.pathname.slice(1, location.pathname?.length)
+  //   : location.pathname;
+  console.log(currentPath,id)
   const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
     const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');

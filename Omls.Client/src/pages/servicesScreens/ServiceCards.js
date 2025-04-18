@@ -27,49 +27,49 @@ const size = 100;
 
 const cardData = [
   {
-    icon: <AddBusinessOutlinedIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <AddBusinessOutlinedIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Post Marketing Safety Operations",
     description:
     "Post marketing safety operations is an important practice of monitoring the safety of a pharmaceutical drug or a medical device.",
   },
   {
-    icon: <ChecklistIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <ChecklistIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title:  "Clinical Trial Safety Operations",
     description:
       "Clinical trial is a pivotal phase in the drug development process that provides safety information along with therapeutic exploration.",
   },
   {
-    icon: <Diversity3Icon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <Diversity3Icon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Additional Pharmacovigilance",
     description:
     "Pharmacovigilance is a critical function in the life cycle of the drug focusing on patient safety and quality of life. While the principle of drug safety.",
   },
   {
-    icon: <DocumentScannerIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <DocumentScannerIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Medical Writing",
     description:
       "Medical writing is a distinct skill to create well-structured documents to present the information clearly and concisely. It is well known fact.",
   },
   {
-    icon: <BarChartIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <BarChartIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Biostatistics and Clinical SAS",
     description:
       "Biostatistics is an important development and statistical method to get appropriate interpretation of clinical study results.",
   },
   {
-    icon: <AssuredWorkloadIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <AssuredWorkloadIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Regulatory Affairs",
     description:
       "Health Authorities have meticulously devised complex rules and regulation for development of pharmaceutical products.",
   },
   {
-    icon: <DataSaverOnIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <DataSaverOnIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Data Management",
     description:
       "Data Management is the central requirement for enabling subsequent processes with the intent of providing structured data consistently for analysis and reporting",
   },
   {
-    icon: <AssessmentIcon sx={{ fontSize: size, color: "#b3002d" }} />,
+    icon: <AssessmentIcon sx={{ fontSize: size, color: "#F39200" }} />,
     title: "Health Economics and Outcomes Research",
     description:
       "A multidisciplinary approach in designing, executing and analyzing new interventions is required for generating relevant evidence.",
@@ -87,7 +87,7 @@ export default function ServiceCards() {
       navigate(`/${linkTo}`)
     }
   return (
-    <Box sx={{ px: 2, py: 4}} bgcolor='#007b8f'>
+    <Box sx={{ px: 2, py: 4}} bgcolor='black'>
       <Grid container justifyContent= {isTab ? "space-between" : "center"} >
         {cardData.map((card, index) => (
           <Slide direction="left" in timeout={500 + index * 200} key={index}
@@ -113,8 +113,9 @@ export default function ServiceCards() {
                 >
                   <div>{card.icon}</div>
                   <Typography
-                    variant="h6"
-                    color="#b3002d"
+                    variant="h5"
+                    color="black"
+                    fontWeight={"bold"}
                     gutterBottom
                     sx={{ mt: 2 }}
                   >
@@ -123,16 +124,14 @@ export default function ServiceCards() {
                   <Typography variant="h6" color="textPrimary">
                     {card.description}
                   </Typography>                  
-                  
                 </CardContent>
                 <Button
                     variant="contained"
                     sx={{
                       width:"140px",
-                      mt: 2,
                       py:1,
-                      backgroundColor: "007b8f",
-                      ":hover": { backgroundColor: "#333" },
+                      backgroundColor: "#F39200",
+                      ":hover": { backgroundColor: "#007b8f" },
                       borderRadius: 2
                     }}
                     onClick={()=>handleClick(card.title)}

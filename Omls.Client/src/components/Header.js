@@ -107,8 +107,8 @@ const Header = () => {
                     <Box key={text.title}>
                         <Box
                           onClick={() => navigate('/services')}
-                          onMouseEnter={handleHoverOpen}
-                          onMouseLeave={handleHoverClose}
+                          // onMouseEnter={handleHoverOpen}
+                          // onMouseLeave={handleHoverClose}
                           sx={{ display: 'inline-block' }}
                         >
                           <Button
@@ -151,7 +151,7 @@ const Header = () => {
                 return (<Button  style={{ color: isActive ?'#F39200' : "black", cursor:"pointer" }} key={text.title} component={Link} to={`/${text.link}`}>{text.title}</Button>)
             })
             }
-            <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px', width:"175px"}}>CONTACT US</Button>
+            <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px', width:"175px", textAlign:"center"}}>CONTACT US</Button>
             </Box>
         )}
       </Toolbar>
