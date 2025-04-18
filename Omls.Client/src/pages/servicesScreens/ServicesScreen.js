@@ -13,7 +13,7 @@ const ServicesScreen = () => {
     <div>
     <Box
       sx={{
-        backgroundColor: "#F39200",
+        backgroundColor: "#007b8f",
         color: "white",
         py: {xs:4,sm:3,md:3},
         px: {xs:4,sm:5,md:8,xl:30},
@@ -32,30 +32,31 @@ const ServicesScreen = () => {
             fontWeight: 'bold',
             mb: isTab || isMobile ? 5 : 10,
           }}
-          color= "black"
+          color= "#F39200"
         >
-            Diverse<span style={{color:"#fff"}}> Clinical Trial{isMobile || isTab? '' : <br/>} Services</span>
+            Diverse<span style={{color:"black"}}> Clinical Trial{isMobile || isTab? '' : <br/>} Services</span>
         </Typography>
         <Typography
-          variant="h3"
-          component="h1"
+          variant="h6"
+          // component="h1"
           sx={{
             flex:1,
-            fontSize: isMobile ? "1rem" : "1.1rem",
+            // fontSize: isMobile ? "1rem" : "1.1rem",
             mb: 2,
           }}
           textAlign='left'
         >
-          Services are enriched by extensive clinical trial management experience, offering a strategic, culturally sensitive, and results-driven approach to clinical trial diversity. This includes recruitment, site support, physician relationships, and creative messaging.
+          Our services leverage deep clinical trial management expertise to drive strategic, culturally sensitive, and results-focused trial diversity through <strong style={{color:'black'}}>recruitment</strong>,  <strong style={{color:'black'}}>site support</strong>, and  <strong style={{color:'black'}}>creative outreach.</strong>
         </Typography>
         <Typography
-          variant="h3"
-          sx={{
-            fontSize: isMobile ? "1rem" : "1.1rem",
-          }}
+          variant="h6"
+          // component="h1"
+          // sx={{
+          //   fontSize: isMobile ? "1rem" : "1.1rem",
+          // }}
           textAlign='left'
         >
-          A team of experts with specialized skill sets supports each project. A full range of services is available across various therapeutic areas, ensuring responsiveness and open communication at every stage.
+         A skilled expert team ensures responsive communication and full-service support across diverse therapeutic areas.
         </Typography>
       </Box>
 

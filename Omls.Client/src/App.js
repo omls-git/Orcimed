@@ -13,6 +13,7 @@ import ServicesScreen from './pages/servicesScreens/ServicesScreen';
 import ServiceReadMore from './pages/servicesScreens/ServiceReadMore';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
+import Profileinfo from './pages/Profileinfo';
 
 function App() {
   return (
@@ -31,15 +32,8 @@ function App() {
             <Route path='/why-orcimed' element={<WhyOrcimedScreen />} />
             <Route path='/mission-vision' element={<MissionVision />} />
             <Route path='/services' element={<ServicesScreen />} />
-            <Route path='/post-marketing-safety-operations' element={<ServiceReadMore />} />
-            <Route path='/clinical-trial-safety-operations' element={<ServiceReadMore />} />
-            <Route path='/additional-pharmacovigilance' element={<ServiceReadMore />} />
-            <Route path='/medical-writing' element={<ServiceReadMore />} />
-            <Route path='/biostatistics-and-clinical-sas' element={<ServiceReadMore />} />
-            <Route path='/regulatory-affairs' element={<ServiceReadMore />} />
-            <Route path='/data-management' element={<ServiceReadMore />} />
-            <Route path='/health-economics-and-outcomes-research' element={<ServiceReadMore />} />
-            
+            <Route path='/:id' element={<ServiceReadMore />} />
+            <Route path='/doctor/:id' element={<Profileinfo />} />
           </Routes>
         </div>
         <Footer />

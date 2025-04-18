@@ -3,6 +3,7 @@ import { Grid, Box, Typography, Card, CardContent, Avatar, IconButton, List, Lis
 import { LinkedIn } from "@mui/icons-material";
 import { motion } from "framer-motion";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { useNavigate } from 'react-router-dom';
 
 
 const sections = [
@@ -108,8 +109,14 @@ const cardData = [
   }
 ];
 
+
+
 const AboutScreen = () => {
 
+  const navigate = useNavigate()
+  const handlenavigation =(doctor) => {
+    navigate(`/doctor/${doctor.name.replace(/[. ]/g, "-").toLowerCase()}`)
+  }
 
   return (
     <Box style={{overflow: "hidden"}} mt={"94px"}>
@@ -138,7 +145,7 @@ const AboutScreen = () => {
                 <CheckCircleIcon  sx={{ color: '#F39200' }}   />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}} >
-                To achieve leading industry presence with expertise and experience in the delivery of clinical research services across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
+                To achieve  <strong style={{color:'black'}}>leading industry presence</strong> with expertise and experience in the delivery of  <strong style={{color:'black'}}>clinical research services</strong> across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
               </Typography>
             </ListItem>
             <ListItem  alignItems="flex-start">
@@ -146,7 +153,7 @@ const AboutScreen = () => {
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
-                We strive to be a long-term trusted partner of major innovative healthcare organizations.
+                We strive to be a  <strong style={{color:'black'}}>long-term trusted partner</strong> of major innovative healthcare organizations.
               </Typography>
               </ListItem>
           </List>
@@ -159,7 +166,7 @@ const AboutScreen = () => {
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
-                To provide reliable Clinical Research Services covering a range of activities for pharmaceutical and biotech companies, through a team of committed experts.
+                To provide reliable <strong style={{color:'black'}}>clinical research services</strong> covering a  <strong style={{color:'black'}}>range of activities</strong> for pharmaceutical and biotech companies, through a team of committed experts.
               </Typography>
             </ListItem>
             <ListItem alignItems="flex-start">
@@ -167,8 +174,9 @@ const AboutScreen = () => {
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
-                To help our customers in creating a healthier and safer world through our quality services.
-              </Typography>    </ListItem>
+                To help our customers in creating a healthier and safer world through our  <strong style={{color:'black'}}>quality services</strong>.
+              </Typography>    
+              </ListItem>
           </List>
         </Grid>
       </Box>
@@ -239,6 +247,7 @@ const AboutScreen = () => {
                 minHeight: "280px", // Set a min-height to avoid shifting
                 transition: "0.3s",
               }}
+              onClick={() => {handlenavigation(member)}}
             >
               <Avatar
                 src={member.image}

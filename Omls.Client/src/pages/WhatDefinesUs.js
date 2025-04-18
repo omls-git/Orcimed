@@ -12,18 +12,16 @@ const WhatDefinesUs = () => {
   }, [trigger]);
 
   return (
-    <Box sx={{ backgroundColor: "black", pt: 6, textAlign: "center", }}>
-      <Container sx={{ position: "relative", overflow: "hidden" }}>
+      <Container sx={{ position: "relative", overflow: "hidden" ,pt: 5}}>
         <motion.img
           src={definesUs}
           alt="What Defines Us"
           initial={{ y: 500, opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: 500, opacity: 0 }}
-          transition={{ duration: 3, ease: "easeOut" }}
+          transition={{ duration: 4, ease: "easeOut" }}
           style={{ width: "50%", maxWidth: "250px" }}
         />
       </Container>
-    </Box>
   );
 };
 
