@@ -21,7 +21,8 @@ const Header = () => {
     {title:'About', link: 'about'},
     {title:'Services', link: 'services', services: ["Post Marketing Safety Operations","Clinical Trial Safety Operations","Additional Pharmacovigilance","Medical Writing","Biostatistics and Clinical SAS","Regulatory Affairs","Data Management","Health Economics and Outcomes Research"]},
     {title:'Careers', link: 'careers'},
-    {title:'News & Blog', link: 'news-blog'}]
+    // {title:'News & Blog', link: 'news-blog'}
+  ]
 
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
   const handleHoverOpen = (event) => {
@@ -105,16 +106,18 @@ const Header = () => {
                 const hasMatch = text.services?.some(service => normalize(service) === searchTerm);
                   return (
                     <Box key={text.title}>
-                        <Box
-                          onClick={() => navigate('/services')}
-                          // onMouseEnter={handleHoverOpen}
-                          // onMouseLeave={handleHoverClose}
-                          sx={{ display: 'inline-block' }}
+                        <Box    
+                          onClick={() => navigate('/services')}                     
+                          sx={{ display: 'inline-block',position: 'relative' }}
+                          
                         >
                           <Button
+                          onMouseEnter={handleHoverOpen}
+                          onMouseLeave={handleHoverClose}
                             component={Link}
                             endIcon={menuOpen ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                            style={{ color: menuOpen || isActive || hasMatch? '#F39200' : 'black', cursor:"pointer" }}
+                            style={{ color: menuOpen || isActive || hasMatch? '#F39200' : 'black', 
+                              cursor:"pointer",whiteSpace: 'nowrap' }}
                           >
                             SERVICES
                           </Button>
@@ -124,19 +127,25 @@ const Header = () => {
                             onClose={() => setAnchorEl(null)}
                             anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                             transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                            disableAutoFocusItem
+                            disableEnforceFocus
                             slotProps={{
                               paper: {
                                 onMouseEnter: () => clearTimeout(hoverTimeout.current),
                                 onMouseLeave: handleHoverClose,
-                                sx: { mt: 1, borderRadius: 2, px: 1, py: 1, boxShadow: 3 },
+                                sx: { mt: 1, borderRadius: 3, px: 1, py: 1, boxShadow: 3,  width: 'auto',
+                                  maxWidth: 'unset',
+                                  minWidth: 'unset',pointerEvents: 'fill',},
                               }
-                            }}
+                            }}                            
+                            sx={{pointerEvents: 'none',}}
                           >
                             {
                             text.services && text.services?.map((service) => {
                               const isServiceActive = location.pathname === `/${service?.replace(/\s+/g, '-').toLowerCase()}`;
                               return(
                                 <MenuItem key={service} selected={isServiceActive}
+                                sx={{ whiteSpace: 'normal' }}
                                  onClick={() => handleServiceClick(service)}>
                               {service}
                             </MenuItem>
@@ -148,7 +157,7 @@ const Header = () => {
                       </Box>
                   )
                 }
-                return (<Button  style={{ color: isActive ?'#F39200' : "black", cursor:"pointer" }} key={text.title} component={Link} to={`/${text.link}`}>{text.title}</Button>)
+                return (<Button  style={{ color: isActive ?'#F39200' : "black", cursor:"pointer",marginRight:"10px" }} key={text.title} component={Link} to={`/${text.link}`}>{text.title}</Button>)
             })
             }
             <Button id='contactBtn' component={Link} to='/contact' style={{fontSize:'20px', width:"175px", textAlign:"center"}}>CONTACT US</Button>
