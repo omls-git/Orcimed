@@ -8,11 +8,11 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const Footer = () => {
-    const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const ContactList = [
     {
-      icon: <MailOutlineIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
+      icon: <MailOutlineIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb: "10px" }} fontSize="large" />,
       title: "EMAIL",
       content: "contact@orcimedlifesciences.com",
       bgc: "#454644",
@@ -22,7 +22,7 @@ const Footer = () => {
       link: 'contact@orcimedlifesciences.com',
     },
     {
-      icon: <LinkedInIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
+      icon: <LinkedInIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb: "10px" }} fontSize="large" />,
       title: "",
       content: "LinkedIn",
       bgc: "#007b8f",
@@ -32,7 +32,7 @@ const Footer = () => {
       link: 'https://www.linkedin.com/company/orcimed-life-sciences'
     },
     {
-      icon: <WorkIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
+      icon: <WorkIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb: "10px" }} fontSize="large" />,
       title: "",
       content: "Careers",
       bgc: "#007b8f",
@@ -42,7 +42,7 @@ const Footer = () => {
       link: 'careers'
     },
     {
-      icon: <AddIcCallIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb:"10px" }} fontSize="large" />,
+      icon: <AddIcCallIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb: "10px" }} fontSize="large" />,
       title: "Contact Us",
       content: "040-69281100, +1 (910) 269-7239",
       bgc: "#454644",
@@ -77,27 +77,27 @@ const Footer = () => {
   };
 
   return (
-    <Box sx={{ backgroundColor: "#222", color: "white", pt: 4}}>
+    <Box sx={{ backgroundColor: "#222", color: "white", pt: 4 }}>
       <Container maxWidth="xl">
         <Typography
           variant="h4"
           gutterBottom
-          textAlign={isMobile ? "center": "left"}
+          textAlign={isMobile ? "center" : "left"}
           sx={{ fontWeight: "bold", py: 4 }}
         >
           Connect With Us
         </Typography>
         <Stack
           spacing={4}
-          direction={{ xs:"column", sm:"row", md: "row"}}
-          alignItems= {isMobile ? "center" : "flex-start"}
+          direction={{ xs: "column", sm: "row", md: "row" }}
+          alignItems={isMobile ? "center" : "flex-start"}
           sx={{ flexWrap: "wrap" }}
         >
           {/* Contact Cards */}
           <Box
             sx={{
               display: "grid",
-              gridTemplateColumns: { xs: "1fr", sm: "1fr",md: "1fr 1fr" },
+              gridTemplateColumns: { xs: "1fr", sm: "1fr", md: "1fr 1fr" },
               gap: 0,
               flex: 0,
             }}
@@ -105,7 +105,7 @@ const Footer = () => {
             {ContactList.map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: isMobile ? -100 :-250 }}
+                initial={{ opacity: 0, x: isMobile ? -100 : -250 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: index > 1 ? 2.2 : 0.6, ease: "easeOut" }}
                 viewport={{ amount: 0.2 }}
@@ -128,10 +128,10 @@ const Footer = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
-                    alignItems:"center",
+                    alignItems: "center",
                     cursor: item.link ? "pointer" : "default",
                   }}
-                  
+
                   onClick={() => handleClick(item)}
                 >
                   {item.icon}
@@ -149,7 +149,7 @@ const Footer = () => {
           </Box>
 
           {/* Quick Links */}
-          <Box sx={{ minWidth: { xs: "100%", sm:"250px", md: "250px" }, pt: 4,textAlign:"left" }}>
+          <Box sx={{ minWidth: { xs: "100%", sm: "250px", md: "250px" }, pt: 4, textAlign: "left" }}>
             <Typography variant="h5" fontWeight="bold" gutterBottom>
               Quick Links
             </Typography>
@@ -157,7 +157,7 @@ const Footer = () => {
               <Typography
                 key={link.title}
                 variant="body1"
-                sx={{ my: 1, cursor: 'pointer',":hover":{color:"#F39200"} }}
+                sx={{ my: 1, cursor: 'pointer', ":hover": { color: "#F39200" } }}
                 fontWeight="bold"
                 onClick={() => navigate(link.link)}
               >
@@ -165,6 +165,28 @@ const Footer = () => {
               </Typography>
             ))}
           </Box>
+          {/* Address Section */}
+          <Box
+            sx={{
+              minWidth: { xs: "100%", sm: "250px", md: "250px" },
+              pt: 4,
+              textAlign: "left",
+              alignSelf: "flex-start",
+              ml: { xs: 0, sm: 0, md: 10 , xl:10 },
+            }}
+          >
+            <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ ml:{xs: 0, sm: 0, md: 32 , xl:32}}} >
+              Address
+            </Typography>
+            <Typography variant="body1" fontWeight="bold" sx={{ my: 1, ml:{xs: 0, sm: 0, md: 32 , xl:32} }} >
+              OrciMed Life Sciences<br />
+              1234 Science Drive<br />
+              Innovation City, CA 90210<br />
+              Email: contact@orcimed.com<br />
+              Phone: +1 (123) 456-7890
+            </Typography>
+          </Box>
+
         </Stack>
       </Container>
 

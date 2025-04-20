@@ -32,6 +32,10 @@ const CareersScreen = () => {
     country: Yup.string().required('Country is required'),
     zip: Yup.string().required('ZIP Code is required'),
     acceptTerms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+    previousJobTitle: Yup.string(),
+    previousJobStartDate: Yup.date().nullable(),
+    previousJobEndDate: Yup.date().nullable(),
+    previousJobDescription: Yup.string(),
   });
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -53,13 +57,20 @@ const CareersScreen = () => {
         previousJobDescription: values.previousJobDescription,
         acceptTerms: values.acceptTerms
       };
-  
+
       console.log('Form values:', payload); // Debugging line
-  
-      const response = await axios.post("/posts", payload);
-     
+      const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
+      const response = await fetch(`${baseUrl}/posts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
       if (response.status === 200) {
         alert('Form submitted successfully!');
+
         resetForm();
       } else {
         alert('Something went wrong. Please try again.');
@@ -69,7 +80,7 @@ const CareersScreen = () => {
       alert('Failed to submit the form. Please check your connection and try again.');
     }
   };
-  
+
   return (
     <>
       <Box sx={{ flexGrow: 1, p: 4, bgcolor: 'white' }}>
@@ -77,7 +88,7 @@ const CareersScreen = () => {
           {/* Left Section */}
           <Grid item xs={12} md={6}>
             <Typography variant="h3" component="div" color="error" fontWeight="bold">
-              Contact <span style={{ color: '#333' }}>Us</span>
+              <span style={{ color: '#F39200' }}>Careers</span>
             </Typography>
             <Typography variant="subtitle1" mt={2}>
               Partner with Us. We would like to hear from you!
@@ -98,7 +109,7 @@ const CareersScreen = () => {
               elevation={4}
               sx={{
                 p: 4,
-                bgcolor: 'error.main',
+                bgcolor: '#007b8f',
                 color: 'white',
                 borderRadius: '0px 40px 0px 40px',
                 width: '80%',              // Decreased width (adjust to 60%-80% as needed)
@@ -123,7 +134,7 @@ const CareersScreen = () => {
                 >
                   <EmailIcon sx={{ color: 'white', fontSize: 20 }} />
                 </Box>
-                <Typography variant="body1" fontSize="large" fontWeight="bold">bizdev@totalcro.com</Typography>
+                <Typography variant="body1" fontSize="large" fontWeight="bold">contact@orcimedlifesciences.com</Typography>
               </Box>
 
               {/* Row 2 */}
@@ -188,7 +199,7 @@ const CareersScreen = () => {
           justifyContent: 'center',
           alignItems: 'center',
           px: 2,
-         
+
         }}
       >
         <Paper
@@ -199,7 +210,7 @@ const CareersScreen = () => {
             maxWidth: 800,
             width: '100%',
             p: 4,
-          m:15,
+            m: 15,
           }}
         >
           <Typography variant="h4" fontWeight="bold" align="center" mb={3}>
@@ -226,7 +237,7 @@ const CareersScreen = () => {
               onSubmit={handleSubmit}
               validationSchema={validationSchema}
             >
-              {({ values, handleChange, setFieldValue }) => (
+              {({ values, handleChange, setFieldValue, errors, touched, handleBlur }) => (
                 <Form>
                   <Grid container spacing={2}>
 
@@ -239,6 +250,8 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="First Name*"
                         variant="outlined"
+                        error={touched.firstName && Boolean(errors.firstName)}
+                        helperText={touched.firstName && errors.firstName}
                       />
                     </Grid>
                     <Grid item xs={6}>
@@ -249,7 +262,10 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="Last Name*"
                         variant="outlined"
+                        error={touched.lastName && Boolean(errors.lastName)}
+                        helperText={touched.lastName && errors.lastName}
                       />
+
                     </Grid>
 
                     {/* Row 2: Email & Phone */}
@@ -261,7 +277,10 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="Email*"
                         variant="outlined"
+                        error={touched.email && Boolean(errors.email)}
+                        helperText={touched.email && errors.email}
                       />
+
                     </Grid>
                     <Grid item xs={6}>
                       <TextField
@@ -271,7 +290,10 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="Phone*"
                         variant="outlined"
+                        error={touched.phone && Boolean(errors.phone)}
+                        helperText={touched.phone && errors.phone}
                       />
+
                     </Grid>
 
                     {/* Row 3: Address (full width) */}
@@ -283,7 +305,10 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="Address*"
                         variant="outlined"
+                        error={touched.address && Boolean(errors.address)}
+                        helperText={touched.address && errors.address}
                       />
+
                     </Grid>
 
                     {/* Row 4: City, Country, Zip */}
@@ -295,7 +320,10 @@ const CareersScreen = () => {
                         onChange={handleChange}
                         placeholder="City*"
                         variant="outlined"
+                        error={touched.city && Boolean(errors.city)}
+                        helperText={touched.city && errors.city}
                       />
+
                     </Grid>
                     <Grid item xs={4}>
                       <TextField
@@ -305,12 +333,10 @@ const CareersScreen = () => {
                         value={values.country}
                         onChange={handleChange}
                         variant="outlined"
-                        displayEmpty
-                        SelectProps={{
-                          displayEmpty: true
-                        }}
+                        error={touched.country && Boolean(errors.country)}
+                        helperText={touched.country && errors.country}
                       >
-                        <MenuItem value=""  alignItems="left" justifyContent="left" color='#808080'> 
+                        <MenuItem value="">
                           Country*
                         </MenuItem>
                         {countries.map((c) => (
@@ -319,6 +345,7 @@ const CareersScreen = () => {
                           </MenuItem>
                         ))}
                       </TextField>
+
                     </Grid>
                     <Grid item xs={4}>
                       <TextField
@@ -326,9 +353,13 @@ const CareersScreen = () => {
                         name="zip"
                         value={values.zip}
                         onChange={handleChange}
+                        onBlur={handleBlur}
                         placeholder="ZIP Code*"
                         variant="outlined"
+                        error={touched.zip && Boolean(errors.zip)}
+                        helperText={touched.zip && errors.zip}
                       />
+
                     </Grid>
 
                     {/* Row 5: Previous Job Title (full width) */}
@@ -349,16 +380,33 @@ const CareersScreen = () => {
                         label="Date Previous Job Started"
                         value={values.previousJobStartDate}
                         onChange={(date) => setFieldValue('previousJobStartDate', date)}
-                        renderInput={(params) => <TextField fullWidth {...params} />}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            fullWidth
+                            error={touched.previousJobStartDate && Boolean(errors.previousJobStartDate)}
+                            helperText={touched.previousJobStartDate && errors.previousJobStartDate}
+                          />
+                        )}
                       />
+
                     </Grid>
                     <Grid item xs={6}>
+
                       <DatePicker
                         label="Date Previous Job Ended"
                         value={values.previousJobEndDate}
                         onChange={(date) => setFieldValue('previousJobEndDate', date)}
-                        renderInput={(params) => <TextField fullWidth {...params} />}
+                        renderInput={(params) => (
+                          <TextField
+                            {...params}
+                            fullWidth
+                            error={touched.previousJobEndDate && Boolean(errors.previousJobEndDate)}
+                            helperText={touched.previousJobEndDate && errors.previousJobEndDate}
+                          />
+                        )}
                       />
+
                     </Grid>
 
                     {/* Row 7: Description (textarea) */}
@@ -398,12 +446,18 @@ const CareersScreen = () => {
                         <Button
                           type="submit"
                           variant="contained"
-                          color="primary"
-                          sx={{ px: 4 }}
+                          sx={{
+                            px: 4,
+                            backgroundColor: '#F39200',
+                            '&:hover': {
+                              backgroundColor: '#d87f00', // optional darker shade for hover
+                            },
+                          }}
                         >
                           Submit
                         </Button>
                       </Box>
+
                     </Grid>
 
                   </Grid>

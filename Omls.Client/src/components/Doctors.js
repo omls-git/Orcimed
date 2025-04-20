@@ -4,7 +4,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 const teamMembers = [
   {
-    name: "Mr.Suman Maarisetty",
+    name: "Mr. Suman Maarisetty",
     role: "Chief Executive Officer",
     image: "/suman.png",
     linkedin: "https://www.linkedin.com/in/johndoe/",
