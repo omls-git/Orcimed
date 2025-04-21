@@ -126,7 +126,7 @@ const ContactScreen = () => {
                 }}>
                   <InfoIcon sx={{ color: 'white', fontSize: 20 }} />
                 </Box>
-                <Typography variant="body1" fontSize="large" fontWeight="bold" align="left">
+                <Typography variant="body1" fontSize="large" fontWeight="bold" align="left" sx={{paddingTop: '10px'}}>
                   We are committed to excellence and transparency.
                 </Typography>
               </Box>

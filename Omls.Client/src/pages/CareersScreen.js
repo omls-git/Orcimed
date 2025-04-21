@@ -178,11 +178,9 @@ const CareersScreen = () => {
                   fontSize="large"
                   fontWeight="bold"
                   align="left"
-                  sx={{ textAlign: 'left' }}
+                  sx={{ textAlign: 'left', paddingTop: '10px' }}
                 >
-                  The Only CRO with 100%  Recruitment <br />
-                  Targets Met for All
-                  Populations
+                 We are committed to excellence and transparency.
                 </Typography>
               </Box>
             </Paper>
