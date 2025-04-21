@@ -38,7 +38,7 @@ const CustomizedSolutions = () => {
             <ListItemIcon>
                 <NavigationIcon  sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
               </ListItemIcon>
-               Orcimed Life Sciences prides itself on personalized clinical trial management.
+               OrciMed Life Sciences prides itself on personalized clinical trial management.
             </ListItem>
              <ListItem alignItems="flex-start">
                 <ListItemIcon>

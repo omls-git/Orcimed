@@ -169,7 +169,7 @@ const AboutScreen = () => {
                     <Typography variant="h4" gutterBottom sx={{ color: "#007b8f", fontWeight: "bold" }}>
                       {section.title}
                     </Typography>
-                    <Typography variant="body1" color="textSecondary" sx={{ textAlign: "justify", lineHeight: "1.6" }}>
+                    <Typography variant="body1" color="textSecondary" sx={{ textAlign: "justify", lineHeight: "1.6", fontSize: '1.1rem' }}>
                       {section.text}
                     </Typography>
                   </CardContent>
