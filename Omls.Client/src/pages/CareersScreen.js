@@ -59,7 +59,7 @@ const CareersScreen = () => {
       };
 
       console.log('Form values:', payload); // Debugging line
-      const baseUrl = process.env.REACT_APP_API_BASE_URL;
+      const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
 
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
@@ -433,11 +433,13 @@ const CareersScreen = () => {
                             onChange={handleChange}
                           />
                         }
-                        label="Please click before submission*"
+                        label="I accept the terms and conditions*"
                       />
-                      <Typography variant="body2" sx={{ mt: 1 }}>
-                        By submitting this form, you agree to our Privacy Policy.
-                      </Typography>
+                      {touched.acceptTerms && errors.acceptTerms && (
+                        <Typography color="error" variant="caption">
+                          {errors.acceptTerms}
+                        </Typography>
+                      )}
                     </Grid>
 
                     {/* Row 9: Submit Button */}

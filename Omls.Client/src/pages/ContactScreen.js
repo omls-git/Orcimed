@@ -22,7 +22,7 @@ const ContactScreen = () => {
         message: values.message,
       };
 
-      const baseUrl = process.env.REACT_APP_API_BASE_URL;
+      const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
 
       const response = await fetch(`${baseUrl}/contact`, {
         method: 'POST',
