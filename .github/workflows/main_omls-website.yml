@@ -70,3 +70,4 @@ env:
   MYSQL_PORT: ${{ secrets.AZURE_MYSQL_PORT }}
   MYSQL_SSL: ${{ secrets.AZURE_MYSQL_SSL }}
   MYSQL_USER: ${{ secrets.AZURE_MYSQL_USER }}
+  REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
