@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Typography, Box, useMediaQuery, useTheme, List, ListItem, ListItemIcon } from "@mui/material";
-import leftPerson from '../images/homeImageJ.png';
-import rightPerson from '../images/homeimagejb.png'
 import NavigationIcon from '@mui/icons-material/Navigation';
 
 const CustomizedSolutions = () => {

@@ -10,11 +10,7 @@ import {
   Grid
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import TrendingUpIcon from "@mui/icons-material/TrendingUp";
-import SchoolIcon from "@mui/icons-material/School";
-import PeopleIcon from "@mui/icons-material/People";
 import AssessmentIcon from "@mui/icons-material/Assessment";
-import EventIcon from "@mui/icons-material/Event";
 import ChecklistIcon from "@mui/icons-material/Checklist";
 import AddBusinessOutlinedIcon from '@mui/icons-material/AddBusinessOutlined';
 import BarChartIcon from '@mui/icons-material/BarChart';

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Box, Container, useScrollTrigger} from "@mui/material";
+import { Container, useScrollTrigger} from "@mui/material";
 import { motion } from "framer-motion";
 import definesUs from '../images/definesusimg.png'
 

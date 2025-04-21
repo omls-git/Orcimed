@@ -1,12 +1,10 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import { Grid, Typography, Box, Paper, IconButton, TextField, Button, MenuItem } from '@mui/material';
+import { Grid, Typography, Box, Paper, TextField, Button, MenuItem } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import axios from 'axios';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -14,7 +12,6 @@ import {
   LocalizationProvider,
 } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 
 const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
 
