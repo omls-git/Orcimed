@@ -1,19 +1,23 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
+# Docs: https://github.com/Azure/webapps-deploy
 
-name: Build and deploy Node.js app to Azure Web App - omls-website
+name: Azure Web App CI/CD
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches:
+      - main
 
 jobs:
   build:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     permissions:
-      contents: read # Required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
       - name: Checkout code
@@ -36,6 +40,7 @@ jobs:
           echo "AZURE_MYSQL_USER=${{ secrets.AZURE_MYSQL_USER }}" >> .env
 
       - name: Install dependencies and build
+        working-directory: Orcimed
         run: |
           npm install
           npm run build --if-present
@@ -49,9 +54,10 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip
+          path: Orcimed/release.zip
 
   deploy:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'closed')
     runs-on: ubuntu-latest
     needs: build
     environment:
@@ -67,10 +73,9 @@ jobs:
         run: unzip release.zip
 
       - name: Deploy to Azure Web App
-        id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'omls-website'
-          slot-name: 'Production'
+          app-name: 'omls-website' # Replace with your actual App Service name
+          slot-name: 'Production'  # Optional: use if deploying to a specific slot
           package: .
-          publish-profile: "${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_924283B181FD4275AABED26CE5856552 }}"
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_924283B181FD4275AABED26CE5856552 }}
