@@ -50,7 +50,7 @@ const teamMembers = [
 const Doctors = () => {
   const navigate = useNavigate()
   const handlenavigation =(doctor) => {
-    navigate(`/doctor/${doctor.name.replace(/[. ]/g, "-").toLowerCase()}`)
+    navigate(`/doctor/${doctor.name.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`)
   }
   return (
     <Grid container spacing={3} justifyContent="center" sx={{ marginTop: 5 }}>

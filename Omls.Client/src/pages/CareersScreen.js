@@ -31,7 +31,7 @@ const CareersScreen = () => {
     city: Yup.string().required('City is required'),
     country: Yup.string().required('Country is required'),
     zip: Yup.string().required('ZIP Code is required'),
-    acceptTerms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+    acceptTerms: Yup.boolean().oneOf([true], 'This is a required field.'),
     previousJobTitle: Yup.string(),
     previousJobStartDate: Yup.date().nullable(),
     previousJobEndDate: Yup.date().nullable(),
@@ -60,7 +60,7 @@ const CareersScreen = () => {
 
       console.log('Form values:', payload); // Debugging line
       const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
-
+      console.log(baseUrl)
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
         headers: {
@@ -431,13 +431,16 @@ const CareersScreen = () => {
                             onChange={handleChange}
                           />
                         }
-                        label="I accept the terms and conditions*"
+                        label="Please click before submission*"
                       />
                       {touched.acceptTerms && errors.acceptTerms && (
                         <Typography color="error" variant="caption">
                           {errors.acceptTerms}
                         </Typography>
                       )}
+                      <Typography color="info" variant="body2">
+                          By submitting this information, you agree to OrciMed Life Science’s privacy policy.
+                        </Typography>
                     </Grid>
 
                     {/* Row 9: Submit Button */}
