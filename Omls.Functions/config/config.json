@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": "R0h!th@018",
-    "database": "careers",
-    "host": "localhost",
-    "dialect": "mysql"
+    "username": "DEV_USER_NAME",
+    "password": "DEV_PASWORD_NAME",
+    "database": "DEV_DATABASE_NAME",
+    "host": "DEV_HOST_NAME",
+    "dialect": "DEV_DIALECT"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "TEST_USER_NAME",
+    "password": "TEST_PASWORD_NAME",
+    "database": "TEST_DATABASE_NAME",
+    "host": "TEST_HOST_NAME",
+    "dialect": "TEST_DIALECT"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "PROD_USER_NAME",
+    "password": "PROD_PASWORD_NAME",
+    "database": "PROD_DATABASE_NAME",
+    "host": "PROD_HOST_NAME",
+    "dialect": "PROD_DIALECT"
   }
 }
