@@ -177,7 +177,7 @@ const CareersScreen = () => {
                   align="left"
                   sx={{ textAlign: 'left', paddingTop: '10px' }}
                 >
-                 We are committed to excellence and transparency.
+                 We are committed to excellence and transparency
                 </Typography>
               </Box>
             </Paper>
