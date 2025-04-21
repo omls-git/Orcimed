@@ -76,7 +76,7 @@ export default function ServiceCards() {
   const navigate = useNavigate();
   const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
+    const isTab = useMediaQuery('(min-width: 426px) and (max-width: 768px)');
 
     const handleClick = (value) => {
       const linkTo = value?.replace(/\s+/g, '-').toLowerCase()
