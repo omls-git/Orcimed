@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhyOrcimedScreen = () => {
   return (
-    <div>WhyOrcimedScreen</div>
+    <div>WhyOrciMedScreen</div>
   )
 }
 
