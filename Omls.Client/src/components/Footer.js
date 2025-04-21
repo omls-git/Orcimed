@@ -175,15 +175,19 @@ const Footer = () => {
               ml: { xs: 0, sm: 0, md: 10 , xl:10 },
             }}
           >
-            <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ ml:{xs: 0, sm: 0, md: 32 , xl:32}}} >
+            <Typography variant="h5" fontWeight="bold" gutterBottom sx={{ ml:{xs: 0, sm: 0, md: 20 , xl:20}}} >
               Address
             </Typography>
-            <Typography variant="body1" fontWeight="bold" sx={{ my: 1, ml:{xs: 0, sm: 0, md: 32 , xl:32} }} >
-              OrciMed Life Sciences<br />
-              1234 Science Drive<br />
-              Innovation City, CA 90210<br />
-              Email: contact@orcimed.com<br />
-              Phone: +1 (123) 456-7890
+            <Typography variant="body1"  sx={{ my: 1, ml:{xs: 0, sm: 0, md: 20 , xl:20} }} >
+             
+            <strong fontWeight="bold" > OrciMed Life Sciences<br /></strong>
+              Limited Door No. 8-2-293/82/A, Plot<br />
+              No. 226,<br />
+              Road Number 17, Jubilee Hills Check<br/>
+              Post,<br />
+              Union Bank Building, Jubilee Hills,<br/>
+              Hyderabad, Telangana 500033<br/>
+             
             </Typography>
           </Box>
 
