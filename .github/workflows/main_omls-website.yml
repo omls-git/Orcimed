@@ -25,6 +25,7 @@ jobs:
           node-version: '18.x'
 
       - name: Create .env file
+        working-directory: Orcimed
         run: |
           echo "REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}" >> .env
           echo "AZURE_MYSQL_DATABASE=${{ secrets.AZURE_MYSQL_DATABASE }}" >> .env
@@ -41,6 +42,7 @@ jobs:
           npm run test --if-present
 
       - name: Zip artifact for deployment
+        working-directory: Orcimed
         run: zip -r release.zip .
 
       - name: Upload artifact
