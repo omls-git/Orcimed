@@ -13,26 +13,37 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read # Required for actions/checkout
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Node.js version
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: Create .env file
+        run: |
+          echo "REACT_APP_API_BASE_URL=${{ secrets.REACT_APP_API_BASE_URL }}" >> .env
+          echo "AZURE_MYSQL_DATABASE=${{ secrets.AZURE_MYSQL_DATABASE }}" >> .env
+          echo "AZURE_MYSQL_HOST=${{ secrets.AZURE_MYSQL_HOST }}" >> .env
+          echo "AZURE_MYSQL_PASSWORD=${{ secrets.AZURE_MYSQL_PASSWORD }}" >> .env
+          echo "AZURE_MYSQL_PORT=${{ secrets.AZURE_MYSQL_PORT }}" >> .env
+          echo "AZURE_MYSQL_SSL=${{ secrets.AZURE_MYSQL_SSL }}" >> .env
+          echo "AZURE_MYSQL_USER=${{ secrets.AZURE_MYSQL_USER }}" >> .env
+
+      - name: Install dependencies and build
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip -r release.zip .
 
-      - name: Upload artifact for deployment job
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: node-app
@@ -43,22 +54,21 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
-      - name: Download artifact from build job
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
+      - name: Unzip artifact
         run: unzip release.zip
-      
-      - name: 'Deploy to Azure Web App'
+
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'omls-website'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_924283B181FD4275AABED26CE5856552 }}
+          publish-profile: "${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_924283B181FD4275AABED26CE5856552 }}"
