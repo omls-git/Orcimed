@@ -1,23 +1,27 @@
 {
   "development": {
-    "username": "DEV_USER_NAME",
-    "password": "DEV_PASWORD_NAME",
-    "database": "DEV_DATABASE_NAME",
-    "host": "DEV_HOST_NAME",
-    "dialect": "DEV_DIALECT"
+    "username": "AZURE_MYSQL_USER",
+    "password": "AZURE_MYSQL_PASSWORD",
+    "database": "AZURE_MYSQL_DATABASE",
+    "host": "AZURE_MYSQL_HOST",
+    "port":" AZURE_MYSQL_PORT",
+    "ssl":"AZURE_MYSQL_SSL"
+   
   },
   "test": {
-    "username": "TEST_USER_NAME",
-    "password": "TEST_PASWORD_NAME",
-    "database": "TEST_DATABASE_NAME",
-    "host": "TEST_HOST_NAME",
-    "dialect": "TEST_DIALECT"
+    "username": "AZURE_MYSQL_USER",
+    "password": "AZURE_MYSQL_PASSWORD",
+    "database": "AZURE_MYSQL_DATABASE",
+    "host": "AZURE_MYSQL_HOST",
+    "port":" AZURE_MYSQL_PORT",
+    "ssl":"AZURE_MYSQL_SSL"
   },
   "production": {
-    "username": "PROD_USER_NAME",
-    "password": "PROD_PASWORD_NAME",
-    "database": "PROD_DATABASE_NAME",
-    "host": "PROD_HOST_NAME",
-    "dialect": "PROD_DIALECT"
+    "username": "AZURE_MYSQL_USER",
+    "password": "AZURE_MYSQL_PASSWORD",
+    "database": "AZURE_MYSQL_DATABASE",
+    "host": "AZURE_MYSQL_HOST",
+    "port":" AZURE_MYSQL_PORT",
+    "ssl":"AZURE_MYSQL_SSL"
   }
 }
