@@ -1,12 +1,10 @@
 import React from 'react'
-import Footer from '../components/Footer'
-import { Grid, Typography, Box, Paper, IconButton, TextField, Button, MenuItem } from '@mui/material';
+import { Grid, Typography, Box, Paper, TextField, Button, MenuItem } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import axios from 'axios';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -14,7 +12,6 @@ import {
   LocalizationProvider,
 } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import dayjs from 'dayjs';
 
 const countries = ['USA', 'Canada', 'India', 'UK', 'Germany', 'Australia'];
 
@@ -31,7 +28,7 @@ const CareersScreen = () => {
     city: Yup.string().required('City is required'),
     country: Yup.string().required('Country is required'),
     zip: Yup.string().required('ZIP Code is required'),
-    acceptTerms: Yup.boolean().oneOf([true], 'You must accept the terms'),
+    acceptTerms: Yup.boolean().oneOf([true], 'This is a required field.'),
     previousJobTitle: Yup.string(),
     previousJobStartDate: Yup.date().nullable(),
     previousJobEndDate: Yup.date().nullable(),
@@ -60,7 +57,7 @@ const CareersScreen = () => {
 
       console.log('Form values:', payload); // Debugging line
       const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
-
+      console.log(baseUrl)
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
         headers: {
@@ -431,13 +428,16 @@ const CareersScreen = () => {
                             onChange={handleChange}
                           />
                         }
-                        label="I accept the terms and conditions*"
+                        label="Please click before submission*"
                       />
                       {touched.acceptTerms && errors.acceptTerms && (
                         <Typography color="error" variant="caption">
                           {errors.acceptTerms}
                         </Typography>
                       )}
+                      <Typography color="info" variant="body2">
+                          By submitting this information, you agree to OrciMed Life Science’s privacy policy.
+                        </Typography>
                     </Grid>
 
                     {/* Row 9: Submit Button */}

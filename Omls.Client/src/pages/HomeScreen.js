@@ -1,6 +1,5 @@
 import React,  { useState, useEffect, useRef }  from "react";
 import { Grid, Typography } from "@mui/material";
-import Footer from "../components/Footer";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
 import CustomizedSolutions from "./CustomizedSolutions";

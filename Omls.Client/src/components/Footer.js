@@ -58,8 +58,8 @@ const Footer = () => {
     { title: 'ABOUT US', link: '/about' },
     { title: 'SERVICES', link: '/services' },
     { title: 'TEAM', link: '/team' },
-    { title: 'MISSION & VISION', link: '/mission-vision' },
-    { title: 'WHY ORCIMED LIFE SCIENCES', link: '/why-orcimed' },
+    // { title: 'MISSION & VISION', link: '/mission-vision' },
+    // { title: 'WHY ORCIMED LIFE SCIENCES', link: '/why-orcimed' },
     { title: 'CAREERS', link: '/careers' },
     { title: 'CONTACT US', link: '/contact' }
   ];

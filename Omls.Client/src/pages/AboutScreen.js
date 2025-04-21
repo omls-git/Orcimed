@@ -1,9 +1,7 @@
 import React from 'react'
-import { Grid, Box, Typography, Card, CardContent, Avatar, IconButton, List, ListItem, ListItemIcon } from "@mui/material";
-import { LinkedIn } from "@mui/icons-material";
+import { Grid, Box, Typography, Card, CardContent, List, ListItem, ListItemIcon } from "@mui/material";
 import { motion } from "framer-motion";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import { useNavigate } from 'react-router-dom';
 import Doctors from '../components/Doctors';
 
 
