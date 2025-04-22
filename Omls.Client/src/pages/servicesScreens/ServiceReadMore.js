@@ -20,7 +20,7 @@ const itemVariants = {
 };
 
 export default function SiteSupportServices() {
-  const location = useLocation();
+  //const location = useLocation();
   const { id } = useParams();
   const currentPath = id; 
   // const currentPath = location.pathname.startsWith("/") && location.pathname !== "/"
