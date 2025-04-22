@@ -25,7 +25,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: Omls.Client/src
+        working-directory: Omls.Client/release.zip
         
         env:
           REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: Omls.Client/src/frontend/build/release.zip
+          path: Omls.Client/release.zip
 
   deploy:
     runs-on: ubuntu-latest
