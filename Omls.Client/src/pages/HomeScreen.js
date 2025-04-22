@@ -22,7 +22,7 @@ const HomeScreen = () => {
 
   useEffect(() => {
     setAnimatedStats(stats.map(stat => ({ ...stat, current: 0 })));
-  }, []);
+  }, [stats]);
 
   useEffect(() => {
     if (visible) {
