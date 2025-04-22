@@ -37,7 +37,7 @@ jobs:
 
       - name: Zip artifact for deployment
         run: zip -r release.zip .
-        working-directory: Omls.Client/src/frontend/build
+        working-directory: Omls.Client
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
