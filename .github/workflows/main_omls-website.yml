@@ -10,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read # This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -20,21 +20,30 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: npm install, build, and test
+      - name: Install dependencies, build, and test
         run: |
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: Omls.Client/src/*
+        working-directory: Omls.Client/src/frontend
+        env:
+          REACT_APP_MYSQL_DATABASE: ${{ secrets.AZURE_MYSQL_DATABASE }}
+          REACT_APP_MYSQL_HOST: ${{ secrets.AZURE_MYSQL_HOST }}
+          REACT_APP_MYSQL_PASSWORD: ${{ secrets.AZURE_MYSQL_PASSWORD }}
+          REACT_APP_MYSQL_PORT: ${{ secrets.AZURE_MYSQL_PORT }}
+          REACT_APP_MYSQL_SSL: ${{ secrets.AZURE_MYSQL_SSL }}
+          REACT_APP_MYSQL_USER: ${{ secrets.AZURE_MYSQL_USER }}
+          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+        run: zip -r release.zip .
+        working-directory: Omls.Client/src/frontend/build
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: release.zip
+          path: Omls.Client/src/frontend/build/release.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -42,7 +51,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
@@ -51,8 +60,8 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
-      - name: 'Deploy to Azure Web App'
+
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
@@ -60,12 +69,3 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
-
-env:
-  REACT_APP_MYSQL_DATABASE: ${{ secrets.AZURE_MYSQL_DATABASE }}
-  REACT_APP_MYSQL_HOST: ${{ secrets.AZURE_MYSQL_HOST }}
-  REACT_APP_MYSQL_PASSWORD: ${{ secrets.AZURE_MYSQL_PASSWORD }}
-  REACT_APP_MYSQL_PORT: ${{ secrets.AZURE_MYSQL_PORT }}
-  REACT_APP_MYSQL_SSL: ${{ secrets.AZURE_MYSQL_SSL }}
-  REACT_APP_MYSQL_USER: ${{ secrets.AZURE_MYSQL_USER }}
-  REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
