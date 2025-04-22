@@ -1,4 +1,4 @@
-import React,  { useState, useEffect, useRef }  from "react";
+import React,  { useState, useEffect, useRef, useMemo }  from "react";
 import { Grid, Typography } from "@mui/material";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
@@ -12,24 +12,25 @@ const HomeScreen = () => {
   const [animatedStats, setAnimatedStats] = useState([]);
   const intervalRefs = useRef([]);
 
-  const stats = [
+  const stats = useMemo(() => [
     { id: 1, icon: "./icsrs.png", label: "ICSRs", count: 500000 },
     { id: 2, icon: './safetySignals.jpg', label: "Safety Signals", count: 1000 },
     { id: 3, icon: "./rmps.png", label: "RMPs", count: 100 },
     { id: 4, icon: "./reports.png", label: "Aggregate Reports", count: 1200 },
     { id: 5, icon: "./litreture.png", label: "Literature Surveillance", count: 5000 },
-  ];
-
+  ], []);
   useEffect(() => {
     setAnimatedStats(stats.map(stat => ({ ...stat, current: 0 })));
-  }, []);
+  },[stats]);
 
   useEffect(() => {
     if (visible) {
+      const localIntervals = [];
+   
       stats.forEach((stat, index) => {
         let current = 0;
-        const increment = Math.ceil(stat.count / 100); // ~1 second animation
-        intervalRefs.current[index] = setInterval(() => {
+        const increment = Math.ceil(stat.count / 100);
+        const interval = setInterval(() => {
           current += increment;
           setAnimatedStats(prev =>
             prev.map((s) =>
@@ -39,15 +40,20 @@ const HomeScreen = () => {
             )
           );
           if (current >= stat.count) {
-            clearInterval(intervalRefs.current[index]);
+            clearInterval(interval);
           }
         }, 20);
+   
+        localIntervals[index] = interval;
       });
+   
+      intervalRefs.current = localIntervals;
     }
+   
     return () => {
       intervalRefs.current.forEach(clearInterval);
     };
-  }, [visible]);
+  }, [visible, stats]); 
 
   useEffect(() => {
     const handleScroll = () => {
