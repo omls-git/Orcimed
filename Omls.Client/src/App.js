@@ -14,9 +14,13 @@ import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
 import Profileinfo from './pages/Profileinfo';
 import Doctors from './components/Doctors';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme();
 
 function App() {
   return (
+    <ThemeProvider theme={theme}>
     <div className="App">
         <BrowserRouter>
         <Header />
@@ -40,6 +44,7 @@ function App() {
         <Footer />
         </BrowserRouter>
     </div>
+    </ThemeProvider>
   );
 }
 
