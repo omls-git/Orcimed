@@ -3,7 +3,7 @@ import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 import services from './ServicesFile.json'
 import Pharmacovigilance from "./Pharmacovigilance";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const containerVariants = {
   hidden: {},
