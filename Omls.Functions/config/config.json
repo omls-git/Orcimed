@@ -1,27 +1,27 @@
 {
   "development": {
-    "username": "AZURE_MYSQL_USER",
-    "password": "AZURE_MYSQL_PASSWORD",
-    "database": "AZURE_MYSQL_DATABASE",
-    "host": "AZURE_MYSQL_HOST",
-    "port":" AZURE_MYSQL_PORT",
-    "ssl":"AZURE_MYSQL_SSL"
+    "username": "REACT_APP_AZURE_MYSQL_USER",
+    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
+    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
+    "host": "REACT_APP_AZURE_MYSQL_HOST",
+    "port": "REACT_APP_AZURE_MYSQL_PORT",
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
    
   },
   "test": {
-    "username": "AZURE_MYSQL_USER",
-    "password": "AZURE_MYSQL_PASSWORD",
-    "database": "AZURE_MYSQL_DATABASE",
-    "host": "AZURE_MYSQL_HOST",
-    "port":" AZURE_MYSQL_PORT",
-    "ssl":"AZURE_MYSQL_SSL"
+    "username": "REACT_APP_AZURE_MYSQL_USER",
+    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
+    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
+    "host": "REACT_APP_AZURE_MYSQL_HOST",
+    "port": "REACT_APP_AZURE_MYSQL_PORT",
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
   },
   "production": {
-    "username": "AZURE_MYSQL_USER",
-    "password": "AZURE_MYSQL_PASSWORD",
-    "database": "AZURE_MYSQL_DATABASE",
-    "host": "AZURE_MYSQL_HOST",
-    "port":" AZURE_MYSQL_PORT",
-    "ssl":"AZURE_MYSQL_SSL"
+    "username": "REACT_APP_AZURE_MYSQL_USER",
+    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
+    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
+    "host": "REACT_APP_AZURE_MYSQL_HOST",
+    "port": "REACT_APP_AZURE_MYSQL_PORT",
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
   }
 }
