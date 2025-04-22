@@ -1,4 +1,4 @@
-import React,  { useState, useEffect, useRef }  from "react";
+import React,  { useMemo, useState, useEffect, useRef }  from "react";
 import { Grid, Typography } from "@mui/material";
 import HeroSection from "./HeroSection";
 import WhatDefinesUs from "./WhatDefinesUs";
