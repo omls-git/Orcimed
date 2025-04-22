@@ -22,35 +22,35 @@ const Paragraph = styled(Typography)(({ theme }) => ({
   lineHeight: 1.6,
 }));
 
-const clinicalTrialSafetyData = {
-  title: "Pharmacovigilance",
-  Pharmacovigilance: [
-    {
-      title: "Medical information call center setup",
-      description: [
-        "Medical information call centers play a key role in the post marketing surveillance...",
-        "The expert team would be responsible to provide therapeutic details...",
-        "This is a round the clock set up to address the queries of health care professionals..."
-      ]
-    },
-    {
-      title: "End to End case processing",
-      description: ["Content for End to End case processing goes here."]
-    },
-    {
-      title: "Aggregate reports",
-      description: ["Content for Aggregate reports goes here."]
-    },
-    {
-      title: "Risk management Plans",
-      description: ["Content for Risk management Plans goes here."]
-    },
-    {
-      title: "Risk Evaluation and Mitigation strategies",
-      description: ["Content for Risk Evaluation and Mitigation strategies goes here."]
-    }
-  ]
-};
+// const clinicalTrialSafetyData = {
+//   title: "Pharmacovigilance",
+//   Pharmacovigilance: [
+//     {
+//       title: "Medical information call center setup",
+//       description: [
+//         "Medical information call centers play a key role in the post marketing surveillance...",
+//         "The expert team would be responsible to provide therapeutic details...",
+//         "This is a round the clock set up to address the queries of health care professionals..."
+//       ]
+//     },
+//     {
+//       title: "End to End case processing",
+//       description: ["Content for End to End case processing goes here."]
+//     },
+//     {
+//       title: "Aggregate reports",
+//       description: ["Content for Aggregate reports goes here."]
+//     },
+//     {
+//       title: "Risk management Plans",
+//       description: ["Content for Risk management Plans goes here."]
+//     },
+//     {
+//       title: "Risk Evaluation and Mitigation strategies",
+//       description: ["Content for Risk Evaluation and Mitigation strategies goes here."]
+//     }
+//   ]
+// };
 
 const Pharmacovigilance = ({services}) => {
   const Pharmacovigilance = services.Pharmacovigilance;
