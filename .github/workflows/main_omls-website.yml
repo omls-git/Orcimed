@@ -25,7 +25,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: Omls.Client/src/frontend/build/release.zip
+        working-directory: Omls.Client/src
         
         env:
           REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
