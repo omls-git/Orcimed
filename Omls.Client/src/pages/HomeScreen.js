@@ -12,13 +12,20 @@ const HomeScreen = () => {
   const [animatedStats, setAnimatedStats] = useState([]);
   const intervalRefs = useRef([]);
 
-  const stats = [
+  // const stats = [
+  //   { id: 1, icon: "./icsrs.png", label: "ICSRs", count: 500000 },
+  //   { id: 2, icon: './safetySignals.jpg', label: "Safety Signals", count: 1000 },
+  //   { id: 3, icon: "./rmps.png", label: "RMPs", count: 100 },
+  //   { id: 4, icon: "./reports.png", label: "Aggregate Reports", count: 1200 },
+  //   { id: 5, icon: "./litreture.png", label: "Literature Surveillance", count: 5000 },
+  // ];
+  const stats = useMemo(() => [
     { id: 1, icon: "./icsrs.png", label: "ICSRs", count: 500000 },
     { id: 2, icon: './safetySignals.jpg', label: "Safety Signals", count: 1000 },
     { id: 3, icon: "./rmps.png", label: "RMPs", count: 100 },
     { id: 4, icon: "./reports.png", label: "Aggregate Reports", count: 1200 },
     { id: 5, icon: "./litreture.png", label: "Literature Surveillance", count: 5000 },
-  ];
+  ], []);
 
   useEffect(() => {
     setAnimatedStats(stats.map(stat => ({ ...stat, current: 0 })));
