@@ -32,29 +32,37 @@ const HomeScreen = () => {
   }, [stats]);
 
   useEffect(() => {
-    if (visible) {
-      stats.forEach((stat, index) => {
-        let current = 0;
-        const increment = Math.ceil(stat.count / 100); // ~1 second animation
-        intervalRefs.current[index] = setInterval(() => {
-          current += increment;
-          setAnimatedStats(prev =>
-            prev.map((s) =>
-              s.id === stat.id
-                ? { ...s, current: current >= stat.count ? stat.count : current }
-                : s
-            )
-          );
-          if (current >= stat.count) {
-            clearInterval(intervalRefs.current[index]);
-          }
-        }, 20);
-      });
-    }
-    return () => {
-      intervalRefs.current.forEach(clearInterval);
-    };
-  }, [visible]);
+  if (visible) {
+    const localIntervals = [];
+
+    stats.forEach((stat, index) => {
+      let current = 0;
+      const increment = Math.ceil(stat.count / 100);
+      const interval = setInterval(() => {
+        current += increment;
+        setAnimatedStats(prev =>
+          prev.map((s) =>
+            s.id === stat.id
+              ? { ...s, current: current >= stat.count ? stat.count : current }
+              : s
+          )
+        );
+        if (current >= stat.count) {
+          clearInterval(interval);
+        }
+      }, 20);
+
+      localIntervals[index] = interval;
+    });
+
+    intervalRefs.current = localIntervals;
+  }
+
+  return () => {
+    intervalRefs.current.forEach(clearInterval);
+  };
+}, [visible, stats]); // ✅ All good now
+
 
   useEffect(() => {
     const handleScroll = () => {
