@@ -4,12 +4,16 @@
 // // learn more: https://github.com/testing-library/jest-dom
 // import '@testing-library/jest-dom';
 import '@testing-library/jest-dom';  // Your existing imports
-import matchMediaMock from 'match-media-mock';
-
-// Mock matchMedia for jest
-matchMediaMock.useMediaQuery = jest.fn().mockImplementation((query) => ({
-  matches: query.includes('max-width') ? true : false,
-  media: query,
-  addListener: jest.fn(),
-  removeListener: jest.fn(),
-}));
+Object.defineProperty(window, 'matchMedia', {
+  writable: true,
+  value: jest.fn().mockImplementation(query => ({
+    matches: false,
+    media: query,
+    onchange: null,
+    addListener: jest.fn(), // deprecated
+    removeListener: jest.fn(), // deprecated
+    addEventListener: jest.fn(),
+    removeEventListener: jest.fn(),
+    dispatchEvent: jest.fn(),
+  })),
+});
