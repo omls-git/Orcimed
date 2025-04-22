@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Grid, Typography, Paper, TextField, Button } from '@mui/material';
+import { Box, Grid, Typography, Paper, TextField, Button, ListItem, ListItemIcon } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InfoIcon from '@mui/icons-material/Info';
@@ -66,71 +66,48 @@ const ContactScreen = () => {
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Paper
-              elevation={4}
+          <Box
               sx={{
-                p: 4,
+                py: 6,
                 bgcolor: '#007b8f',
                 color: 'white',
                 borderRadius: '0px 40px 0px 40px',
-                width: '80%',
-                minHeight: '320px',
                 mx: 'auto',
+                width:{xs:'100%', md:'90%'},
               }}
             >
-              <Box display="flex" alignItems="center" mb={3} mt={7}>
-                <Box sx={{
-                  bgcolor: 'black',
-                  borderRadius: '50%',
-                  width: 40,
-                  height: 40,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mr: 2,
-                }}>
-                  <EmailIcon sx={{ color: 'white', fontSize: 20 }} />
-                </Box>
-                <Typography variant="body1" fontSize="large" fontWeight="bold">
-                  contact@orcimedlifesciences.com
+             <ListItem  alignItems="center">
+                <ListItemIcon>
+                  <EmailIcon  sx={{ backgroundColor:"black",color: 'white', fontSize: {sx:25,md:30}, p:'10px', mx:{sx:1,md:5}, borderRadius:"50%" }} />
+                </ListItemIcon>
+                <Typography variant="body1" fontSize={{xs:'18px', md:"22px"}} fontWeight="bold"   sx={{ 
+                    fontWeight: 'bold', 
+                    color: 'white',
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    textOverflow: 'ellipsis',
+                    width: '100%'
+                  }}>
+                contact@orcimedlifesciences.com
                 </Typography>
-              </Box>
-
-              <Box display="flex" alignItems="center" mb={3}>
-                <Box sx={{
-                  bgcolor: 'black',
-                  borderRadius: '50%',
-                  width: 40,
-                  height: 40,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mr: 2,
-                }}>
-                  <LinkedInIcon sx={{ color: 'white', fontSize: 20 }} />
-                </Box>
-                <Typography variant="body1" fontSize="large" fontWeight="bold">LinkedIn</Typography>
-              </Box>
-
-              <Box display="flex" alignItems="flex-start">
-                <Box sx={{
-                  bgcolor: 'black',
-                  borderRadius: '50%',
-                  width: 40,
-                  height: 40,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  mr: 2,
-                  mt: '2px',
-                }}>
-                  <InfoIcon sx={{ color: 'white', fontSize: 20 }} />
-                </Box>
-                <Typography variant="body1" fontSize="large" fontWeight="bold" align="left" sx={{paddingTop: '10px'}}>
-                  We are committed to excellence and transparency
+            </ListItem>
+            <ListItem  alignItems="center" sx={{mt:'20px'}}>
+                <ListItemIcon>
+                  <LinkedInIcon  sx={{ backgroundColor:"black",color: 'white',  fontSize: {sx:25,md:30}, p:'10px', mx:{sx:1,md:5},borderRadius:"50%" }}/>
+                </ListItemIcon>
+                <Typography variant="body1"fontSize={{xs:'18px', md:"22px"}} fontWeight="bold" >
+                LinkedIn
                 </Typography>
-              </Box>
-            </Paper>
+            </ListItem>
+              <ListItem  alignItems={{sx:"flex-start"}} sx={{mt:'20px'}}>
+                <ListItemIcon>
+                  <InfoIcon  sx={{ backgroundColor:"black",color: 'white',  fontSize: {sx:25,md:30}, p:'10px',mx:{sx:1,md:5},borderRadius:"50%" }} />
+                </ListItemIcon>
+                <Typography variant="body1" fontSize={{xs:'18px', md:"22px"}} fontWeight="bold" >
+                We are committed to excellence and transparency
+                </Typography>
+            </ListItem>
+            </Box>
           </Grid>
         </Grid>
       </Box>
@@ -156,7 +133,7 @@ const ContactScreen = () => {
             maxWidth: 600,
             width: '100%',
             p: 4,
-            m: 15,
+            m: {xs: 1, md:15, sm:2}
           }}
         >
           <Typography variant="h4" fontWeight="bold" align="center" mb={3}>
