@@ -25,7 +25,7 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
-        working-directory: Orcimed/Omls.Client
+        working-directory: Omls.Client
         
         env:
           REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
@@ -44,14 +44,14 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: Orcimed/Omls.Client/release.zip
+          path: Omls.Client/release.zip
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: 'Production'
-      url: 'https://omls-website-gfaxhmhsgcezcvbs.canadacentral-01.azurewebsites.net'
+      url: ${{ secrets.REACT_APP_API_BASE_URL }}
 
     steps:
       - name: Download artifact from build job
