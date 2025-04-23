@@ -68,6 +68,3 @@ jobs:
           slot-name: 'Production'
           package: ./frontend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
-
-      - name: Show deployment URL
-        run: echo "🚀 Deployment complete: https://omls-website-gfaxhmhsgcezcvbs.canadacentral-01.azurewebsites.net"
