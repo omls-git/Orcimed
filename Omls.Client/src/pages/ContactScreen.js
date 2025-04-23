@@ -14,7 +14,7 @@ const ContactScreen = () => {
     message: Yup.string().required('Message is required'),
   });
   const handleSubmit = async (values, { resetForm }) => {
-    alert
+    alert('Form submitted!');
     // try {
     //   const payload = {
     //     name: values.name,
