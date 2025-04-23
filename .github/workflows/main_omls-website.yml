@@ -67,4 +67,4 @@ jobs:
           app-name: 'omls-website'
           slot-name: 'Production'
           package: ./frontend
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B0 }}
