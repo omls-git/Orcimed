@@ -97,7 +97,7 @@ jobs:
       - name: Deploy backend to Azure Web App or Function App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'omls-api'
+          app-name: 'omls-website'
           slot-name: 'Production'
           package: ./backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
