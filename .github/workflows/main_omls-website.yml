@@ -51,7 +51,7 @@ jobs:
     needs: build
     environment:
       name: 'Production'
-      url: ${{ secrets.REACT_APP_API_BASE_URL }}
+      url: 'https://omls-website-gfaxhmhsgcezcvbs.canadacentral-01.azurewebsites.net'
 
     steps:
       - name: Download artifact from build job
