@@ -56,7 +56,7 @@ const CareersScreen = () => {
       };
 
       console.log('Form values:', payload); // Debugging line
-      const baseUrl = process.env.REACT_APP_API_BASE_URL;
+      const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
       console.log(baseUrl)
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
