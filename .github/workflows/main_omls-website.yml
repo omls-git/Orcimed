@@ -1,4 +1,4 @@
-name: Build and Deploy OMLS Website and API
+name: Build and Deploy OMLS Website
 
 on:
   push:
@@ -40,28 +40,11 @@ jobs:
         run: zip -r frontend.zip build
         working-directory: ./Omls.Client
 
-      # Build backend
-      - name: Install backend dependencies
-        working-directory: ./Omls.Functions
-        run: |
-          npm install
-          npm run build --if-present
-
-      - name: Zip backend for deployment
-        run: zip -r backend.zip .
-        working-directory: ./Omls.Functions
-
       - name: Upload frontend artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend
           path: ./Omls.Client/frontend.zip
-
-      - name: Upload backend artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: backend
-          path: ./Omls.Functions/backend.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -75,16 +58,8 @@ jobs:
         with:
           name: frontend
 
-      - name: Download backend artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: backend
-
       - name: Unzip frontend
         run: unzip frontend.zip -d frontend
-
-      - name: Unzip backend
-        run: unzip backend.zip -d backend
 
       - name: Deploy frontend to Azure Web App
         uses: azure/webapps-deploy@v3
@@ -92,12 +67,7 @@ jobs:
           app-name: 'omls-website'
           slot-name: 'Production'
           package: ./frontend
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FRONTEND }}
 
-      - name: Deploy backend to Azure Web App or Function App
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: 'omls-website'
-          slot-name: 'Production'
-          package: ./backend
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+      - name: Show deployment URL
+        run: echo "🚀 Deployment complete: https://omls-website-gfaxhmhsgcezcvbs.canadacentral-01.azurewebsites.net"
