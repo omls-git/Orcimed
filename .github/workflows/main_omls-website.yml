@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
  
       - name: Install and build frontend
-        working-directory: ./Omls.Functions
+        working-directory: ./Omls.Client
         run: |
           npm install
           npm run build
@@ -37,13 +37,13 @@ jobs:
  
       - name: Zip frontend build for deployment
         run: zip -r frontend.zip build
-        working-directory: ./Omls.Functions
+        working-directory: ./Omls.Client
  
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend
-          path: ./Omls.Functions/frontend.zip
+          path: ./Omls.Client/frontend.zip
  
   deploy:
     runs-on: ubuntu-latest
