@@ -44,7 +44,7 @@ const Footer = () => {
     {
       icon: <AddIcCallIcon sx={{ p: 2, bgcolor: "#F39200", borderRadius: "50%", color: "#fff", mb: "10px" }} fontSize="large" />,
       title: "Contact Us",
-      content: "040-69281100, +1 (910) 269-7239",
+      content: <div>+91 040-69281100 <br/> +1 (910) 269-7239</div>,
       bgc: "#454644",
       hbgc: "#fff",
       color: "#fff",
