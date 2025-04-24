@@ -39,8 +39,11 @@ const Profileinfo = () => {
           </Typography>
 
           <Box mt={2} textAlign={"left"}>
-          {profileInfo[id].info.map((info) => (
-            <Typography variant="body1" paragraph>{info}</Typography>
+          {profileInfo[id].info.map((info, index) => (
+            <div key={info} style={{marginBottom:"20px"}}>
+              <Typography variant="h6" fontWeight={"bold"} mb={0.5}>{profileInfo[id].headings[index]}</Typography>
+              <Typography variant="body1">{info}</Typography>
+            </div>
           ))}
           </Box>
         </Grid>
