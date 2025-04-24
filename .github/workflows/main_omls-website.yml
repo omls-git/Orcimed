@@ -23,7 +23,7 @@ jobs:
 
       # Build frontend (React)
       - name: Install and build frontend
-        working-directory: ./Omls.Client
+        working-directory: ./Omls.Functions
         run: |
           npm install
           npm run build
@@ -36,15 +36,15 @@ jobs:
           REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
 
-      - name: Zip frontend for deployment
-        run: zip -r frontend.zip build
-        working-directory: ./Omls.Client
+      - name: Zip backend for deployment
+        run: zip -r backend.zip build
+        working-directory: ./Omls.Functions
 
-      - name: Upload frontend artifact
+      - name: Upload backend artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend
-          path: ./Omls.Client/frontend.zip
+          path: ./Omls.Functions/backend.zip
 
   deploy:
     runs-on: ubuntu-latest
@@ -53,18 +53,18 @@ jobs:
       name: Production
 
     steps:
-      - name: Download frontend artifact
+      - name: Download backend artifact
         uses: actions/download-artifact@v4
         with:
           name: frontend
 
-      - name: Unzip frontend
-        run: unzip frontend.zip -d frontend
+      - name: Unzip backend
+        run: unzip backend.zip -d frontend
 
       - name: Deploy frontend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'omls-website'
           slot-name: 'Production'
-          package: ./frontend
+          package: ./backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
