@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const db = require('./models');
 const cors = require('cors');
-//const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.use(express.json());
 app.use(cors());
@@ -16,7 +16,7 @@ app.use("/contact", ContactRouter);
 app.use("/posts", PostRouter);
 
 db.sequelize.sync().then(() => {  
-  app.listen(5000, () => {  
-    console.log("server running in server port 5000");
-   });
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
 });
