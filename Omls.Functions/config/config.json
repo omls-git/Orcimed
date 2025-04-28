@@ -5,16 +5,27 @@
     "database": "REACT_APP_AZURE_MYSQL_DATABASE",
     "host": "REACT_APP_AZURE_MYSQL_HOST",
     "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
-   
-  },
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+  }
+},
   "test": {
     "username": "REACT_APP_AZURE_MYSQL_USER",
     "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
     "database": "REACT_APP_AZURE_MYSQL_DATABASE",
     "host": "REACT_APP_AZURE_MYSQL_HOST",
     "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+  }
   },
   "production": {
     "username": "REACT_APP_AZURE_MYSQL_USER",
@@ -22,6 +33,12 @@
     "database": "REACT_APP_AZURE_MYSQL_DATABASE",
     "host": "REACT_APP_AZURE_MYSQL_HOST",
     "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL"
+    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+  }
   }
 }

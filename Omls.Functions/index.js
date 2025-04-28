@@ -14,7 +14,9 @@ const ContactRouter = require('./routes/Contact');
 
 app.use("/contact", ContactRouter);
 app.use("/posts", PostRouter);
- 
-app.listen(PORT, () => {
+
+db.sequelize.sync().then(() => {  
+  app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
 });
