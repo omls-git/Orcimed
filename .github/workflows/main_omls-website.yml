@@ -1,26 +1,26 @@
 name: Build and Deploy OMLS Website
- 
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
- 
+
 env:
   NODE_VERSION: '18.x'
- 
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
- 
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
- 
+
       - name: Install and build frontend
         working-directory: ./Omls.Client
         run: |
@@ -34,32 +34,48 @@ jobs:
           REACT_APP_AZURE_MYSQL_SSL: ${{ secrets.REACT_APP_AZURE_MYSQL_SSL }}
           REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
- 
+
       - name: Zip frontend build for deployment
         run: zip -r frontend.zip build
         working-directory: ./Omls.Client
- 
-      - name: Upload build artifact
+
+      - name: Upload frontend build artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend
           path: ./Omls.Client/frontend.zip
- 
+
+      # Backend Build and MySQL Connection
+      - name: Install backend dependencies
+        working-directory: ./Omls.Functions
+        run: |
+          npm install
+
+      - name: Zip backend for deployment
+        run: zip -r backend.zip .
+        working-directory: ./Omls.Functions
+
+      - name: Upload backend artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend
+          path: ./Omls.Functions/backend.zip
+
   deploy:
     runs-on: ubuntu-latest
     needs: build
     environment:
       name: Production
- 
+
     steps:
       - name: Download frontend artifact
         uses: actions/download-artifact@v4
         with:
           name: frontend
- 
+
       - name: Unzip frontend
         run: unzip frontend.zip -d frontend
- 
+
       - name: Deploy frontend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
@@ -67,3 +83,37 @@ jobs:
           slot-name: 'Production'
           package: ./frontend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+
+      # Backend Deployment
+      - name: Download backend artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: backend
+
+      - name: Unzip backend
+        run: unzip backend.zip -d backend
+
+      - name: Deploy backend to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'omls-backend'  # Replace with your backend app name
+          slot-name: 'Production'
+          package: ./backend
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BACKEND }}  # Replace with your backend publish profile
+
+      # Backend Database Connection (Add your MySQL connection environment variables)
+      - name: Set MySQL database environment variables
+        run: |
+          echo "MYSQL_HOST=${{ secrets.REACT_APP_AZURE_MYSQL_HOST }}" >> $GITHUB_ENV
+          echo "MYSQL_USER=${{ secrets.REACT_APP_AZURE_MYSQL_USER }}" >> $GITHUB_ENV
+          echo "MYSQL_PASSWORD=${{ secrets.REACT_APP_AZURE_MYSQL_PASSWORD }}" >> $GITHUB_ENV
+          echo "MYSQL_DATABASE=${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}" >> $GITHUB_ENV
+          echo "MYSQL_PORT=${{ secrets.REACT_APP_AZURE_MYSQL_PORT }}" >> $GITHUB_ENV
+          echo "MYSQL_SSL=${{ secrets.REACT_APP_AZURE_MYSQL_SSL }}" >> $GITHUB_ENV
+
+      - name: Restart backend web app
+        uses: azure/webapps-action@v1
+        with:
+          app-name: 'omls-backend'  # Replace with your backend app name
+          slot-name: 'Production'
+          action: 'restart'
