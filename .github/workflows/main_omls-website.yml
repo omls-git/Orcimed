@@ -1,26 +1,27 @@
 name: Build and Deploy OMLS Website
- 
+
 on:
   push:
     branches:
       - main
   workflow_dispatch:
- 
+
 env:
   NODE_VERSION: '18.x'
- 
+
 jobs:
-  build:
+  # Frontend Build and Deploy
+  build-frontend:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
- 
-      - name: Set up Node.js
+
+      - name: Set up Node.js for frontend
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
- 
+
       - name: Install and build frontend
         working-directory: ./Omls.Client
         run: |
@@ -34,36 +35,91 @@ jobs:
           REACT_APP_AZURE_MYSQL_SSL: ${{ secrets.REACT_APP_AZURE_MYSQL_SSL }}
           REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
- 
+
       - name: Zip frontend build for deployment
         run: zip -r frontend.zip build
         working-directory: ./Omls.Client
- 
-      - name: Upload build artifact
+
+      - name: Upload frontend build artifact
         uses: actions/upload-artifact@v4
         with:
           name: frontend
           path: ./Omls.Client/frontend.zip
- 
+
+  # Backend Build and Deploy
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js for backend
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install and build backend
+        working-directory: ./Omls.Functions
+        run: |
+          npm install
+          npm run build
+        env:
+          REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
+          REACT_APP_AZURE_MYSQL_HOST: ${{ secrets.REACT_APP_AZURE_MYSQL_HOST }}
+          REACT_APP_AZURE_MYSQL_PASSWORD: ${{ secrets.REACT_APP_AZURE_MYSQL_PASSWORD }}
+          REACT_APP_AZURE_MYSQL_PORT: ${{ secrets.REACT_APP_AZURE_MYSQL_PORT }}
+          REACT_APP_AZURE_MYSQL_SSL: ${{ secrets.REACT_APP_AZURE_MYSQL_SSL }}
+          REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
+          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+
+      - name: Zip backend build for deployment
+        run: zip -r backend.zip build
+        working-directory: ./Omls.Functions
+
+      - name: Upload backend build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend
+          path: ./Omls.Functions/backend.zip
+
+  # Deployment
   deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build-frontend, build-backend]
     environment:
       name: Production
- 
+
     steps:
+      # Deploy Frontend
       - name: Download frontend artifact
         uses: actions/download-artifact@v4
         with:
           name: frontend
- 
+
       - name: Unzip frontend
         run: unzip frontend.zip -d frontend
- 
+
       - name: Deploy frontend to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'omls-website'
           slot-name: 'Production'
           package: ./frontend
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+
+      # Deploy Backend
+      - name: Download backend artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: backend
+
+      - name: Unzip backend
+        run: unzip backend.zip -d backend
+
+      - name: Deploy backend to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'omls-backend-website'
+          slot-name: 'Production'
+          package: ./backend
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
