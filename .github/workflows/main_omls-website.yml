@@ -122,4 +122,4 @@ jobs:
           app-name: 'omls-backend-website'
           slot-name: 'Production'
           package: ./backend
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4A8D1DECEA2F479C973B5C446E433B04 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D3F29470FF4E4AA7B8791E866BC8A6EF }}
