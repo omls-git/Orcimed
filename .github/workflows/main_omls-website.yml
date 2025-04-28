@@ -58,11 +58,10 @@ jobs:
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: Install and build backend
+      - name: Install dependencies for backend
         working-directory: ./Omls.Functions
         run: |
           npm install
-          npm run build
         env:
           REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
           REACT_APP_AZURE_MYSQL_HOST: ${{ secrets.REACT_APP_AZURE_MYSQL_HOST }}
@@ -72,8 +71,11 @@ jobs:
           REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
           REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
 
-      - name: Zip backend build for deployment
-        run: zip -r backend.zip build
+      # No build step required for backend
+      # - name: npm run build (removed as it is not needed)
+
+      - name: Zip backend files for deployment
+        run: zip -r backend.zip ./*
         working-directory: ./Omls.Functions
 
       - name: Upload backend build artifact
