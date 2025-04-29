@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 if (config.database_url) {
-  sequelize = new Sequelize(process.env[config.database_url], config);
+  sequelize = new Sequelize(config.database_url, config);
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
