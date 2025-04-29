@@ -36,47 +36,47 @@ const CareersScreen = () => {
   });
 
   const handleSubmit = async (values, { resetForm }) => {
-    alert('Form submitted successfully!');
-    // try {
-    //   const payload = {
-    //     title: "Software Engineer Application",
-    //     content: "I am interested in the Software Engineer position.",
-    //     firstName: values.firstName,
-    //     lastName: values.lastName,
-    //     email: values.email,
-    //     phone: values.phone,
-    //     address: values.address,
-    //     city: values.city,
-    //     country: values.country,
-    //     zip: values.zip,
-    //     previousJobTitle: values.previousJobTitle,
-    //     previousJobStartDate: values.previousJobStartDate?.toISOString(),
-    //     previousJobEndDate: values.previousJobEndDate?.toISOString(),
-    //     previousJobDescription: values.previousJobDescription,
-    //     acceptTerms: values.acceptTerms
-    //   };
+    // alert('Form submitted successfully!');
+    try {
+      const payload = {
+        title: "Software Engineer Application",
+        content: "I am interested in the Software Engineer position.",
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        city: values.city,
+        country: values.country,
+        zip: values.zip,
+        previousJobTitle: values.previousJobTitle,
+        previousJobStartDate: values.previousJobStartDate?.toISOString(),
+        previousJobEndDate: values.previousJobEndDate?.toISOString(),
+        previousJobDescription: values.previousJobDescription,
+        acceptTerms: values.acceptTerms
+      };
 
-    //   console.log('Form values:', payload); // Debugging line
-    //   const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
-    //   console.log(baseUrl)
-    //   const response = await fetch(`${baseUrl}/posts`, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(payload),
-    //   });
-    //   if (response.status === 200) {
-    //     alert('Form submitted successfully!');
+      console.log('Form values:', payload); // Debugging line
+      const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
+      console.log(baseUrl)
+      const response = await fetch(`${baseUrl}/posts`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+      if (response.status === 200) {
+        alert('Form submitted successfully!');
 
-    //     resetForm();
-    //   } else {
-    //     alert('Something went wrong. Please try again.');
-    //   }
-    // } catch (error) {
-    //   console.error('Submission error:', error);
-    //   alert('Failed to submit the form. Please check your connection and try again.');
-    // }
+        resetForm();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to submit the form. Please check your connection and try again.');
+    }
   };
 
   return (

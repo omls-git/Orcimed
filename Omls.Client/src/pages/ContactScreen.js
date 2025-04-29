@@ -14,35 +14,34 @@ const ContactScreen = () => {
     message: Yup.string().required('Message is required'),
   });
   const handleSubmit = async (values, { resetForm }) => {
-    alert('Form submitted!');
-    // try {
-    //   const payload = {
-    //     name: values.name,
-    //     email: values.email,
-    //     phone: values.phone,
-    //     message: values.message,
-    //   };
+    try {
+      const payload = {
+        name: values.name,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+      };
 
-    //   const baseUrl = process.env.REACT_APP_API_BASE_URL_LOCAL;
+      const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
 
-    //   const response = await fetch(`${baseUrl}/contact`, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(payload),
-    //   });
+      const response = await fetch(`${baseUrl}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-    //   if (response.status === 200) {
-    //     alert('Message sent successfully!');
-    //     resetForm();
-    //   } else {
-    //     alert('Something went wrong. Please try again.');
-    //   }
-    // } catch (error) {
-    //   console.error('Submission error:', error);
-    //   alert('Failed to send message. Please check your connection and try again.');
-    // }
+      if (response.status === 200) {
+        alert('Message sent successfully!');
+        resetForm();
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Failed to send message. Please check your connection and try again.');
+    }
   };
 
   return (
