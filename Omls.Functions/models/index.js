@@ -9,7 +9,7 @@ const sequelize = new Sequelize('careers', 'invtphtfov@omls-backend-server-datab
   dialect: 'mysql',
   dialectOptions: {
     ssl: {
-      ca: fs.readFileSync(certPath),
+      ca: fs.readFileSync(__dirname + '../config/ssl/DigiCertGlobalRootG2.crt.pem').toString(),
       rejectUnauthorized: true
     }
   },
