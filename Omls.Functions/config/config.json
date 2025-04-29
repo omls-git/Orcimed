@@ -1,44 +1,29 @@
 {
   "development": {
-    "username": "REACT_APP_AZURE_MYSQL_USER",
-    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
-    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
-    "host": "REACT_APP_AZURE_MYSQL_HOST",
-    "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "ssl": {
-        "require": true
-      }
-  }
+    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
+    "username": "NODE_APP_AZURE_MYSQL_USER",
+    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
+    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
+    "host": "NODE_APP_AZURE_MYSQL_HOST",
+    "port": "NODE_APP_AZURE_MYSQL_PORT",
+    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
 },
   "test": {
-    "username": "REACT_APP_AZURE_MYSQL_USER",
-    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
-    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
-    "host": "REACT_APP_AZURE_MYSQL_HOST",
-    "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "ssl": {
-        "require": true
-      }
-  }
+    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
+    "username": "NODE_APP_AZURE_MYSQL_USER",
+    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
+    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
+    "host": "NODE_APP_AZURE_MYSQL_HOST",
+    "port": "NODE_APP_AZURE_MYSQL_PORT",
+    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
   },
   "production": {
-    "username": "REACT_APP_AZURE_MYSQL_USER",
-    "password": "REACT_APP_AZURE_MYSQL_PASSWORD",
-    "database": "REACT_APP_AZURE_MYSQL_DATABASE",
-    "host": "REACT_APP_AZURE_MYSQL_HOST",
-    "port": "REACT_APP_AZURE_MYSQL_PORT",
-    "ssl": "REACT_APP_AZURE_MYSQL_SSL",
-    "dialect": "mysql",
-    "dialectOptions": {
-      "ssl": {
-        "require": true
-      }
-  }
+    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
+    "username": "NODE_APP_AZURE_MYSQL_USER",
+    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
+    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
+    "host": "NODE_APP_AZURE_MYSQL_HOST",
+    "port": "NODE_APP_AZURE_MYSQL_PORT",
+    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
   }
 }
