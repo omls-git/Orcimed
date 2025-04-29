@@ -1,29 +1,34 @@
 {
+  "local": {
+    "username": "invtphtfov",
+    "password": "NQO1Lu$$uOFz6oVF",
+    "database": "careers",
+    "host": "omls-backend-server-database.mysql.database.azure.com",
+    "port": "3306",
+    "ssl": "true"
+},
   "development": {
-    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
-    "username": "NODE_APP_AZURE_MYSQL_USER",
-    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
-    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
-    "host": "NODE_APP_AZURE_MYSQL_HOST",
-    "port": "NODE_APP_AZURE_MYSQL_PORT",
-    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
+    "username": "invtphtfov",
+    "password": "NQO1Lu$$uOFz6oVF",
+    "database": "careers",
+    "host": "omls-backend-server-database.mysql.database.azure.com",
+    "port": "3306",
+    "ssl": "true"
 },
   "test": {
-    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
-    "username": "NODE_APP_AZURE_MYSQL_USER",
-    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
-    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
-    "host": "NODE_APP_AZURE_MYSQL_HOST",
-    "port": "NODE_APP_AZURE_MYSQL_PORT",
-    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
+    "username": "invtphtfov",
+    "password": "NQO1Lu$$uOFz6oVF",
+    "database": "careers",
+    "host": "omls-backend-server-database.mysql.database.azure.com",
+    "port": "3306",
+    "ssl": "true"
   },
   "production": {
-    "database_url":"NODE_APP_AZURE_MYSQL_HOST",
-    "username": "NODE_APP_AZURE_MYSQL_USER",
-    "password": "NODE_APP_AZURE_MYSQL_PASSWORD",
-    "database": "NODE_APP_AZURE_MYSQL_DATABASE",
-    "host": "NODE_APP_AZURE_MYSQL_HOST",
-    "port": "NODE_APP_AZURE_MYSQL_PORT",
-    "ssl": "NODE_APP_AZURE_MYSQL_SSL"
+    "username": "invtphtfov",
+    "password": "NQO1Lu$$uOFz6oVF",
+    "database": "careers",
+    "host": "omls-backend-server-database.mysql.database.azure.com",
+    "port": "3306",
+    "ssl": "true"
   }
 }

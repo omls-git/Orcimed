@@ -10,9 +10,28 @@ const db = {};
 
 let sequelize;
 if (config.database_url) {
-  sequelize = new Sequelize(config.database_url, config);
+  sequelize = new Sequelize(config.database_url, {
+    dialect: 'mysql',
+    ssl: config.ssl || false,
+  });
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize('careers', 'invtphtfov@omls-backend-server-database', 'orcimed@123', {
+    host: 'omls-backend-server-database.mysql.database.azure.com',
+    dialect: 'mysql',
+    dialectOptions: {
+      ssl: {
+        require: true
+      }
+    },
+    logging: false,
+    pool: {
+      max: 10,
+      min: 1,
+      acquire: 30000,
+      idle: 10000
+    }
+  });
+  
 }
 
 fs.readdirSync(__dirname)
