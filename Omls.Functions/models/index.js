@@ -1,39 +1,30 @@
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
 const { Sequelize, DataTypes } = require('sequelize');
+const path = require('path');
+const fs = require('fs');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(path.join(__dirname, '/../config/config.json'))[env];
 const db = {};
-
-let sequelize;
-if (config.database_url) {
-  sequelize = new Sequelize(config.database_url, {
-    dialect: 'mysql',
-    ssl: config.ssl || false,
-  });
-} else {
-  sequelize = new Sequelize('careers', 'invtphtfov@omls-backend-server-database', 'orcimed@123', {
-    host: 'omls-backend-server-database.mysql.database.azure.com',
-    dialect: 'mysql',
-    dialectOptions: {
-      ssl: {
-        require: true
-      }
-    },
-    logging: false,
-    pool: {
-      max: 10,
-      min: 1,
-      acquire: 30000,
-      idle: 10000
+const certPath = path.resolve(__dirname, '../config/ssl/DigiCertGlobalRootG2.crt.pem');
+const sequelize = new Sequelize('careers', 'invtphtfov@omls-backend-server-database.mysql.database.azure.com', 'orcimed@123', {
+  host: 'omls-backend-server-database.mysql.database.azure.com',
+  dialect: 'mysql',
+  dialectOptions: {
+    ssl: {
+      ca: fs.readFileSync(certPath),
+      rejectUnauthorized: true
     }
-  });
-  
-}
+  },
+  logging: false
+});
 
+sequelize.authenticate()
+  .then(() => {
+    console.log('✅ MySQL connection to Azure established successfully.');
+  })
+  .catch(err => {
+    console.error('❌ Unable to connect to Azure MySQL:', err);
+  });
+
+// Load models
 fs.readdirSync(__dirname)
   .filter(file =>
     file.endsWith('.js') &&
