@@ -63,13 +63,13 @@ jobs:
         run: |
           npm install
         env:
-          REACT_APP_AZURE_MYSQL_DATABASE: ${{ secrets.REACT_APP_AZURE_MYSQL_DATABASE }}
-          REACT_APP_AZURE_MYSQL_HOST: ${{ secrets.REACT_APP_AZURE_MYSQL_HOST }}
-          REACT_APP_AZURE_MYSQL_PASSWORD: ${{ secrets.REACT_APP_AZURE_MYSQL_PASSWORD }}
-          REACT_APP_AZURE_MYSQL_PORT: ${{ secrets.REACT_APP_AZURE_MYSQL_PORT }}
-          REACT_APP_AZURE_MYSQL_SSL: ${{ secrets.REACT_APP_AZURE_MYSQL_SSL }}
-          REACT_APP_AZURE_MYSQL_USER: ${{ secrets.REACT_APP_AZURE_MYSQL_USER }}
-          REACT_APP_API_BASE_URL: ${{ secrets.REACT_APP_API_BASE_URL }}
+          NODE_APP_AZURE_MYSQL_DATABASE: ${{ secrets.NODE_APP_AZURE_MYSQL_DATABASE }}
+          NODE_APP_AZURE_MYSQL_HOST: ${{ secrets.NODE_APP_AZURE_MYSQL_HOST }}
+          NODE_APP_AZURE_MYSQL_PASSWORD: ${{ secrets.NODE_APP_AZURE_MYSQL_PASSWORD }}
+          NODE_APP_AZURE_MYSQL_PORT: ${{ secrets.NODE_APP_AZURE_MYSQL_PORT }}
+          NODE_APP_AZURE_MYSQL_SSL: ${{ secrets.NODE_APP_AZURE_MYSQL_SSL }}
+          NODE_APP_AZURE_MYSQL_USER: ${{ secrets.NODE_APP_AZURE_MYSQL_USER }}
+          NODE_APP_API_BASE_URL: ${{ secrets.NODE_APP_API_BASE_URL }}
 
       # No build step required for backend
       # - name: npm run build (removed as it is not needed)
