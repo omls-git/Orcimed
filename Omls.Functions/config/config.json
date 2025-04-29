@@ -1,34 +1,15 @@
 {
-  "local": {
-    "username": "invtphtfov",
-    "password": "NQO1Lu$$uOFz6oVF",
-    "database": "careers",
-    "host": "omls-backend-server-database.mysql.database.azure.com",
-    "port": "3306",
-    "ssl": "true"
-},
   "development": {
-    "username": "invtphtfov",
-    "password": "NQO1Lu$$uOFz6oVF",
+    "username": "omlswebsite",
+    "password": "orcimed@123",
     "database": "careers",
-    "host": "omls-backend-server-database.mysql.database.azure.com",
-    "port": "3306",
-    "ssl": "true"
-},
-  "test": {
-    "username": "invtphtfov",
-    "password": "NQO1Lu$$uOFz6oVF",
-    "database": "careers",
-    "host": "omls-backend-server-database.mysql.database.azure.com",
-    "port": "3306",
-    "ssl": "true"
-  },
-  "production": {
-    "username": "invtphtfov",
-    "password": "NQO1Lu$$uOFz6oVF",
-    "database": "careers",
-    "host": "omls-backend-server-database.mysql.database.azure.com",
-    "port": "3306",
-    "ssl": "true"
+    "host": "omls-backend-database-servers.mysql.database.azure.com",
+    "port": 3306,
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "require": true
+      }
+    }
   }
 }
