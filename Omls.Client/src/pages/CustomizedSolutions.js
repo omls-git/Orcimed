@@ -21,7 +21,8 @@ const CustomizedSolutions = () => {
           sx={{ fontWeight: "bold", textAlign: "center", py:{sm:'30px', xs: "30px"}, px:{xs:'2.5%', sm:'2.5%'}}}
           width={isTablet || isMobile ? '90%': "40%"}
         >
-          Customized <span style={{ color: "#007b8f" }}>Clinical Research Solutions</span>
+          Client-Focused<br /> 
+          <span style={{ color: "#007b8f" }}>Scientific Expertise</span>
         </Typography>
         <Typography
           py="20px"
@@ -36,24 +37,19 @@ const CustomizedSolutions = () => {
             <ListItemIcon>
                 <NavigationIcon  sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
               </ListItemIcon>
-               OrciMed Life Sciences prides itself on personalized clinical trial management.
+              OrciMed Life Sciences prides itself on providing all centralized services within the Clinical and Post Marketed markets.
             </ListItem>
              <ListItem alignItems="flex-start">
                 <ListItemIcon>
                   <NavigationIcon sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
                 </ListItemIcon>
-                With extensive experience, close
-                collaboration with clients-large or small-designs and implements
-                customized strategies. Through hands-on support and community
-                outreach, efficient study launches, effective patient enrollment, and
-                high-quality outcomes are ensured.
+                With extensive experience, close collaboration with clients-large or small, OMLS is the perfect off-shore partner
                 </ListItem>
                 <ListItem alignItems="flex-start">
               <ListItemIcon>
                   <NavigationIcon sx={{ transform: 'rotate(90deg)', color: '#007b8f' }} />
                 </ListItemIcon>
-                A tailored, client-focused CRO
-                experience is provided, meeting needs wherever clients are.
+                A tailored, client-focused organization with decades of  experience
               </ListItem>
           </List>
         </Typography>

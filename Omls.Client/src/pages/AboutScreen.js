@@ -94,7 +94,7 @@ const AboutScreen = () => {
                 <CheckCircleIcon  sx={{ color: '#F39200' }}   />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}} >
-                To achieve  <strong style={{color:'black'}}>leading industry presence</strong> with expertise and experience in the delivery of  <strong style={{color:'black'}}>clinical research services</strong> across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
+                To achieve  <strong style={{color:'black'}}>leading industry presence</strong> with expertise and experience in the delivery of  <strong style={{color:'black'}}>clinical  services</strong> across the globe, through collaboration and networking with clients, developing professionals, and providing cutting-edge infrastructure.
               </Typography>
             </ListItem>
             <ListItem  alignItems="flex-start">
@@ -115,7 +115,7 @@ const AboutScreen = () => {
                 <CheckCircleIcon sx={{ color: '#F39200' }} />
               </ListItemIcon>
               <Typography variant="h6" color="black" maxWidth={{xs:"100%", md: '65%'}}>
-                To provide reliable <strong style={{color:'black'}}>clinical research services</strong> covering a  <strong style={{color:'black'}}>range of activities</strong> for pharmaceutical and biotech companies, through a team of committed experts.
+                To provide reliable <strong style={{color:'black'}}>clinical  services</strong> covering a  <strong style={{color:'black'}}>range of activities</strong> for pharmaceutical and biotech companies, through a team of committed experts.
               </Typography>
             </ListItem>
             <ListItem alignItems="flex-start">
