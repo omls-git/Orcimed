@@ -21,7 +21,7 @@ const CustomizedSolutions = () => {
           sx={{ fontWeight: "bold", textAlign: "center", py:{sm:'30px', xs: "30px"}, px:{xs:'2.5%', sm:'2.5%'}}}
           width={isTablet || isMobile ? '90%': "40%"}
         >
-          Clinical Research Solutions <br/>
+          Client-Focused <br/>
            <span style={{ color: "#007b8f" }}>Scientific Expertise</span>
         </Typography>
         <Typography
