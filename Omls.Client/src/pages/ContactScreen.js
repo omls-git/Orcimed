@@ -23,7 +23,8 @@ const ContactScreen = () => {
       };
 
       const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
-
+      console.log(baseUrl,"url");
+      
       const response = await fetch(`${baseUrl}/contact`, {
         method: 'POST',
         headers: {
