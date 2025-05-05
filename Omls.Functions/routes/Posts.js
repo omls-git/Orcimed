@@ -4,6 +4,7 @@ const { Posts } = require('../models');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail');    
 
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 router.get('/', async(req, res) => {
   const listOfPosts =  await Posts.findAll();
   res.json(listOfPosts)
