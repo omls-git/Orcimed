@@ -3,6 +3,7 @@ const {Contact} = require('../models');
 const contactRouter = express.Router();
 const sgMail = require('@sendgrid/mail');
 
+sgMail.setApiKey('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');
 contactRouter.get('/', async(req,res) => {
   const contactedUs = await Contact.findAll();
   console.log(res)

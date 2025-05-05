@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { Posts } = require('../models');
 const cors = require('cors');
-const sgMail = require('@sendgrid/mail');    
+const sgMail = require('@sendgrid/mail');
 
+sgMail.setApiKey('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');
 router.get('/', async(req, res) => {
   const listOfPosts =  await Posts.findAll();
   res.json(listOfPosts)
