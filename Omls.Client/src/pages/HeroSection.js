@@ -8,7 +8,7 @@ const HeroSection = () => {
   const isMobile = useMediaQuery("(max-width:480px)");
   const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
 
-  const heroContent1 = "The strategic excellence and scientific expertise of our seasoned leadership team kindled the birth of OrciMed Life Sciences to streamline cost-effective drug development and commercialization. OrciMed Life Sciences strongly believes in patient centric process development strategies, and we conduct our work with a commitment that culminates in clinical benefit."
+  const heroContent1 = "Built by industry leaders with decades of experiences in clinical research and marketed product support, OMLS is here to provide you the services you need to be successful.  OMLS is fast, high quality and high value.  From clinical trials to post-market support, OMLS offers end-to-end solutions tailored to your needs. With an unwavering commitment to quality, transparency, and value, we are your trusted offshore partner."
 const heroContent2 = 'We are a quality driven Clinical Services Organisation (CSO) focused on delivering accelerated innovative solutions and reliable scientific services.'
 
 const navigate = useNavigate();
