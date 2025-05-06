@@ -56,9 +56,9 @@ const CareersScreen = () => {
         acceptTerms: values.acceptTerms
       };
 
-      console.log('Form values:', payload); // Debugging line
+      // console.log('Form values:', payload); // Debugging line
       const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
-      console.log(baseUrl)
+      // console.log(baseUrl)
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
         headers: {

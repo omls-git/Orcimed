@@ -3,7 +3,7 @@ const {Contact} = require('../models');
 const contactRouter = express.Router();
 const sgMail = require('@sendgrid/mail');
 
-sgMail.setApiKey('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');
+sgMail.setApiKey(process.env.EMAIL_KEY);
 contactRouter.get('/', async(req,res) => {
   const contactedUs = await Contact.findAll();
   console.log(res)
@@ -18,8 +18,8 @@ contactRouter.post('/', async (req, res) => {
     await Contact.create(contact);
     // Prepare email
     const msg = {
-      to: 'contact@orcimedlifesciences.com', // recipient email
-      from: 'contact@orcimedlifesciences.com', // must be a verified sender on SendGrid
+      to: 'contact@orcimedlifesciences.com',
+      from: 'contact@orcimedlifesciences.com',
       subject: 'New Contact Form Submission',
       html: `
         <h2>New Contact Form Submitted</h2>
@@ -30,9 +30,6 @@ contactRouter.post('/', async (req, res) => {
         </table>
       `,
     };
-    
- 
-    // Send email
     await sgMail.send(msg);
  
     res.status(200).json({ message: 'Form submitted and email sent successfully.', data: contact });

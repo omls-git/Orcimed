@@ -63,6 +63,7 @@ jobs:
         run: |
           npm install
         env:
+          EMAIL_KEY: ${{ secrets.EMAIL_KEY }}
           NODE_APP_AZURE_MYSQL_DATABASE: ${{ secrets.NODE_APP_AZURE_MYSQL_DATABASE }}
           NODE_APP_AZURE_MYSQL_HOST: ${{ secrets.NODE_APP_AZURE_MYSQL_HOST }}
           NODE_APP_AZURE_MYSQL_PASSWORD: ${{ secrets.NODE_APP_AZURE_MYSQL_PASSWORD }}
