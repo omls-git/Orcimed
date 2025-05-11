@@ -1,23 +1,23 @@
 import React from "react";
-import { Box, Typography, Grid, useTheme, useMediaQuery } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Typography,  useTheme, useMediaQuery } from "@mui/material";
+
 import services from './ServicesFile.json'
 import Pharmacovigilance from "./Pharmacovigilance";
 import { useParams } from "react-router-dom";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
+// const containerVariants = {
+//   hidden: {},
+//   visible: {
+//     transition: {
+//       staggerChildren: 0.3,
+//     },
+//   },
+// };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: -100 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
+// const itemVariants = {
+//   hidden: { opacity: 0, y: -100 },
+//   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+// };
 
 export default function SiteSupportServices() {
   //const location = useLocation();
