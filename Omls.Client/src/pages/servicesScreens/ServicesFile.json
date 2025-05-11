@@ -2,9 +2,15 @@
   "post-marketing-safety-operations": {
     "id" : 1,
     "title":"Post Marketing Safety Operations",
-    "content" : [
-      "Post marketing safety operations are an important practice for monitoring the safety of a pharmaceutical drug or a medical device. It is a significant aspect to highlight the potential safety concern of drug/ device concerned. Post marketing operations conduct an active surveillance to monitor the safety and efficacy. It is a proactive procedure to collect and review the experience of the patients while using the drug or device. It is also a substantial mechanism to put a process in place for the purpose of identifying an immediate need to apply necessary corrective or preventive actions.", 
-      "At OrciMed we bring the expertise in providing end to end solutions for ICSR processing requirements including literature surveillance. We are proud to have the capability to set up medical information call center with skilled professionals. We have also developed proficiency in identifying the redundant fields of case processing where we can bring in robotic process automation (RPA) to take care of the data entry. Our expert team hence focuses on critical fields to provide their medical knowledge to write narratives, validate the data and thus reduce the timeline required for case processing. The eminent team delivers customized valuable compilation and submission of an aggregate report to assigned regulatory authorities over the period of the product life cycle. We also provide value added services in risk evaluation and mitigation strategy to ensure the benefits of the approved drug outweigh the risk. The team plays a vital role in handling risk management plans, company core data sheet updates and SmPc updates for medicinal products."],
+   "content": [
+  "At OrciMed, we help ensure the continued safety of pharmaceutical products and medical devices after they reach the market:",
+  "• Ongoing safety surveillance to monitor real-world use and identify potential safety concerns.",
+  "• ICSR processing and literature monitoring to support regulatory compliance.",
+  "• Medical information call center staffed with trained professionals to manage inquiries and adverse event reports.",
+  "• Expert narrative writing and data validation to improve case quality and reduce processing timelines.",
+  "• Aggregate safety report preparation and submission throughout the product lifecycle.",
+  "• Risk management services, including REMS, RMPs, and SmPC updates.",
+  "At OrciMed we bring the expertise in providing end to end solutions for ICSR processing requirements including literature surveillance."],
     "image1": "./Health-economics-outcomes-research.jpg",
     "image2" : "./Post-Marketing-Safety-Operations.jpg",
     "Pharmacovigilance" :[
@@ -54,8 +60,13 @@
     "id" : 2,
     "title":"Clinical Trial Safety Operations",
     "content" : [
-      "A clinical trial is a pivotal phase in the drug development process that provides safety information along with therapeutic exploration and confirmation. The main or primary objective of clinical trials is usually to establish the efficacy of an intervention, which drives sponsors to deploy all efforts on clinical operations while conforming to stringent processes implemented by health authorities. Thorough gathering and reporting of safety data during trials in line with regulatory requirements is often a challenge to most Sponsors. At OrciMed, we offer a broad spectrum of clinical trial safety services precisely crafted to achieve the Sponsor’s safety reporting requirements.", 
-      "We are flexible enough to offer tailor made services to fit the Sponsor’s unanticipated critical problem or systematically manage the Sponsor’s complete Clinical Trial Safety Operations. Our expert team is proficient in the redaction of safety sections in Investigator Brochures and Dossiers, the preparation and submission of Development Safety Update Reports, the unblinding and reconciliation with safety database. We also have a dedicated team to provide their valuable input and function as an ethics committee by reviewing ethical or moral questions that may arise during patient care. At OrciMed, our expert team places emphasis on safety and compliance with regulatory requirements while managing protocols, configuring studies, processing clinical trial cases, managing Serious Adverse Events, analysis of similar events, updating Investigator Brochures and Investigator Notifications. Our multidisciplinary experts focus on designing robust clinical trial safety processes encompassing pharmacovigilance, epidemiology, and risk management. We partner with our Sponsor to evaluate and identify a customizable model that matches their specific requirements."],
+       "OrciMed supports sponsors through every phase of clinical trial safety:",
+  "• Customized safety reporting solutions tailored to your needs.",
+  "• Expertise in DSURs, Investigator Brochures, and ethical review.",
+  "• Management of SAEs, SUSARs, and safety databases.",
+  "•Study configuration, protocol alignment, and compliance monitoring.",
+ "Our team blends pharmacovigilance, risk management, and regulatory expertise to design robust safety strategies, ensuring alignment with global health authority requirements."
+      ],
     "image1": "./ctso1.jpg",
     "image2" : "./Clinical-Trial-Safety-OperationsPV.jpg",
     "Pharmacovigilance" :[
@@ -100,7 +111,14 @@
   "medical-writing":{
     "id":3,
     "title":"Medical Writing",
-    "content":["Medical writing is a distinct skill that requires the ability to create well-structured documents to present the information clearly and concisely. It is a well-known fact that all new drugs go through a progressively composite process of clinical trials and regulatory procedures that leads to approval of the drug for the market. Medical communication is the key to the success of the product on the market. Hence, there is a high demand for the articulation of medical information with standard regulatory compliant documents being available for medical professionals and translational researchers. The regulatory documents include clinical study protocols, clinical study reports, patient informed consent forms, investigator’s brochures, summary documents, etc.","At OrciMed, we have very well committed and experienced professionals to compile and develop high quality documents with a quick turnaround time. We bank on our distinguished exceptional writing team, which can help you compile and produce an assorted set of medical and scientific documents as per the requirements of different regulatory authorities. They quickly adapt to the given country’s regulatory compliance and provide a customized report to meet the client’s requirements. Our medical writing team has wide range of experience in various therapeutic segments and can provide their expert services at all levels of a clinical trial. We also provide extended documentation services for quality control, editing, and publishing of scientific documents. We ensure to provide accurate results to meet all the standards for the United States Food and Drug Administration (US FDA), European Medical Agency (EMA), as well as other regulatory authority guidelines, and also comply with the standards of the International Conference on Harmonization (ICH) guidelines."],
+    "content":[
+ "We provide accurate, regulatory-compliant medical writing across all trial phases:",
+  "• Development of key documents: protocols, CSRs, IBs, informed consent forms, and summaries.",
+  "• Fast turnaround with high-quality output across therapeutic areas.",
+  "• Expertise in US FDA, EMA, and ICH requirements.",
+  "• Additional services: quality control, editing, and publishing.",
+ "Our experienced writers tailor documents to local regulatory needs and scientific standards."
+    ],
     "image1":"./Biostatistics-clinical-SAS.jpg",
     "image2":"./Medical-Writing-1.jpg",
     "Pharmacovigilance":[
@@ -116,7 +134,14 @@
   "biostatistics-and-clinical-sas":{
     "id":4,
     "title":"Biostatistics and Clinical SAS Programming",
-    "content":["Biostatistics is an important development and statistical method for obtaining appropriate clinical trial results and their interpretation. It is a competitive and an imperative process to procure and analyze the right outcomes from the clinical trials which provides a complete insight into the real data. It is an important discipline in clinical data analytics. The statistical analysis helps to uphold the integrity of a clinical trial. Biostatisticians are involved in every step of the clinical research process, including clinical trial design, protocol development, data management and monitoring, and data analysis. They serve as the bridge between data capture and reporting.","Statistical Analysis Software (SAS) is a biostatistical tool to manage and generate tables, listings, and graphs for clinical study reports. SAS plays a vital role in data analysis and also in the preparation of clinical study report. '<br/>' Our expert biostatisticians help in outlining the study end points, sample size calculation, interim analysis planning, and hypothesis of testing procedures. We partner with the clients through biostatistical programs that drive mutual success. We possess the industry standard proficiency to promote brilliant quality outcome of data analysis. We are known for providing flexible working models to meet customer requirements. We provide a secure analytics foundation and a scalable framework for clinical analysis and submission. Our SAS experts provide the market with a much-needed competitive edge, from remodeling trial designs to delivering leading platforms for data transparency. This methodology empowers the scalability, visualization and submission grade quality of the clinical trial teat results which can detect potential issues at a much faster pace."],
+    "content":[
+"OrciMed’s biostatistics and SAS programming services ensure reliable trial results:",
+  "• Trial design support: sample size calculations, endpoint definitions, interim analysis.",
+  "• SAS programming for tables, listings, graphs, and final reporting.",
+  "• Real-time data analytics with secure, scalable frameworks.",
+  "• Flexible models to fit client needs and accelerate submissions.",
+ "Our experts bridge clinical insights and statistical rigor, delivering quality outcomes with speed."
+    ],
     "image1":"./8-1.jpg",
     "image2":"./Biostatistics-and-Clinical-SAS-programming.jpg",
     "Pharmacovigilance":[
@@ -134,7 +159,14 @@
   "regulatory-affairs":{
     "id":5,
     "title":"Regulatory Affairs",
-    "content":["Health Authorities have meticulously devised complex rules and regulations for the development of pharmaceutical products and regulating their commercialization globally. Regulatory Affairs team liaises between Health Authorities and Pharmaceutical Organizations to ensure all obligatory requirements are successfully accomplished on time and compliance with regulations throughout the life cycle of the drug. Pharmaceutical Organizations are constantly challenged by the daunting and mammoth effort required for scrutinizing, deciphering, and tracking key regulations and steps related to the stringent drug approval process.","We are a global leader in the Regulatory space and excel in bridging Global Health Authorities and Pharmaceutical Organizations. We are well equipped to deliver strategic and multidisciplinary Regulatory Affairs services through drug development, registration, commercialization, and managing regulatory compliance. We enable our customers to successfully launch their products globally despite complex and demanding regulatory requirements with our domain expertise and meticulous tracking. Our expert team comprises of specialists who can navigate products through the complete regulatory approval process, along with devising specific strategies for agency interface, managing regulatory strategy, GAP analysis, product classification, authoring dossiers, the development and update of labels and common technical documents, submission preparation, publishing, regulatory intelligence, and Quality Assurance for various categories of products. We understand the changing needs of a Marketing Authorization Holder and act as an extension of its team to ensure post-authorization requirements regarding quality and safety are achieved. Our regulatory operations experts are specifically skilled to optimize renewals, variations, and other lifecycle management activities. Our multi-disciplinary expert team can also customize specific services related to Clinical Trial registration and safety reporting to fit client requirements. The strong scientific background of our experts coupled with up-to-date regulatory expertise enable our clientele to recognize efficient regulatory strategies, monitor the approval process and succeed with marketing authorization."],
+    "content":[
+     "We guide products through global regulatory pathways with precision:",
+  "• Regulatory strategy and submission planning.",
+  "• Dossier authoring, labeling, and CTD development.",
+  "• Post-authorization support: renewals, variations, safety reporting.",
+  "• Clinical trial registration and regulatory intelligence.",
+  "OrciMed acts as an extension of your team, ensuring regulatory success from development through commercialization."
+    ],
     "image1":"./Medical-Writing.jpg",
     "image2":"./Regulatory-Affairs.jpg",
     "Pharmacovigilance":[
@@ -149,7 +181,14 @@
   "data-management":{
     "id":6,
     "title":"Data Management",
-    "content":["Data Management is the central requirement for enabling subsequent processes with the intent of providing structured data consistently for analysis and reporting. It is a critical phase in clinical research that leads to the generation of high-quality, reliable, and statistically proven data from clinical trials. Adapting innovative data management methodologies helps to ensure data integrity, quality, and accountability in our process. At OrciMed, we have set standards and put governance mechanisms in place to ensure the quality of data with a reduced turnaround time. We provide tailor made solutions to various procedures in Clinical data management including Case Report Form (CRF) designing.","CRF annotation, database designing, data entry, data validation, discrepancy management, medical coding, data extraction, and database locking. The expert team at our organization proactively recognize the pain points, highlights it to the customers and provides custom-built approach to ensure quality data submission to regulatory authorities. Our goal is to provide high-quality data with minimal or no missing data, most significantly high-quality data that possess subjectively acceptable level of variation which should not affect the conclusion of the study on statistical analysis. We provide comprehensive data management solutions with well-designed outsourcing models and experience in all therapeutic areas and all phases of clinical trials. Our strategic solution is to focus on data flow for real time data cleaning. We comply with 21 CFR part 11 regulations and also have acquired proficiency in various CDM tools like ORACLE CLINICAL, CLINTRIAL, MACRO, RAVE including open-source tools like OpenClinica, OpenCDMS, TrialDB and PhOSCo. We possess team members with different roles and responsibilities who perform their roles effectively and efficiently."],
+    "content":[
+       "We ensure high-quality clinical data through robust data management systems:",
+  "• Full-service CDM support: CRF design, annotation, validation, coding, and locking.",
+  "• Real-time data cleaning to improve accuracy and minimize missing data.",
+  "• Compliance with 21 CFR Part 11 and use of leading CDM tools like RAVE, Oracle Clinical, and OpenClinica.",
+  "• Custom solutions across therapeutic areas and trial phases.",
+  "Our proactive team identifies challenges early and implements tailored solutions for clean, submission-ready data."
+     ],
     "image1":"./Data-Management.jpg",
     "image2":"./Data-Management-1.jpg",
     "Pharmacovigilance":[
@@ -168,8 +207,14 @@
   "health-economics-and-outcomes-research":{
     "id":7,
     "title":"Health Economics and Outcomes Research",
-    "content":["A multidisciplinary approach to design, execute, and analyze new interventions is required for generating relevant evidence for different stakeholders, reimbursement agencies, and health authorities. Health Economics and Outcomes Research (HEOR) is often foreseen as a complex process due to factors like different approaches to healthcare delivery and the varying cost of healthcare resources in various states. At OrciMed, we emphasize the economic impact of treatments, diseases, and conditions, along with the direct and indirect costs due to medical expenditures and costs associated with disability and loss of work respectively.",
-  "Our expertise includes comprehensive literature reviews, clinical evidence generation, and various methodologies for economic modelling that draw on diverse data sources from global markets. Our experts are qualified professionals in health policy, pharmacy, and medicine with distinguished expertise in economics, psychometrics, epidemiology, biostatistics, and econometrics. Our HEOR team can also supports customers through services including management of economic endpoints in clinical trials, treatment pattern analyses, portfolio planning, trial/market simulation modeling, pricing and market access research, Patient Reported Outcome (PRO) studies, global cost-effectiveness models, and value dossiers. Our expert team can develop suitable solutions based on customer requirement that can be as simple as a cost calculator to assess treatment costs and costs of adverse events to various models to evaluate economic implications and compare customer products with comparators."],
+    "content":[
+ "Our HEOR solutions demonstrate product value for stakeholders and payers:",
+  "• Economic modeling and literature reviews for evidence generation.",
+  "• Market access support: cost-effectiveness models, pricing research, and value dossiers.",
+  "• Patient-reported outcome (PRO) studies and real-world data analysis.",
+  "• Custom tools: from simple cost calculators to complex simulations.",
+  "With expertise across health policy, biostatistics, and economics, our team crafts impactful strategies for market success."
+],
     "image1":"./6.jpg",
     "image2":"./Health-Economics-and-Outcomes-Research.jpg",
     "Pharmacovigilance":[
@@ -183,7 +228,15 @@
   "additional-pharmacovigilance":{
     "id":8,
     "title":"Additional Pharmacovigilance",
-    "content":["Pharmacovigilance is a critical function in the life cycle of the drug that focuses on patient safety and quality of life. While the principles of drug safety remain the same globally, the requirements of Regulatory Authorities are very specific and have yet to be completely harmonized. Additionally, pharmaceutical organizations are challenged by the ever-changing regulatory requirements and unique needs of commercial partners. At OrciMed, we focus on enabling our customers to deliver quality pharmaceuticals and medical devices with our expertise in risk minimization and maximizing patient safety.","Our alignment to Good Pharmacovigilance Practice benefits our customers by establishing confidence in Health Care Professionals and Patients across global markets. Our comprehensive pharmacovigilance services are focused on achieving customer satisfaction while prioritizing patient safety throughout drug development and commercialization. OrciMed can customize solutions to suit specific drug safety requirements and rapidly scale up for complete pharmacovigilance delivery. At OrciMed, we can extend our support to host your safety data in compliance with various privacy laws and successfully regulate the exchange of your pharmacovigilance data. Our expert team provides a range of distinct solutions for the maintenance of ^ system master file, product dictionary and regulatory downloads that cater to specific requirements. Our multi-disciplinary team integrates expertise in various domains to support our customers in audits, inspections, literature reviews, and translation services. Our continuous learning process and up to the minute regulatory insight facilitate constant monitoring of Key Performance Indicators and enable our team of experts to achieve high standards of quality and regulatory compliance."],
+    "content":[
+      "OrciMed delivers global pharmacovigilance services aligned with Good Pharmacovigilance Practice (GVP):",
+  "• End-to-end pharmacovigilance support, from safety data hosting to literature review.",
+  "• Customizable services for case management, system master file, and product dictionary maintenance.",
+  "• Compliance with evolving regulations across markets.",
+  "• Support for audits, inspections, and translations.",
+ "We help clients stay ahead of regulatory changes while prioritizing patient safety and satisfaction throughout the product lifecycle."
+    
+    ],
     "image1":"./7.png",
     "image2":"./Other-PV-Safety.jpg",
     "Pharmacovigilance":[

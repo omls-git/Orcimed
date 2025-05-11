@@ -22,80 +22,85 @@ const itemVariants = {
 export default function SiteSupportServices() {
   //const location = useLocation();
   const { id } = useParams();
-  const currentPath = id; 
+  const currentPath = id;
   // const currentPath = location.pathname.startsWith("/") && location.pathname !== "/"
   //   ? location.pathname.slice(1, location.pathname?.length)
   //   : location.pathname;
-  console.log(currentPath,id)
+  console.log(currentPath, id)
   const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-    const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTab = useMediaQuery('(min-width: 425px) and (max-width: 768px)');
   return (
     <>
-    <Box
-      sx={{
-        position:"relative",
-        backgroundImage: `url(${services[currentPath].image1})`, // replace with actual image path
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "70vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        px: 4,
-        py: 8,
-        color: "white",
-        zIndex:-1,
-        marginTop: isTab ? "15%" : {xs:"20%", sm:"6.5%", md:"15%",lg:"9%",xl:"5%"},
-        "&::after": {
-        content: '""',
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: "rgba(0, 0, 0, 0.5)", // Optional: You can use this to add a dark overlay
-        backdropFilter: "blur(2px)", // Adjust the blur level here
-        zIndex: -1, // Make sure the blur is behind the content
-  },
-      }}
-    >
-      <Grid
-        container
-        maxWidth="xl"
-        component={motion.div}
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        spacing={4}
-        zIndex={1}
+      <Box
+        sx={{
+          position: "relative",
+          backgroundImage: `url(${services[currentPath].image1})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "70vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 4,
+          py: 8,
+          color: "white",
+          zIndex: -1,
+          marginTop: isTab ? "15%" : { xs: "20%", sm: "6.5%", md: "15%", lg: "9%", xl: "5%" },
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backdropFilter: "blur(2px)",
+            zIndex: -1,
+          },
+        }}
       >
-        <Grid item xs={12} component={motion.div} variants={itemVariants}>
-          <Typography variant="h3" fontWeight="bold" align="left">
+        {/* Overlay Light Orange Box */}
+        <Box
+          sx={{
+            backgroundColor: "rgba(255, 165, 0, 0.3)", // Light orange with transparency
+            padding: { xs: 2, sm: 4 },
+            borderRadius: 2,
+            maxWidth: "80%",
+            textAlign: "center",
+            boxShadow: 3,
+          }}
+        >
+          <Typography variant="h3" fontWeight="bold"  mb={2}>
             {services[currentPath].title}
           </Typography>
-        </Grid>
-        {
-          services[currentPath].content.map((item) => (
-          <Grid item xs={12} md={6} component={motion.div} variants={itemVariants} key={item} textAlign= {isMobile ? "left":"justify"}>
-            <Typography variant="h6" fontWeight="bold" >
+
+          {services[currentPath].content.map((item) => (
+            <Typography
+              key={item}
+              variant="h6"
+             
+              textAlign={isMobile ? "left" : "justify"}
+              mb={1}
+              
+            >
               {item}
             </Typography>
-        </Grid>
-          ))
-        }
-      </Grid>
-    </Box>
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        px: 4,
-        color: "white"}}>
-        <Pharmacovigilance services={services[currentPath]} />
+          ))}
         </Box>
-    
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          px: 4,
+          color: "white"
+        }}>
+        <Pharmacovigilance services={services[currentPath]} />
+      </Box>
+
     </>
   );
 }
