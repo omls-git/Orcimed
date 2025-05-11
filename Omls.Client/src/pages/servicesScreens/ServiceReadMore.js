@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography,  useTheme, useMediaQuery } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 
 import services from './ServicesFile.json'
 import Pharmacovigilance from "./Pharmacovigilance";
@@ -71,7 +71,7 @@ export default function SiteSupportServices() {
             boxShadow: 3,
           }}
         >
-          <Typography variant="h3" fontWeight="bold"  mb={2}>
+          <Typography variant="h3" fontWeight="bold" mb={2}>
             {services[currentPath].title}
           </Typography>
 
@@ -79,16 +79,14 @@ export default function SiteSupportServices() {
             <Typography
               key={item}
               variant="h6"
-             
               textAlign={isMobile ? "left" : "justify"}
               mb={1}
+              dangerouslySetInnerHTML={{ __html: item }}
+            />
               
-            >
-              {item}
-            </Typography>
           ))}
-        </Box>
       </Box>
+    </Box >
 
       <Box
         sx={{
