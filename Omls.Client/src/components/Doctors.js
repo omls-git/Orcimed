@@ -35,13 +35,13 @@ const teamMembers = [
   },
   {
     name: "Swetha Tatineni",
-    role: "Director -Support Functions",
+    role: "Director - Support Functions",
     image: "/swetha.png",
     linkedin: "https://www.linkedin.com/in/janesmith/",
   },
   {
     name: "Savita Ravindra Gupta",
-    role: "Associate director, QA",
+    role: "Associate Director - QA",
     image: "/savitha.png",
     linkedin: "https://www.linkedin.com/in/janesmith/",
   },
