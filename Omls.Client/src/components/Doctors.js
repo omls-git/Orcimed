@@ -7,13 +7,13 @@ const teamMembers = [
     name: "Mr. Suman Maarisetty",
     role: "Chief Executive Officer",
     image: "/suman.png",
-    linkedin: "https://www.linkedin.com/in/johndoe/",
+    linkedin: "https://www.linkedin.com/in/suman-m-omls/",
   },
   {
     name: "Dave Agrella",
     role: "Chief Revenue Officer",
     image: "/Dave.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/davidagrella/",
   },
   {
     name: "Dr. Raza Mohammad",
@@ -25,7 +25,7 @@ const teamMembers = [
     name: "Rob Petrie",
     role: "Chief Innovation Officer",
     image: "/rob.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/robert-p-34540146/",
   },
   {
     name: "Dr. Someshwar Komuravelly",
@@ -37,13 +37,13 @@ const teamMembers = [
     name: "Swetha Tatineni",
     role: "Director - Support Functions",
     image: "/swetha.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/swetha-tatineni-081870241/",
   },
   {
     name: "Savita Ravindra Gupta",
     role: "Associate Director - QA",
     image: "/savitha.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/savita-vaishya-gupta-1953419b/",
   },
 
 ];
