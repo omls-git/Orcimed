@@ -19,7 +19,7 @@ const teamMembers = [
     name: "Dr. Raza Mohammad",
     role: "Chief Scientific Officer",
     image: "/Raza.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/mohammed-raza-432b9376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: "Rob Petrie",
@@ -31,7 +31,7 @@ const teamMembers = [
     name: "Dr. Someshwar Komuravelly",
     role: "Chief Development Officer",
     image: "/someshawar.png",
-    linkedin: "https://www.linkedin.com/in/janesmith/",
+    linkedin: "https://www.linkedin.com/in/dr-someshwar-komuravelly-a20ab71b8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
   },
   {
     name: "Swetha Tatineni",
