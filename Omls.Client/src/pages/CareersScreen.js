@@ -35,40 +35,79 @@ const CareersScreen = () => {
     previousJobDescription: Yup.string(),
   });
 
-  const handleSubmit = async (values, { resetForm }) => {
-    // alert('Form submitted successfully!');
-    try {
-      const payload = {
-        title: "Software Engineer Application",
-        content: "I am interested in the Software Engineer position.",
-        firstName: values.firstName,
-        lastName: values.lastName,
-        email: values.email,
-        phone: values.phone,
-        address: values.address,
-        city: values.city,
-        country: values.country,
-        zip: values.zip,
-        previousJobTitle: values.previousJobTitle,
-        previousJobStartDate: values.previousJobStartDate?.toISOString(),
-        previousJobEndDate: values.previousJobEndDate?.toISOString(),
-        previousJobDescription: values.previousJobDescription,
-        acceptTerms: values.acceptTerms
-      };
+  // const handleSubmit = async (values, { resetForm }) => {
+  //   // alert('Form submitted successfully!');
+  //   try {
+  //     const payload = {
+  //       title: "Software Engineer Application",
+  //       content: "I am interested in the Software Engineer position.",
+  //       firstName: values.firstName,
+  //       lastName: values.lastName,
+  //       email: values.email,
+  //       phone: values.phone,
+  //       address: values.address,
+  //       city: values.city,
+  //       country: values.country,
+  //       zip: values.zip,
+  //       previousJobTitle: values.previousJobTitle,
+  //       previousJobStartDate: values.previousJobStartDate?.toISOString(),
+  //       previousJobEndDate: values.previousJobEndDate?.toISOString(),
+  //       previousJobDescription: values.previousJobDescription,
+  //       acceptTerms: values.acceptTerms
+  //     };
 
-      // console.log('Form values:', payload); // Debugging line
+  //     // console.log('Form values:', payload); // Debugging line
+  //     const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
+  //     // console.log(baseUrl)
+  //     const response = await fetch(`${baseUrl}/posts`, {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //       body: JSON.stringify(payload),
+  //     });
+  //     if (response.status === 200) {
+  //       alert('Form submitted successfully!');
+
+  //       resetForm();
+  //     } else {
+  //       alert('Something went wrong. Please try again.');
+  //     }
+  //   } catch (error) {
+  //     console.error('Submission error:', error);
+  //     alert('Failed to submit the form. Please check your connection and try again.');
+  //   }
+  // };
+  const handleSubmit = async (values, { resetForm }) => {
+    try {
+      const formData = new FormData();
+      formData.append('title', "Software Engineer Application");
+      formData.append('content', "I am interested in the Software Engineer position.");
+      formData.append('firstName', values.firstName);
+      formData.append('lastName', values.lastName);
+      formData.append('email', values.email);
+      formData.append('phone', values.phone);
+      formData.append('address', values.address);
+      formData.append('city', values.city);
+      formData.append('country', values.country);
+      formData.append('zip', values.zip);
+      formData.append('previousJobTitle', values.previousJobTitle);
+      formData.append('previousJobStartDate', values.previousJobStartDate?.toISOString());
+      formData.append('previousJobEndDate', values.previousJobEndDate?.toISOString());
+      formData.append('previousJobDescription', values.previousJobDescription);
+      formData.append('acceptTerms', values.acceptTerms);
+      if (values.cv) {
+        formData.append('cv', values.cv);
+      }
+
       const baseUrl = "https://omls-backend-website-dxeqdsbfcbbuencr.canadacentral-01.azurewebsites.net";
-      // console.log(baseUrl)
       const response = await fetch(`${baseUrl}/posts`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
+        body: formData,
       });
+
       if (response.status === 200) {
         alert('Form submitted successfully!');
-
         resetForm();
       } else {
         alert('Something went wrong. Please try again.');
@@ -78,6 +117,7 @@ const CareersScreen = () => {
       alert('Failed to submit the form. Please check your connection and try again.');
     }
   };
+
 
   return (
     <>
@@ -110,40 +150,40 @@ const CareersScreen = () => {
                 color: 'white',
                 borderRadius: '0px 40px 0px 40px',
                 mx: 'auto',
-                width:{xs:'100%', md:'90%'},
+                width: { xs: '100%', md: '90%' },
               }}
             >
-             <ListItem  alignItems="center">
+              <ListItem alignItems="center">
                 <ListItemIcon>
-                  <EmailIcon  sx={{ backgroundColor:"black",color: 'white', fontSize: {sx:25,md:30}, p:'10px', mx:{sx:1,md:5}, borderRadius:"50%" }} />
+                  <EmailIcon sx={{ backgroundColor: "black", color: 'white', fontSize: { sx: 25, md: 30 }, p: '10px', mx: { sx: 1, md: 5 }, borderRadius: "50%" }} />
                 </ListItemIcon>
-                <Typography variant="body1" fontSize={{xs:'18px', md:"22px"}} fontWeight="bold"   sx={{ 
-                    fontWeight: 'bold', 
-                    color: 'white',
-                    overflow: 'hidden',
-                    whiteSpace: 'nowrap',
-                    textOverflow: 'ellipsis',
-                    width: '100%'
-                  }}>
-                contact@orcimedlifesciences.com
+                <Typography variant="body1" fontSize={{ xs: '18px', md: "22px" }} fontWeight="bold" sx={{
+                  fontWeight: 'bold',
+                  color: 'white',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  width: '100%'
+                }}>
+                  contact@orcimedlifesciences.com
                 </Typography>
-            </ListItem>
-            <ListItem  alignItems="center" sx={{mt:'20px'}}>
+              </ListItem>
+              <ListItem alignItems="center" sx={{ mt: '20px' }}>
                 <ListItemIcon>
-                  <LinkedInIcon  sx={{ backgroundColor:"black",color: 'white',  fontSize: {sx:25,md:30}, p:'10px', mx:{sx:1,md:5},borderRadius:"50%" }}/>
+                  <LinkedInIcon sx={{ backgroundColor: "black", color: 'white', fontSize: { sx: 25, md: 30 }, p: '10px', mx: { sx: 1, md: 5 }, borderRadius: "50%" }} />
                 </ListItemIcon>
-                <Typography variant="body1"fontSize={{xs:'18px', md:"22px"}} fontWeight="bold" >
-                LinkedIn
+                <Typography variant="body1" fontSize={{ xs: '18px', md: "22px" }} fontWeight="bold" >
+                  LinkedIn
                 </Typography>
-            </ListItem>
-              <ListItem  alignItems={{sx:"flex-start"}} sx={{mt:'20px'}}>
+              </ListItem>
+              <ListItem alignItems={{ sx: "flex-start" }} sx={{ mt: '20px' }}>
                 <ListItemIcon>
-                  <InfoIcon  sx={{ backgroundColor:"black",color: 'white',  fontSize: {sx:25,md:30}, p:'10px',mx:{sx:1,md:5},borderRadius:"50%" }} />
+                  <InfoIcon sx={{ backgroundColor: "black", color: 'white', fontSize: { sx: 25, md: 30 }, p: '10px', mx: { sx: 1, md: 5 }, borderRadius: "50%" }} />
                 </ListItemIcon>
-                <Typography variant="body1" fontSize={{xs:'18px', md:"22px"}} fontWeight="bold" >
-                We are committed to excellence and transparency
+                <Typography variant="body1" fontSize={{ xs: '18px', md: "22px" }} fontWeight="bold" >
+                  We are committed to excellence and transparency
                 </Typography>
-            </ListItem>
+              </ListItem>
             </Box>
           </Grid>
         </Grid>
@@ -169,7 +209,7 @@ const CareersScreen = () => {
             maxWidth: 800,
             width: '100%',
             p: 4,
-            m: {xs: 1, md:15, sm:2}
+            m: { xs: 1, md: 15, sm: 2 }
           }}
         >
           <Typography variant="h4" fontWeight="bold" align="center" mb={3}>
@@ -332,6 +372,38 @@ const CareersScreen = () => {
                         variant="outlined"
                       />
                     </Grid>
+                    <Grid item xs={12}>
+                      <input
+                        accept=".pdf,.doc,.docx"
+                        id="upload-cv"
+                        name="cv"
+                        type="file"
+                        style={{ display: 'none' }}
+                        onChange={(event) => {
+                          setFieldValue('cv', event.currentTarget.files[0]);
+                        }}
+                      />
+                      <label htmlFor="upload-cv">
+                        <Button
+                          variant="outlined"
+                          component="span"
+                          fullWidth
+                          sx={{
+                            justifyContent: 'flex-start',
+                            color: '#000',
+                            backgroundColor: '#f5f5f5',
+                            border: '1px dashed #ccc',
+                            textTransform: 'none',
+                            '&:hover': {
+                              backgroundColor: '#f0f0f0',
+                            },
+                          }}
+                        >
+                          {values.cv ? `Selected: ${values.cv.name}` : 'Upload CV (PDF, DOC, DOCX)'}
+                        </Button>
+                      </label>
+                    </Grid>
+
 
                     {/* Row 6: Start & End Dates */}
                     <Grid item xs={6}>
@@ -400,8 +472,8 @@ const CareersScreen = () => {
                         </Typography>
                       )}
                       <Typography color="info" variant="body2">
-                          By submitting this information, you agree to OrciMed Life Science’s privacy policy.
-                        </Typography>
+                        By submitting this information, you agree to OrciMed Life Science’s privacy policy.
+                      </Typography>
                     </Grid>
 
                     {/* Row 9: Submit Button */}
